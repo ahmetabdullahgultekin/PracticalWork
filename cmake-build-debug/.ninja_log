@@ -1,0 +1,8 @@
+# ninja log v6
+11	427	7641800316310875	CMakeFiles/PracticalWork.dir/main.c.obj	e9e115034416e0af
+427	604	7641800320478720	PracticalWork.exe	4f4d6bdcb027ed47
+9	373	7641853352310775	CMakeFiles/PracticalWork.dir/antenna.c.obj	71533bab24aea33c
+14	378	7641853352366745	CMakeFiles/PracticalWork.dir/antenna_effect.c.obj	da93e809f5a81ea5
+2	381	7641853352247114	CMakeFiles/PracticalWork.dir/main.c.obj	e9e115034416e0af
+381	590	7641853356041067	PracticalWork.exe	b1a9f19e8c73fcc4
+3	663	7641868205254149	CMakeFiles/PracticalWork.dir/main.c.obj	e9e115034416e0af
