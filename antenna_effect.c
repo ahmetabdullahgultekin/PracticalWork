@@ -1,7 +1,19 @@
+/**
+ * \file antenna_effect.c
+ *
+ * \brief This file contains the function definitions for managing the effect positions of the antennas.
+ */
 #include "antenna_effect.h"
 #include "antenna.h"
 
-// Insert a new effect node into the linked list if it does not already exist.
+/**
+ * \fn Insert a new antenna effect node into the linked list.
+ *
+ * \param head The head of the linked list
+ * \param row The row of the effect
+ * \param col The column of the effect
+ * \return The newly created node
+ */
 AntennaEffectNode *insertAntennaEffect(AntennaEffectNode **head, int row, int col) {
     if (isAntennaEffectExist(*head, row, col))
         return *head;
@@ -26,7 +38,14 @@ AntennaEffectNode *insertAntennaEffect(AntennaEffectNode **head, int row, int co
     return newNode;
 }
 
-// Check if an antenna effect at the given coordinates already exists in the list
+/**
+ * \fn Check if an effect position already exists in the linked list.
+ *
+ * \param head The head of the linked list
+ * \param row The row of the effect
+ * \param col The column of the effect
+ * \return 1 if the effect position exists, 0 otherwise
+ */
 int isAntennaEffectExist(AntennaEffectNode *head, int row, int col) {
     while (head) {
         if (head->row == row && head->col == col)
@@ -36,7 +55,11 @@ int isAntennaEffectExist(AntennaEffectNode *head, int row, int col) {
     return 0;
 }
 
-// Print the list of effect positions in a table format.
+/**
+ * \fn Print the list of effect positions in a table format.
+ *
+ * \param head The head of the linked list
+ */
 void printAllAntennaEffects(AntennaEffectNode *head) {
     printf("Row | Column\n");
     printf("-------------\n");
@@ -46,7 +69,11 @@ void printAllAntennaEffects(AntennaEffectNode *head) {
     }
 }
 
-// Free all nodes in the effect linked list.
+/**
+ * \fn Clear the linked list of effect positions.
+ *
+ * \param head The head of the linked list
+ */
 void clearAntennaEffectsList(AntennaEffectNode *head) {
     AntennaEffectNode *temp;
     while (head) {
@@ -56,10 +83,16 @@ void clearAntennaEffectsList(AntennaEffectNode *head) {
     }
 }
 
-// Calculate effect positions for every pair of antennas with the same frequency.
-// Formulas used:
-//   L1 = (2 * row1 - row2, 2 * col1 - col2)
-//   L2 = (2 * row2 - row1, 2 * col2 - col1)
+/**
+ * \fn Compute the effect positions for every pair of antennas with the same frequency.
+ *
+ * \param antennas The list of antennas
+ * \param effects The list of effect positions
+ *
+ * formula 1 = (2 * row1 - row2, 2 * col1 - col2)
+ * formula 2 = (2 * row2 - row1, 2 * col2 - col1)
+ *
+ */
 void computeEffectSpots(AntennaNode *antennas, AntennaEffectNode **effects) {
     for (AntennaNode *a = antennas; a != NULL; a = a->next) {
         for (AntennaNode *b = a->next; b != NULL; b = b->next) {

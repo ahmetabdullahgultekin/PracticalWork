@@ -1,6 +1,15 @@
+/**
+ * \file antenna.c
+ *
+ * \brief This file contains the function definitions for managing the antennas.
+ */
 #include "antenna.h"
 
-// Helper function: checks if the line contains only numbers (used to skip matrix dimension lines)
+/**
+ * \fn Check if a line consists only of numbers.
+ *
+ * \param line The line to check.
+ */
 int isNumericLine(const char *line) {
     for (int i = 0; line[i] != '\0'; i++) {
         if (!isspace(line[i]) && !isdigit(line[i]))
@@ -9,7 +18,15 @@ int isNumericLine(const char *line) {
     return 1;
 }
 
-// Insert a new antenna node into the linked list.
+/**
+ * \fn Insert a new antenna node into the linked list.
+ *
+ * \param head The head of the linked list
+ * \param frequency The frequency of the antenna
+ * \param row The row of the antenna
+ * \param col The column of the antenna
+ * \return The newly created node
+ */
 AntennaNode *insertAntenna(AntennaNode **head, char frequency, int row, int col) {
 
     // Create a new node and allocate memory for it
@@ -41,7 +58,14 @@ AntennaNode *insertAntenna(AntennaNode **head, char frequency, int row, int col)
     return newNode;
 }
 
-// Remove an antenna node with the specified frequency and coordinates from the list.
+/**
+ * \fn Remove an existing antenna node from the linked list.
+ *
+ * \param head The head of the linked list
+ * \param row The row of the antenna
+ * \param col The column of the antenna
+ * \param frequency The frequency of the antenna
+ */
 void removeAntenna(AntennaNode **head, int row, int col, char frequency) {
     AntennaNode *temp = *head;
     AntennaNode *prev = NULL;
@@ -62,9 +86,13 @@ void removeAntenna(AntennaNode **head, int row, int col, char frequency) {
     printf("AntennaNode not found: (%c, %d, %d).\n", frequency, row, col);
 }
 
-// Print the list of antennas in a table format.
+/**
+ * \fn Print the list of antennas in a table format.
+ *
+ * \param head The head of the linked list
+ */
 void printAntennas(AntennaNode *head) {
-    printf("Frequency | Row | Column\n");
+    printf("\nFrequency | Row | Column\n");
     printf("-------------------------\n");
     while (head) {
         printf("    %c     |  %d  |   %d\n", head->frequency, head->row, head->col);
@@ -72,7 +100,11 @@ void printAntennas(AntennaNode *head) {
     }
 }
 
-// Clear the linked list of antennas and free the allocated memory
+/**
+ * \fn Free all nodes in the antenna linked list.
+ *
+ * \param head The head of the linked list
+ */
 void clearAntennasList(AntennaNode *head) {
     AntennaNode *temp;
     while (head) {
@@ -82,10 +114,12 @@ void clearAntennasList(AntennaNode *head) {
     }
 }
 
-
-// Load antenna data from a file and add them to the linked list.
-// The file should contain a matrix with antenna characters. Lines that consist only of numbers
-// (e.g., matrix dimensions) are skipped.
+/**
+ * \fn Load antennas from a file and insert them into the linked list.
+ *
+ * \param filename The name of the file to load antennas from
+ * \param head The head of the linked list
+ */
 void loadAntennasFromFile(const char *filename, AntennaNode **head) {
     // Open the file for reading from concat upper directory
     FILE *fp = fopen(strcat("../", filename), "r");
