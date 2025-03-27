@@ -1,14 +1,20 @@
 /**
- * \file antenna.c
+ * @file antenna.c
  *
- * \brief This file contains the function definitions for managing the antennas.
+ * @brief Implementation of the antenna functions.
+ *
+ * The antenna functions are used to manage the list of antennas.
+ *
+ * @author Ahmet Abdullah GULTEKIN
  */
 #include "antenna.h"
 
 /**
- * \fn Check if a line consists only of numbers.
+ * @fn isNumericLine
  *
- * \param line The line to check.
+ * @brief Check if a line contains only numeric characters.
+ *
+ * @param line The line to check.
  */
 int isNumericLine(const char *line) {
     for (int i = 0; line[i] != '\0'; i++) {
@@ -19,13 +25,15 @@ int isNumericLine(const char *line) {
 }
 
 /**
- * \fn Insert a new antenna node into the linked list.
+ * @fn insertAntenna
  *
- * \param head The head of the linked list
- * \param frequency The frequency of the antenna
- * \param row The row of the antenna
- * \param col The column of the antenna
- * \return The newly created node
+ * @brief Insert a new antenna node into the linked list.
+ *
+ * @param head The head of the linked list
+ * @param frequency The frequency of the antenna
+ * @param row The row of the antenna
+ * @param col The column of the antenna
+ * @return The newly created node
  */
 AntennaNode *insertAntenna(AntennaNode **head, char frequency, int row, int col) {
 
@@ -59,12 +67,14 @@ AntennaNode *insertAntenna(AntennaNode **head, char frequency, int row, int col)
 }
 
 /**
- * \fn Remove an existing antenna node from the linked list.
+ * @fn removeAntenna
  *
- * \param head The head of the linked list
- * \param row The row of the antenna
- * \param col The column of the antenna
- * \param frequency The frequency of the antenna
+ * @brief Remove an existing antenna node from the linked list.
+ *
+ * @param head The head of the linked list
+ * @param row The row of the antenna
+ * @param col The column of the antenna
+ * @param frequency The frequency of the antenna
  */
 void removeAntenna(AntennaNode **head, int row, int col, char frequency) {
     AntennaNode *temp = *head;
@@ -87,9 +97,11 @@ void removeAntenna(AntennaNode **head, int row, int col, char frequency) {
 }
 
 /**
- * \fn Print the list of antennas in a table format.
+ * @fn printAntennas
  *
- * \param head The head of the linked list
+ * @brief Print the list of antennas in a table format.
+ *
+ * @param head The head of the linked list
  */
 void printAntennas(AntennaNode *head) {
     printf("\nFrequency | Row | Column\n");
@@ -101,9 +113,11 @@ void printAntennas(AntennaNode *head) {
 }
 
 /**
- * \fn Free all nodes in the antenna linked list.
+ * @fn clearAntennasList
  *
- * \param head The head of the linked list
+ * @brief Clear the linked list of antennas.
+ *
+ * @param head The head of the linked list
  */
 void clearAntennasList(AntennaNode *head) {
     AntennaNode *temp;
@@ -115,15 +129,17 @@ void clearAntennasList(AntennaNode *head) {
 }
 
 /**
- * \fn Load antennas from a file and insert them into the linked list.
+ * @fn loadAntennasFromFile
  *
- * \param filename The name of the file to load antennas from
- * \param head The head of the linked list
+ * @brief Load antennas from a file and insert them into the linked list.
+ *
+ * @param filename The name of the file to load antennas from
+ * @param head The head of the linked list
  */
 void loadAntennasFromFile(const char *filename, AntennaNode **head) {
     // Open the file for reading from concat upper directory
-    FILE *fp = fopen(strcat("../", filename), "r");
-    if (!fp) {
+    FILE *fp; //  = fopen(strcat("../", filename), "r");
+    if (fopen_s(&fp, strcat(INPUT_DIR, filename), "r") != 0) {
         printf("Cannot open file: %s\n", filename);
         exit(1);
     }
@@ -144,4 +160,45 @@ void loadAntennasFromFile(const char *filename, AntennaNode **head) {
         row++;
     }
     fclose(fp);
+}
+
+/**
+ * @fn saveAntennasToFile
+ *
+ * @brief Save the list of antennas to a file.
+ *
+ * @param filename The name of the file to save antennas to
+ * @param head The head of the linked list
+ */
+void saveAntennasToFile(const char *filename, AntennaNode *head) {
+    // Declare file directory
+    char fileDir[256] = OUTPUT_DIR;
+    // Concatenate the filename to the directory
+    strcat_s(fileDir, 256, filename);
+    // Check if the file exists
+    if (_access(fileDir, 0) == 0) {
+        char choice;
+        printf("File %s already exists. Do you want to overwrite it? (y/n): ", filename);
+        if (scanf_s(" %c", &choice, 1) != 1 || (choice != 'y' && choice != 'Y')) {
+            printf("File not overwritten.\n");
+            return;
+        }
+    }
+
+    // Open the file for writing
+    FILE *fp;
+    if (fopen_s(&fp, fileDir, "w") != 0) {
+        printf("Cannot open file: %s\n", filename);
+        exit(1);
+    }
+
+    // Write each antenna's details to the file
+    while (head) {
+        fprintf(fp, "%c %d %d\n", head->frequency, head->row, head->col);
+        head = head->next;
+    }
+
+    // Close the file
+    fclose(fp);
+    printf("Antennas saved to file: %s\n", fileDir);
 }

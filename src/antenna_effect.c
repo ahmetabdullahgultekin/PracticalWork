@@ -1,18 +1,22 @@
 /**
- * \file antenna_effect.c
+ * @file antenna_effect.c
  *
- * \brief This file contains the function definitions for managing the effect positions of the antennas.
+ * @author Ahmet Abdullah GULTEKIN
+ *
+ * @brief This file contains the function definitions for managing the effect positions of the antennas.
  */
 #include "antenna_effect.h"
 #include "antenna.h"
 
 /**
- * \fn Insert a new antenna effect node into the linked list.
+ * @fn insertAntennaEffect
  *
- * \param head The head of the linked list
- * \param row The row of the effect
- * \param col The column of the effect
- * \return The newly created node
+ * @brief Insert a new effect position node into the linked list.
+ *
+ * @param head The head of the linked list
+ * @param row The row of the effect
+ * @param col The column of the effect
+ * @return The newly created node
  */
 AntennaEffectNode *insertAntennaEffect(AntennaEffectNode **head, int row, int col) {
     if (isAntennaEffectExist(*head, row, col))
@@ -39,12 +43,14 @@ AntennaEffectNode *insertAntennaEffect(AntennaEffectNode **head, int row, int co
 }
 
 /**
- * \fn Check if an effect position already exists in the linked list.
+ * @fn isAntennaEffectExist
  *
- * \param head The head of the linked list
- * \param row The row of the effect
- * \param col The column of the effect
- * \return 1 if the effect position exists, 0 otherwise
+ * @brief Check if an effect position exists in the linked list.
+ *
+ * @param head The head of the linked list
+ * @param row The row of the effect
+ * @param col The column of the effect
+ * @return 1 if the effect position exists, 0 otherwise
  */
 int isAntennaEffectExist(AntennaEffectNode *head, int row, int col) {
     while (head) {
@@ -56,9 +62,11 @@ int isAntennaEffectExist(AntennaEffectNode *head, int row, int col) {
 }
 
 /**
- * \fn Print the list of effect positions in a table format.
+ * @fn printAllAntennaEffects
  *
- * \param head The head of the linked list
+ * @brief Print the list of effect positions in a table format.
+ *
+ * @param head The head of the linked list
  */
 void printAllAntennaEffects(AntennaEffectNode *head) {
     printf("Row | Column\n");
@@ -70,9 +78,11 @@ void printAllAntennaEffects(AntennaEffectNode *head) {
 }
 
 /**
- * \fn Clear the linked list of effect positions.
+ * @fn clearAntennaEffectsList
  *
- * \param head The head of the linked list
+ * @brief Clear the linked list of effect positions.
+ *
+ * @param head The head of the linked list
  */
 void clearAntennaEffectsList(AntennaEffectNode *head) {
     AntennaEffectNode *temp;
@@ -84,14 +94,14 @@ void clearAntennaEffectsList(AntennaEffectNode *head) {
 }
 
 /**
- * \fn Compute the effect positions for every pair of antennas with the same frequency.
+ * @fn computeEffectSpots
  *
- * \param antennas The list of antennas
- * \param effects The list of effect positions
- *
+ * @brief Compute the effect positions of the antennas.
  * formula 1 = (2 * row1 - row2, 2 * col1 - col2)
  * formula 2 = (2 * row2 - row1, 2 * col2 - col1)
  *
+ * @param antennas The list of antennas
+ * @param effects The list of effect positions
  */
 void computeEffectSpots(AntennaNode *antennas, AntennaEffectNode **effects) {
     for (AntennaNode *a = antennas; a != NULL; a = a->next) {
@@ -106,4 +116,30 @@ void computeEffectSpots(AntennaNode *antennas, AntennaEffectNode **effects) {
             }
         }
     }
+}
+
+/**
+ * @fn saveAntennaEffectsToFile
+ *
+ * @brief Save the list of antenna effects to a file.
+ *
+ * @param filename The name of the file to save antenna effects to
+ * @param head The head of the linked list
+ */
+void saveAntennaEffectsToFile(const char *filename, AntennaEffectNode *head) {
+    // Open the file for writing
+    FILE *fp = fopen(filename, "w");
+    if (!fp) {
+        printf("Cannot open file: %s\n", filename);
+        exit(1);
+    }
+
+    // Write each antenna effect's details to the file
+    while (head) {
+        fprintf(fp, "%d %d\n", head->row, head->col);
+        head = head->next;
+    }
+
+    // Close the file
+    fclose(fp);
 }

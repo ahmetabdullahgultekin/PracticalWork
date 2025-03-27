@@ -3,9 +3,11 @@ project(PracticalWork C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(PracticalWork main.c
-        antenna.c
-        antenna.h
-        antenna_effect.c
-        antenna_effect.h
+add_executable(PracticalWork src/main.c
+        src/antenna.c
+        src/antenna.h
+        src/antenna_effect.c
+        src/antenna_effect.h
+        src/io_ops.c
+        src/io_ops.h
 )
