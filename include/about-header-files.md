@@ -2,7 +2,8 @@
 
 ## Overview
 
-The `include` folder contains all the header files for the Antenna Mapping project. These files declare the functions and data structures used throughout the project, providing the necessary interfaces for the source code files.
+The `include` folder contains all the header files for the Antenna Mapping project. These files declare the functions
+and data structures used throughout the project, providing the necessary interfaces for the source code files.
 
 ## File Structure
 
@@ -24,11 +25,13 @@ This file declares the functions for input/output operations, including file rea
 
 ### `antenna.h`
 
-This file contains the declarations for functions managing antennas, including loading antennas from a file, inserting new antennas, removing existing antennas, and printing the current antenna map.
+This file contains the declarations for functions managing antennas, including loading antennas from a file, inserting
+new antennas, removing existing antennas, and printing the current antenna map.
 
 ### `antenna_effect.h`
 
-This file declares the functions for calculating and managing the effect positions of antennas based on the given formulas.
+This file declares the functions for calculating and managing the effect positions of antennas based on the given
+formulas.
 
 ## Usage
 

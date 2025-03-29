@@ -2,7 +2,9 @@
 
 ## Overview
 
-The `src` folder contains all the source code files for the Antenna Mapping project. These files implement the core functionalities of the project, including reading input files, processing antenna data, calculating effect positions, and handling user interactions through the menu.
+The `src` folder contains all the source code files for the Antenna Mapping project. These files implement the core
+functionalities of the project, including reading input files, processing antenna data, calculating effect positions,
+and handling user interactions through the menu.
 
 ## File Structure
 
@@ -25,11 +27,13 @@ This file implements the functions related to displaying the menu, getting user 
 
 ### `antenna.c`
 
-This file contains functions for managing antennas, including loading antennas from a file, inserting new antennas, removing existing antennas, and printing the current antenna map.
+This file contains functions for managing antennas, including loading antennas from a file, inserting new antennas,
+removing existing antennas, and printing the current antenna map.
 
 ### `antenna_effect.c`
 
-This file implements the functions for calculating and managing the effect positions of antennas based on the given formulas.
+This file implements the functions for calculating and managing the effect positions of antennas based on the given
+formulas.
 
 ## Usage
 

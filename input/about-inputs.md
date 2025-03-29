@@ -2,7 +2,8 @@
 
 ## Overview
 
-The `input` folder contains all the input files required for the Antenna Mapping project. These files include the initial matrix configurations.
+The `input` folder contains all the input files required for the Antenna Mapping project. These files include the
+initial matrix configurations.
 
 ## File Structure
 
@@ -26,6 +27,7 @@ Each input file should follow a specific format to be correctly processed by the
 ```
 
 In this example:
+
 - `A`, `B`, `C`, and `D` are antennas.
 - `.` represents empty spaces.
 
