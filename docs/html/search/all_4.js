@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getchoice_0',['getChoice',['../main_8c.html#a8bd5a7bb28c819e2d9685be96f8d0ab7',1,'main.c']]]
+  ['effect_20position_20calculation_0',['Effect Position Calculation',['../md_about-project.html#autotoc_md7',1,'']]],
+  ['example_1',['Example',['../md_input_2about-inputs.html#autotoc_md32',1,'Example'],['../md_output_2about-outputs.html#autotoc_md38',1,'Example']]]
 ];

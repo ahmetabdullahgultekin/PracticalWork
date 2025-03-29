@@ -1,12 +1,15 @@
 /**
  * @file antenna_effect.c
- *
  * @author Ahmet Abdullah GULTEKIN
+ * @brief Implementation of the antenna effect functions.
+ * The antenna effect functions are used to manage the list of antenna effects.
  *
- * @brief This file contains the function definitions for managing the effect positions of the antennas.
+ * @date 2025-03-30
  */
-#include "antenna_effect.h"
-#include "antenna.h"
+
+#include "../include/antenna_effect.h"
+#include "../include/antenna.h"
+#include "../include/io_ops.h"
 
 /**
  * @fn insertAntennaEffect
@@ -128,9 +131,14 @@ void computeEffectSpots(AntennaNode *antennas, AntennaEffectNode **effects) {
  */
 void saveAntennaEffectsToFile(const char *filename, AntennaEffectNode *head) {
     // Open the file for writing
-    FILE *fp = fopen(filename, "w");
+    FILE *fp;
+    // Declare file directory
+    char fileDir[256] = OUTPUT_DIR;
+    // Concatenate the filename to the directory
+    strcat_s(fileDir, 256, filename);
+    fopen_s(&fp, fileDir, "w");
     if (!fp) {
-        printf("Cannot open file: %s\n", filename);
+        printf("Cannot open file: %s\n", fileDir);
         exit(1);
     }
 

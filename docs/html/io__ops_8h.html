@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Antenna Mapping (EDA Practical Work): src/io_ops.h File Reference</title>
+<title>Antenna Mapping (EDA Practical Work): include/io_ops.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,30 +103,71 @@ $(function(){initNavTree('io__ops_8h.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">io_ops.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains the function declarations for managing the input/output operations.  
+<p>Header file for the function declarations for managing the input/output operations.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &lt;windows.h&gt;</code><br />
+<code>#include &lt;Windows.h&gt;</code><br />
 </div>
 <p><a href="io__ops_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae518031d203bda6f2ae023d68116ba21" id="r_ae518031d203bda6f2ae023d68116ba21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae518031d203bda6f2ae023d68116ba21">INPUT_DIR</a>&#160;&#160;&#160;&quot;../input/&quot;</td></tr>
+<tr class="separator:ae518031d203bda6f2ae023d68116ba21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add836a505b86b88ac52e48d6bece5738" id="r_add836a505b86b88ac52e48d6bece5738"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add836a505b86b88ac52e48d6bece5738">OUTPUT_DIR</a>&#160;&#160;&#160;&quot;../output/&quot;</td></tr>
+<tr class="separator:add836a505b86b88ac52e48d6bece5738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8e1ff701eabe36ffbf53f2bf597b40f4" id="r_a8e1ff701eabe36ffbf53f2bf597b40f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e1ff701eabe36ffbf53f2bf597b40f4">listFiles</a> (char files[][256], int maxFiles)</td></tr>
 <tr class="separator:a8e1ff701eabe36ffbf53f2bf597b40f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa02fa2cdcfb12da9f8b61558b796d408" id="r_aa02fa2cdcfb12da9f8b61558b796d408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02fa2cdcfb12da9f8b61558b796d408">promptFileSelection</a> (char files[][256], int fileCount, char *selectedFile)</td></tr>
 <tr class="separator:aa02fa2cdcfb12da9f8b61558b796d408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18304989550b41e47db4d8a3b8cd0d96" id="r_a18304989550b41e47db4d8a3b8cd0d96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18304989550b41e47db4d8a3b8cd0d96">promptFilename</a> (char *filename, int isInput)</td></tr>
+<tr class="separator:a18304989550b41e47db4d8a3b8cd0d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains the function declarations for managing the input/output operations. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+<div class="textblock"><p>Header file for the function declarations for managing the input/output operations. </p>
+<dl class="section author"><dt>Author</dt><dd>Ahmet Abdullah GULTEKIN </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025-03-30 </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae518031d203bda6f2ae023d68116ba21" name="ae518031d203bda6f2ae023d68116ba21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae518031d203bda6f2ae023d68116ba21">&#9670;&#160;</a></span>INPUT_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INPUT_DIR&#160;&#160;&#160;&quot;../input/&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add836a505b86b88ac52e48d6bece5738" name="add836a505b86b88ac52e48d6bece5738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add836a505b86b88ac52e48d6bece5738">&#9670;&#160;</a></span>OUTPUT_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OUTPUT_DIR&#160;&#160;&#160;&quot;../output/&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a8e1ff701eabe36ffbf53f2bf597b40f4" name="a8e1ff701eabe36ffbf53f2bf597b40f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e1ff701eabe36ffbf53f2bf597b40f4">&#9670;&#160;</a></span>listFiles()</h2>
 
@@ -142,6 +183,27 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxFiles</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18304989550b41e47db4d8a3b8cd0d96" name="a18304989550b41e47db4d8a3b8cd0d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18304989550b41e47db4d8a3b8cd0d96">&#9670;&#160;</a></span>promptFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void promptFilename </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>isInput</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -179,7 +241,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="io__ops_8h.html">io_ops.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="io__ops_8h.html">io_ops.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

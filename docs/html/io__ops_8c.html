@@ -103,41 +103,29 @@ $(function(){initNavTree('io__ops_8c.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">io_ops.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="io__ops_8h_source.html">io_ops.h</a>&quot;</code><br />
+
+<p>Implementation of Input/Output operations for file handling. This file contains functions to list files in a directory, prompt the user for file selection, and handle input/output operations.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="io__ops_8h_source.html">../include/io_ops.h</a>&quot;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ae518031d203bda6f2ae023d68116ba21" id="r_ae518031d203bda6f2ae023d68116ba21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae518031d203bda6f2ae023d68116ba21">INPUT_DIR</a>&#160;&#160;&#160;&quot;../input/&quot;</td></tr>
-<tr class="separator:ae518031d203bda6f2ae023d68116ba21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8e1ff701eabe36ffbf53f2bf597b40f4" id="r_a8e1ff701eabe36ffbf53f2bf597b40f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e1ff701eabe36ffbf53f2bf597b40f4">listFiles</a> (char files[][256], int maxFiles)</td></tr>
 <tr class="separator:a8e1ff701eabe36ffbf53f2bf597b40f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa02fa2cdcfb12da9f8b61558b796d408" id="r_aa02fa2cdcfb12da9f8b61558b796d408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa02fa2cdcfb12da9f8b61558b796d408">promptFileSelection</a> (char files[][256], int fileCount, char *selectedFile)</td></tr>
 <tr class="separator:aa02fa2cdcfb12da9f8b61558b796d408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18304989550b41e47db4d8a3b8cd0d96" id="r_a18304989550b41e47db4d8a3b8cd0d96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18304989550b41e47db4d8a3b8cd0d96">promptFilename</a> (char *filename, int isInput)</td></tr>
+<tr class="separator:a18304989550b41e47db4d8a3b8cd0d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae518031d203bda6f2ae023d68116ba21" name="ae518031d203bda6f2ae023d68116ba21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae518031d203bda6f2ae023d68116ba21">&#9670;&#160;</a></span>INPUT_DIR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INPUT_DIR&#160;&#160;&#160;&quot;../input/&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of Input/Output operations for file handling. This file contains functions to list files in a directory, prompt the user for file selection, and handle input/output operations. </p>
+<dl class="section date"><dt>Date</dt><dd>2025-03-30 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Ahmet Abdullah GULTEKIN </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a8e1ff701eabe36ffbf53f2bf597b40f4" name="a8e1ff701eabe36ffbf53f2bf597b40f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e1ff701eabe36ffbf53f2bf597b40f4">&#9670;&#160;</a></span>listFiles()</h2>
 
@@ -153,6 +141,27 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxFiles</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18304989550b41e47db4d8a3b8cd0d96" name="a18304989550b41e47db4d8a3b8cd0d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18304989550b41e47db4d8a3b8cd0d96">&#9670;&#160;</a></span>promptFilename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void promptFilename </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>isInput</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

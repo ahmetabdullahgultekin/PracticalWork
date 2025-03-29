@@ -5,9 +5,11 @@ set(CMAKE_C_STANDARD 23)
 
 add_executable(PracticalWork src/main.c
         src/antenna.c
-        src/antenna.h
+        include/antenna.h
         src/antenna_effect.c
-        src/antenna_effect.h
+        include/antenna_effect.h
         src/io_ops.c
-        src/io_ops.h
+        include/io_ops.h
+        src/menu.c
+        include/menu.h
 )

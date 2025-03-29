@@ -110,29 +110,12 @@ $(function(){initNavTree('main_8c.html',''); initResizable(true); });
 
 <p>Main file for the antenna effect program.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;ctype.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="antenna_8h_source.html">antenna.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="antenna__effect_8h_source.html">antenna_effect.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="io__ops_8h_source.html">io_ops.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="antenna_8h_source.html">../include/antenna.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="antenna__effect_8h_source.html">../include/antenna_effect.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu_8h_source.html">../include/menu.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a18304989550b41e47db4d8a3b8cd0d96" id="r_a18304989550b41e47db4d8a3b8cd0d96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18304989550b41e47db4d8a3b8cd0d96">promptFilename</a> (char *filename, int isInput)</td></tr>
-<tr class="separator:a18304989550b41e47db4d8a3b8cd0d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dbe2b56408e66c68d276a891f489395" id="r_a6dbe2b56408e66c68d276a891f489395"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dbe2b56408e66c68d276a891f489395">loadAndPrintAntennas</a> (const char *filename, <a class="el" href="struct_antenna_node.html">AntennaNode</a> **antennaList)</td></tr>
-<tr class="separator:a6dbe2b56408e66c68d276a891f489395"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32990f6e097204a70e3b703dd8cedb43" id="r_a32990f6e097204a70e3b703dd8cedb43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32990f6e097204a70e3b703dd8cedb43">calculateAndPrintEffects</a> (<a class="el" href="struct_antenna_node.html">AntennaNode</a> *antennaList, <a class="el" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **effectList)</td></tr>
-<tr class="separator:a32990f6e097204a70e3b703dd8cedb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59c2926dd9b0968badf463aaf4f91422" id="r_a59c2926dd9b0968badf463aaf4f91422"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59c2926dd9b0968badf463aaf4f91422">displayMenu</a> ()</td></tr>
-<tr class="memdesc:a59c2926dd9b0968badf463aaf4f91422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the menu options.  <br /></td></tr>
-<tr class="separator:a59c2926dd9b0968badf463aaf4f91422"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9464f389548e8eb9c2925933b6cf725" id="r_af9464f389548e8eb9c2925933b6cf725"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9464f389548e8eb9c2925933b6cf725">handleMenuChoice</a> (int choice, <a class="el" href="struct_antenna_node.html">AntennaNode</a> **antennaList, <a class="el" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **effectList)</td></tr>
-<tr class="separator:af9464f389548e8eb9c2925933b6cf725"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bd5a7bb28c819e2d9685be96f8d0ab7" id="r_a8bd5a7bb28c819e2d9685be96f8d0ab7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bd5a7bb28c819e2d9685be96f8d0ab7">getChoice</a> ()</td></tr>
-<tr class="memdesc:a8bd5a7bb28c819e2d9685be96f8d0ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the user's choice from the menu.  <br /></td></tr>
-<tr class="separator:a8bd5a7bb28c819e2d9685be96f8d0ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function for the antenna effect program. Start an infinite loop to display the menu, read the user's choice, and handle the choice.  <br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,113 +124,6 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Main file for the antenna effect program. </p>
 <dl class="section author"><dt>Author</dt><dd>Ahmet Abdullah GULTEKIN  </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a32990f6e097204a70e3b703dd8cedb43" name="a32990f6e097204a70e3b703dd8cedb43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32990f6e097204a70e3b703dd8cedb43">&#9670;&#160;</a></span>calculateAndPrintEffects()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void calculateAndPrintEffects </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_antenna_node.html">AntennaNode</a> *</td>          <td class="paramname"><span class="paramname"><em>antennaList</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **</td>          <td class="paramname"><span class="paramname"><em>effectList</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a59c2926dd9b0968badf463aaf4f91422" name="a59c2926dd9b0968badf463aaf4f91422"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59c2926dd9b0968badf463aaf4f91422">&#9670;&#160;</a></span>displayMenu()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void displayMenu </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Display the menu options. </p>
-
-</div>
-</div>
-<a id="a8bd5a7bb28c819e2d9685be96f8d0ab7" name="a8bd5a7bb28c819e2d9685be96f8d0ab7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bd5a7bb28c819e2d9685be96f8d0ab7">&#9670;&#160;</a></span>getChoice()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int getChoice </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the user's choice from the menu. </p>
-<dl class="section return"><dt>Returns</dt><dd>The user's choice. </dd></dl>
-
-</div>
-</div>
-<a id="af9464f389548e8eb9c2925933b6cf725" name="af9464f389548e8eb9c2925933b6cf725"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9464f389548e8eb9c2925933b6cf725">&#9670;&#160;</a></span>handleMenuChoice()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void handleMenuChoice </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>choice</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_antenna_node.html">AntennaNode</a> **</td>          <td class="paramname"><span class="paramname"><em>antennaList</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **</td>          <td class="paramname"><span class="paramname"><em>effectList</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6dbe2b56408e66c68d276a891f489395" name="a6dbe2b56408e66c68d276a891f489395"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dbe2b56408e66c68d276a891f489395">&#9670;&#160;</a></span>loadAndPrintAntennas()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void loadAndPrintAntennas </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_antenna_node.html">AntennaNode</a> **</td>          <td class="paramname"><span class="paramname"><em>antennaList</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&#160;</a></span>main()</h2>
 
@@ -267,27 +143,6 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>0 if the program exits successfully</dd>
 <dd>
 EXIT_FAILURE if there is an error </dd></dl>
-
-</div>
-</div>
-<a id="a18304989550b41e47db4d8a3b8cd0d96" name="a18304989550b41e47db4d8a3b8cd0d96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18304989550b41e47db4d8a3b8cd0d96">&#9670;&#160;</a></span>promptFilename()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void promptFilename </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>isInput</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

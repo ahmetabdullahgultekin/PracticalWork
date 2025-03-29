@@ -1,0 +1,26 @@
+\chapter{Include Folder}
+\hypertarget{md_include_2about-header-files}{}\label{md_include_2about-header-files}\index{Include Folder@{Include Folder}}
+\label{md_include_2about-header-files_autotoc_md19}%
+\Hypertarget{md_include_2about-header-files_autotoc_md19}%
+\hypertarget{md_include_2about-header-files_autotoc_md20}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_include_2about-header-files_autotoc_md20}
+The {\ttfamily include} folder contains all the header files for the Antenna Mapping project. These files declare the functions and data structures used throughout the project, providing the necessary interfaces for the source code files.\hypertarget{md_include_2about-header-files_autotoc_md21}{}\doxysection{\texorpdfstring{File Structure}{File Structure}}\label{md_include_2about-header-files_autotoc_md21}
+
+\begin{DoxyItemize}
+\item {\ttfamily include/}\+: Directory containing all header files.
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{menu_8h}{menu.\+h}}\+: Header file for the {\ttfamily \doxylink{menu_8c}{menu.\+c}} file.
+\item {\ttfamily \doxylink{io__ops_8h}{io\+\_\+ops.\+h}}\+: Header file for the {\ttfamily \doxylink{io__ops_8c}{io\+\_\+ops.\+c}} file.
+\item {\ttfamily \doxylink{antenna_8h}{antenna.\+h}}\+: Header file for the {\ttfamily \doxylink{antenna_8c}{antenna.\+c}} file.
+\item {\ttfamily \doxylink{antenna__effect_8h}{antenna\+\_\+effect.\+h}}\+: Header file for the {\ttfamily \doxylink{antenna__effect_8c}{antenna\+\_\+effect.\+c}} file.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_include_2about-header-files_autotoc_md22}{}\doxysection{\texorpdfstring{Description of Files}{Description of Files}}\label{md_include_2about-header-files_autotoc_md22}
+\hypertarget{md_include_2about-header-files_autotoc_md23}{}\doxysubsection{\texorpdfstring{{\ttfamily menu.\+h}}{{\ttfamily menu.\+h}}}\label{md_include_2about-header-files_autotoc_md23}
+This file declares the functions related to displaying the menu, getting user choices, and handling those choices.\hypertarget{md_include_2about-header-files_autotoc_md24}{}\doxysubsection{\texorpdfstring{{\ttfamily io\+\_\+ops.\+h}}{{\ttfamily io\+\_\+ops.\+h}}}\label{md_include_2about-header-files_autotoc_md24}
+This file declares the functions for input/output operations, including file reading and writing.\hypertarget{md_include_2about-header-files_autotoc_md25}{}\doxysubsection{\texorpdfstring{{\ttfamily antenna.\+h}}{{\ttfamily antenna.\+h}}}\label{md_include_2about-header-files_autotoc_md25}
+This file contains the declarations for functions managing antennas, including loading antennas from a file, inserting new antennas, removing existing antennas, and printing the current antenna map.\hypertarget{md_include_2about-header-files_autotoc_md26}{}\doxysubsection{\texorpdfstring{{\ttfamily antenna\+\_\+effect.\+h}}{{\ttfamily antenna\+\_\+effect.\+h}}}\label{md_include_2about-header-files_autotoc_md26}
+This file declares the functions for calculating and managing the effect positions of antennas based on the given formulas.\hypertarget{md_include_2about-header-files_autotoc_md27}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_include_2about-header-files_autotoc_md27}
+
+\begin{DoxyEnumerate}
+\item Ensure all header files are in the {\ttfamily include} folder.
+\item Include the necessary header files in your source code files to use the declared functions and data structures. 
+\end{DoxyEnumerate}

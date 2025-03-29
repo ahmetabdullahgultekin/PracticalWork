@@ -1,13 +1,12 @@
 /**
  * @file antenna.c
- *
- * @brief Implementation of the antenna functions.
- *
- * The antenna functions are used to manage the list of antennas.
- *
+ * @brief Implementation of the antenna functions. The antenna functions are used to manage the list of antennas.
  * @author Ahmet Abdullah GULTEKIN
+ * @date 2025-03-30
  */
-#include "antenna.h"
+
+#include "../include/antenna.h"
+#include "../include/io_ops.h"
 
 /**
  * @fn isNumericLine
@@ -138,8 +137,12 @@ void clearAntennasList(AntennaNode *head) {
  */
 void loadAntennasFromFile(const char *filename, AntennaNode **head) {
     // Open the file for reading from concat upper directory
-    FILE *fp; //  = fopen(strcat("../", filename), "r");
-    if (fopen_s(&fp, strcat(INPUT_DIR, filename), "r") != 0) {
+    FILE *fp;
+    // Declare file directory
+    char directory[256] = INPUT_DIR;
+    // Concatenate the filename to the directory
+    strcat_s(directory, 256, filename);
+    if (fopen_s(&fp, directory, "r") != 0) {
         printf("Cannot open file: %s\n", filename);
         exit(1);
     }

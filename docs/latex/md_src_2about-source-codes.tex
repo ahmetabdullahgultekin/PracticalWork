@@ -1,0 +1,28 @@
+\chapter{Source Folder}
+\hypertarget{md_src_2about-source-codes}{}\label{md_src_2about-source-codes}\index{Source Folder@{Source Folder}}
+\label{md_src_2about-source-codes_autotoc_md40}%
+\Hypertarget{md_src_2about-source-codes_autotoc_md40}%
+\hypertarget{md_src_2about-source-codes_autotoc_md41}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_src_2about-source-codes_autotoc_md41}
+The {\ttfamily src} folder contains all the source code files for the Antenna Mapping project. These files implement the core functionalities of the project, including reading input files, processing antenna data, calculating effect positions, and handling user interactions through the menu.\hypertarget{md_src_2about-source-codes_autotoc_md42}{}\doxysection{\texorpdfstring{File Structure}{File Structure}}\label{md_src_2about-source-codes_autotoc_md42}
+
+\begin{DoxyItemize}
+\item {\ttfamily src/}\+: Directory containing all source code files.
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{main_8c}{main.\+c}}\+: The main entry point of the program.
+\item {\ttfamily \doxylink{menu_8c}{menu.\+c}}\+: Implementation of menu-\/related functions.
+\item {\ttfamily \doxylink{io__ops_8c}{io\+\_\+ops.\+c}}\+: Implementation of input/output operations, including file reading and writing.
+\item {\ttfamily \doxylink{antenna_8c}{antenna.\+c}}\+: Implementation of antenna-\/related functions.
+\item {\ttfamily \doxylink{antenna__effect_8c}{antenna\+\_\+effect.\+c}}\+: Implementation of antenna effect calculation functions.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_src_2about-source-codes_autotoc_md43}{}\doxysection{\texorpdfstring{Description of Files}{Description of Files}}\label{md_src_2about-source-codes_autotoc_md43}
+\hypertarget{md_src_2about-source-codes_autotoc_md44}{}\doxysubsection{\texorpdfstring{{\ttfamily main.\+c}}{{\ttfamily main.\+c}}}\label{md_src_2about-source-codes_autotoc_md44}
+This file contains the {\ttfamily main} function, which initializes the program, displays the main menu, and handles user input.\hypertarget{md_src_2about-source-codes_autotoc_md45}{}\doxysubsection{\texorpdfstring{{\ttfamily menu.\+c}}{{\ttfamily menu.\+c}}}\label{md_src_2about-source-codes_autotoc_md45}
+This file implements the functions related to displaying the menu, getting user choices, and handling those choices.\hypertarget{md_src_2about-source-codes_autotoc_md46}{}\doxysubsection{\texorpdfstring{{\ttfamily antenna.\+c}}{{\ttfamily antenna.\+c}}}\label{md_src_2about-source-codes_autotoc_md46}
+This file contains functions for managing antennas, including loading antennas from a file, inserting new antennas, removing existing antennas, and printing the current antenna map.\hypertarget{md_src_2about-source-codes_autotoc_md47}{}\doxysubsection{\texorpdfstring{{\ttfamily antenna\+\_\+effect.\+c}}{{\ttfamily antenna\+\_\+effect.\+c}}}\label{md_src_2about-source-codes_autotoc_md47}
+This file implements the functions for calculating and managing the effect positions of antennas based on the given formulas.\hypertarget{md_src_2about-source-codes_autotoc_md48}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_src_2about-source-codes_autotoc_md48}
+
+\begin{DoxyEnumerate}
+\item Ensure all source files are in the {\ttfamily src} folder.
+\item Build the project using the provided {\ttfamily \doxylink{_c_make_lists_8txt}{CMake\+Lists.\+txt}} file.
+\item Run the executable generated after building the project. 
+\end{DoxyEnumerate}

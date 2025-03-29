@@ -1,0 +1,39 @@
+\chapter{Input Folder}
+\hypertarget{md_input_2about-inputs}{}\label{md_input_2about-inputs}\index{Input Folder@{Input Folder}}
+\label{md_input_2about-inputs_autotoc_md28}%
+\Hypertarget{md_input_2about-inputs_autotoc_md28}%
+\hypertarget{md_input_2about-inputs_autotoc_md29}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_input_2about-inputs_autotoc_md29}
+The {\ttfamily input} folder contains all the input files required for the Antenna Mapping project. These files include the initial matrix configurations.\hypertarget{md_input_2about-inputs_autotoc_md30}{}\doxysection{\texorpdfstring{File Structure}{File Structure}}\label{md_input_2about-inputs_autotoc_md30}
+
+\begin{DoxyItemize}
+\item {\ttfamily input/}\+: Directory containing all input files.
+\end{DoxyItemize}\hypertarget{md_input_2about-inputs_autotoc_md31}{}\doxysection{\texorpdfstring{Input File Format}{Input File Format}}\label{md_input_2about-inputs_autotoc_md31}
+Each input file should follow a specific format to be correctly processed by the program\+:
+
+
+\begin{DoxyItemize}
+\item The file should contain a matrix where dots ({\ttfamily .}) represent empty spaces and characters represent antennas.
+\item Each row of the matrix should be on a new line.
+\item The matrix should be rectangular, meaning all rows should have the same number of columns.
+\end{DoxyItemize}\hypertarget{md_input_2about-inputs_autotoc_md32}{}\doxysubsection{\texorpdfstring{Example}{Example}}\label{md_input_2about-inputs_autotoc_md32}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.\ .\ A\ .\ .}
+\DoxyCodeLine{.\ B\ .\ .\ .}
+\DoxyCodeLine{.\ .\ .\ C\ .}
+\DoxyCodeLine{.\ .\ .\ .\ D}
+
+\end{DoxyCode}
+
+
+In this example\+:
+\begin{DoxyItemize}
+\item {\ttfamily A}, {\ttfamily B}, {\ttfamily C}, and {\ttfamily D} are antennas.
+\item {\ttfamily .} represents empty spaces.
+\end{DoxyItemize}\hypertarget{md_input_2about-inputs_autotoc_md33}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_input_2about-inputs_autotoc_md33}
+
+\begin{DoxyEnumerate}
+\item Place the input files in the {\ttfamily input} folder.
+\item Ensure the files follow the specified format.
+\item Run the program and select the option to load antennas from the input folder. 
+\end{DoxyEnumerate}

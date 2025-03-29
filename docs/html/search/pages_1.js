@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_20structures_0',['Advanced Data Structures',['../index.html',1,'']]]
+  ['documentation_0',['Documentation',['../md_docs_2about-docs.html',1,'']]]
 ];

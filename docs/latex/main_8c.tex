@@ -5,27 +5,12 @@
 Main file for the antenna effect program.  
 
 
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$ctype.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include "{}antenna.\+h"{}}\newline
-{\ttfamily \#include "{}antenna\+\_\+effect.\+h"{}}\newline
-{\ttfamily \#include "{}io\+\_\+ops.\+h"{}}\newline
+{\ttfamily \#include "{}../include/antenna.\+h"{}}\newline
+{\ttfamily \#include "{}../include/antenna\+\_\+effect.\+h"{}}\newline
+{\ttfamily \#include "{}../include/menu.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{main_8c_a18304989550b41e47db4d8a3b8cd0d96}{prompt\+Filename}} (char \texorpdfstring{$\ast$}{*}filename, int is\+Input)
-\item 
-void \mbox{\hyperlink{main_8c_a6dbe2b56408e66c68d276a891f489395}{load\+And\+Print\+Antennas}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}antenna\+List)
-\item 
-void \mbox{\hyperlink{main_8c_a32990f6e097204a70e3b703dd8cedb43}{calculate\+And\+Print\+Effects}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}antenna\+List, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effect\+List)
-\item 
-void \mbox{\hyperlink{main_8c_a59c2926dd9b0968badf463aaf4f91422}{display\+Menu}} ()
-\begin{DoxyCompactList}\small\item\em Display the menu options. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{main_8c_af9464f389548e8eb9c2925933b6cf725}{handle\+Menu\+Choice}} (int choice, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}antenna\+List, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effect\+List)
-\item 
-int \mbox{\hyperlink{main_8c_a8bd5a7bb28c819e2d9685be96f8d0ab7}{get\+Choice}} ()
-\begin{DoxyCompactList}\small\item\em Get the user\textquotesingle{}s choice from the menu. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \begin{DoxyCompactList}\small\item\em Main function for the antenna effect program. Start an infinite loop to display the menu, read the user\textquotesingle{}s choice, and handle the choice. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -39,47 +24,6 @@ Ahmet Abdullah GULTEKIN
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{main_8c_a32990f6e097204a70e3b703dd8cedb43}\index{main.c@{main.c}!calculateAndPrintEffects@{calculateAndPrintEffects}}
-\index{calculateAndPrintEffects@{calculateAndPrintEffects}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{calculateAndPrintEffects()}{calculateAndPrintEffects()}}
-{\footnotesize\ttfamily \label{main_8c_a32990f6e097204a70e3b703dd8cedb43} 
-void calculate\+And\+Print\+Effects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{antenna\+List}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{effect\+List}{}\end{DoxyParamCaption})}
-
-\Hypertarget{main_8c_a59c2926dd9b0968badf463aaf4f91422}\index{main.c@{main.c}!displayMenu@{displayMenu}}
-\index{displayMenu@{displayMenu}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{displayMenu()}{displayMenu()}}
-{\footnotesize\ttfamily \label{main_8c_a59c2926dd9b0968badf463aaf4f91422} 
-void display\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Display the menu options. 
-
-\Hypertarget{main_8c_a8bd5a7bb28c819e2d9685be96f8d0ab7}\index{main.c@{main.c}!getChoice@{getChoice}}
-\index{getChoice@{getChoice}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{getChoice()}{getChoice()}}
-{\footnotesize\ttfamily \label{main_8c_a8bd5a7bb28c819e2d9685be96f8d0ab7} 
-int get\+Choice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
-
-
-
-Get the user\textquotesingle{}s choice from the menu. 
-
-\begin{DoxyReturn}{Returns}
-The user\textquotesingle{}s choice. 
-\end{DoxyReturn}
-\Hypertarget{main_8c_af9464f389548e8eb9c2925933b6cf725}\index{main.c@{main.c}!handleMenuChoice@{handleMenuChoice}}
-\index{handleMenuChoice@{handleMenuChoice}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{handleMenuChoice()}{handleMenuChoice()}}
-{\footnotesize\ttfamily \label{main_8c_af9464f389548e8eb9c2925933b6cf725} 
-void handle\+Menu\+Choice (\begin{DoxyParamCaption}\item[{int}]{choice}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{antenna\+List}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{effect\+List}{}\end{DoxyParamCaption})}
-
-\Hypertarget{main_8c_a6dbe2b56408e66c68d276a891f489395}\index{main.c@{main.c}!loadAndPrintAntennas@{loadAndPrintAntennas}}
-\index{loadAndPrintAntennas@{loadAndPrintAntennas}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{loadAndPrintAntennas()}{loadAndPrintAntennas()}}
-{\footnotesize\ttfamily \label{main_8c_a6dbe2b56408e66c68d276a891f489395} 
-void load\+And\+Print\+Antennas (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{antenna\+List}{}\end{DoxyParamCaption})}
-
 \Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.c@{main.c}!main@{main}}
 \index{main@{main}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
@@ -95,9 +39,3 @@ Main function for the antenna effect program. Start an infinite loop to display 
 
 EXIT\+\_\+\+FAILURE if there is an error 
 \end{DoxyReturn}
-\Hypertarget{main_8c_a18304989550b41e47db4d8a3b8cd0d96}\index{main.c@{main.c}!promptFilename@{promptFilename}}
-\index{promptFilename@{promptFilename}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{promptFilename()}{promptFilename()}}
-{\footnotesize\ttfamily \label{main_8c_a18304989550b41e47db4d8a3b8cd0d96} 
-void prompt\+Filename (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{int}]{is\+Input}{}\end{DoxyParamCaption})}
-

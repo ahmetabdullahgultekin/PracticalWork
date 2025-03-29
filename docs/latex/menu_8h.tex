@@ -1,0 +1,69 @@
+\doxysection{include/menu.h File Reference}
+\hypertarget{menu_8h}{}\label{menu_8h}\index{include/menu.h@{include/menu.h}}
+
+
+Header file for menu functions.  
+
+
+{\ttfamily \#include "{}antenna.\+h"{}}\newline
+{\ttfamily \#include "{}antenna\+\_\+effect.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_a59c2926dd9b0968badf463aaf4f91422}{display\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Display the menu options. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8h_a8bd5a7bb28c819e2d9685be96f8d0ab7}{get\+Choice}} ()
+\begin{DoxyCompactList}\small\item\em Get the user\textquotesingle{}s choice from the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu_8h_af9464f389548e8eb9c2925933b6cf725}{handle\+Menu\+Choice}} (int choice, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}antenna\+List, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effect\+List)
+\item 
+int \mbox{\hyperlink{menu_8h_a414c27ab36fcc995322cee5f81c4d86c}{is\+Choice\+Valid}} (int choice)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for menu functions. 
+
+\begin{DoxyAuthor}{Author}
+Ahmet Abdullah GULTEKIN 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/03-\/30 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{menu_8h_a59c2926dd9b0968badf463aaf4f91422}\index{menu.h@{menu.h}!displayMenu@{displayMenu}}
+\index{displayMenu@{displayMenu}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{displayMenu()}{displayMenu()}}
+{\footnotesize\ttfamily \label{menu_8h_a59c2926dd9b0968badf463aaf4f91422} 
+void display\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Display the menu options. 
+
+\Hypertarget{menu_8h_a8bd5a7bb28c819e2d9685be96f8d0ab7}\index{menu.h@{menu.h}!getChoice@{getChoice}}
+\index{getChoice@{getChoice}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{getChoice()}{getChoice()}}
+{\footnotesize\ttfamily \label{menu_8h_a8bd5a7bb28c819e2d9685be96f8d0ab7} 
+int get\+Choice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get the user\textquotesingle{}s choice from the menu. 
+
+\begin{DoxyReturn}{Returns}
+The user\textquotesingle{}s choice. 
+\end{DoxyReturn}
+\Hypertarget{menu_8h_af9464f389548e8eb9c2925933b6cf725}\index{menu.h@{menu.h}!handleMenuChoice@{handleMenuChoice}}
+\index{handleMenuChoice@{handleMenuChoice}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{handleMenuChoice()}{handleMenuChoice()}}
+{\footnotesize\ttfamily \label{menu_8h_af9464f389548e8eb9c2925933b6cf725} 
+void handle\+Menu\+Choice (\begin{DoxyParamCaption}\item[{int}]{choice}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{antenna\+List}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{effect\+List}{}\end{DoxyParamCaption})}
+
+\Hypertarget{menu_8h_a414c27ab36fcc995322cee5f81c4d86c}\index{menu.h@{menu.h}!isChoiceValid@{isChoiceValid}}
+\index{isChoiceValid@{isChoiceValid}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{isChoiceValid()}{isChoiceValid()}}
+{\footnotesize\ttfamily \label{menu_8h_a414c27ab36fcc995322cee5f81c4d86c} 
+int is\+Choice\+Valid (\begin{DoxyParamCaption}\item[{int}]{choice}{}\end{DoxyParamCaption})}
+

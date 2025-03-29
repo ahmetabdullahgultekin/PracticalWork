@@ -1,27 +1,31 @@
 \doxysection{src/io\+\_\+ops.c File Reference}
 \hypertarget{io__ops_8c}{}\label{io__ops_8c}\index{src/io\_ops.c@{src/io\_ops.c}}
-{\ttfamily \#include "{}io\+\_\+ops.\+h"{}}\newline
-\doxysubsubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{io__ops_8c_ae518031d203bda6f2ae023d68116ba21}{INPUT\+\_\+\+DIR}}~"{}../input/"{}
-\end{DoxyCompactItemize}
+
+
+Implementation of Input/\+Output operations for file handling. This file contains functions to list files in a directory, prompt the user for file selection, and handle input/output operations.  
+
+
+{\ttfamily \#include "{}../include/io\+\_\+ops.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{io__ops_8c_a8e1ff701eabe36ffbf53f2bf597b40f4}{list\+Files}} (char files\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, int max\+Files)
 \item 
 void \mbox{\hyperlink{io__ops_8c_aa02fa2cdcfb12da9f8b61558b796d408}{prompt\+File\+Selection}} (char files\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, int file\+Count, char \texorpdfstring{$\ast$}{*}selected\+File)
+\item 
+void \mbox{\hyperlink{io__ops_8c_a18304989550b41e47db4d8a3b8cd0d96}{prompt\+Filename}} (char \texorpdfstring{$\ast$}{*}filename, int is\+Input)
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Macro Definition Documentation}
-\Hypertarget{io__ops_8c_ae518031d203bda6f2ae023d68116ba21}\index{io\_ops.c@{io\_ops.c}!INPUT\_DIR@{INPUT\_DIR}}
-\index{INPUT\_DIR@{INPUT\_DIR}!io\_ops.c@{io\_ops.c}}
-\doxysubsubsection{\texorpdfstring{INPUT\_DIR}{INPUT\_DIR}}
-{\footnotesize\ttfamily \label{io__ops_8c_ae518031d203bda6f2ae023d68116ba21} 
-\#define INPUT\+\_\+\+DIR~"{}../input/"{}}
+\doxysubsection{Detailed Description}
+Implementation of Input/\+Output operations for file handling. This file contains functions to list files in a directory, prompt the user for file selection, and handle input/output operations. 
 
+\begin{DoxyDate}{Date}
+2025-\/03-\/30 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Ahmet Abdullah GULTEKIN 
+\end{DoxyAuthor}
 
 
 \doxysubsection{Function Documentation}
@@ -30,6 +34,12 @@ void \mbox{\hyperlink{io__ops_8c_aa02fa2cdcfb12da9f8b61558b796d408}{prompt\+File
 \doxysubsubsection{\texorpdfstring{listFiles()}{listFiles()}}
 {\footnotesize\ttfamily \label{io__ops_8c_a8e1ff701eabe36ffbf53f2bf597b40f4} 
 int list\+Files (\begin{DoxyParamCaption}\item[{char}]{files}{\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, }\item[{int}]{max\+Files}{}\end{DoxyParamCaption})}
+
+\Hypertarget{io__ops_8c_a18304989550b41e47db4d8a3b8cd0d96}\index{io\_ops.c@{io\_ops.c}!promptFilename@{promptFilename}}
+\index{promptFilename@{promptFilename}!io\_ops.c@{io\_ops.c}}
+\doxysubsubsection{\texorpdfstring{promptFilename()}{promptFilename()}}
+{\footnotesize\ttfamily \label{io__ops_8c_a18304989550b41e47db4d8a3b8cd0d96} 
+void prompt\+Filename (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{int}]{is\+Input}{}\end{DoxyParamCaption})}
 
 \Hypertarget{io__ops_8c_aa02fa2cdcfb12da9f8b61558b796d408}\index{io\_ops.c@{io\_ops.c}!promptFileSelection@{promptFileSelection}}
 \index{promptFileSelection@{promptFileSelection}!io\_ops.c@{io\_ops.c}}
