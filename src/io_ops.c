@@ -9,19 +9,19 @@
 #include "../include/io_ops.h"
 
 /**
- * @fn listFiles
+ * @fn getAllFiles
  * @brief List the files in the input directory.
  * @param files Array to store the filenames.
- * @param maxFiles Maximum number of files to list.
+ * @param fileLimit Maximum number of files to list.
  * @return The number of files listed.
  */
-int listFiles(char files[][256], int maxFiles) {
+int getAllFiles(int fileLimit, char files[][256]) {
     WIN32_FIND_DATA findFileData;
     HANDLE hFind;
     int count = 0;
     char searchPath[260];
 
-    snprintf(searchPath, sizeof(searchPath), "%s\\*", INPUT_DIR);
+    snprintf(searchPath, sizeof(searchPath), "%s\\*", INPUT_PATH);
     hFind = FindFirstFile(searchPath, &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE) {
@@ -34,7 +34,7 @@ int listFiles(char files[][256], int maxFiles) {
                 files[count][255] = '\0';
                 count++;
             }
-        } while (FindNextFile(hFind, &findFileData) != 0 && count < maxFiles);
+        } while (FindNextFile(hFind, &findFileData) != 0 && count < fileLimit);
         FindClose(hFind);
     }
     return count;
@@ -74,7 +74,7 @@ void promptFileSelection(char files[][256], int fileCount, char *selectedFile) {
 void promptFilename(char *filename, int isInput) {
     if (isInput) {
         char files[100][256];
-        int fileCount = listFiles(files, 100);
+        int fileCount = getAllFiles(10, files);
 
         if (fileCount == 0) {
             printf("No files found in the input directory.\n");

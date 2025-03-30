@@ -1,7 +1,7 @@
 var menu_8h =
-    [
-        ["displayMenu", "menu_8h.html#a59c2926dd9b0968badf463aaf4f91422", null],
-        ["getChoice", "menu_8h.html#a8bd5a7bb28c819e2d9685be96f8d0ab7", null],
-        ["handleMenuChoice", "menu_8h.html#af9464f389548e8eb9c2925933b6cf725", null],
-        ["isChoiceValid", "menu_8h.html#a414c27ab36fcc995322cee5f81c4d86c", null]
-    ];
+[
+    [ "isChoiceValid", "menu_8h.html#a414c27ab36fcc995322cee5f81c4d86c", null ],
+    [ "proceedUserPreference", "menu_8h.html#a094db122fedffa0dfc39a14ab1da6738", null ],
+    [ "requestUserChoice", "menu_8h.html#a3c14493deb9119b9c33c832813de3a01", null ],
+    [ "showMenu", "menu_8h.html#aba5bd9067aa6f261123165a337c7957d", null ]
+];

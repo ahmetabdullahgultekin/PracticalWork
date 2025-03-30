@@ -1,4 +1,4 @@
-var searchData =
-    [
-        ['handlemenuchoice_0', ['handleMenuChoice', ['../menu_8h.html#af9464f389548e8eb9c2925933b6cf725', 1, 'handleMenuChoice(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList):&#160;menu.c'], ['../menu_8c.html#af9464f389548e8eb9c2925933b6cf725', 1, 'handleMenuChoice(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList):&#160;menu.c']]]
-    ];
+var searchData=
+[
+  ['getallfiles_0',['getAllFiles',['../io__ops_8h.html#aeb8396e4f830c9c31d03077b4f89539e',1,'getAllFiles(int fileLimit, char files[][256]):&#160;io_ops.c'],['../io__ops_8c.html#aeb8396e4f830c9c31d03077b4f89539e',1,'getAllFiles(int fileLimit, char files[][256]):&#160;io_ops.c']]]
+];

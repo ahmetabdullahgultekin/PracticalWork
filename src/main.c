@@ -56,8 +56,8 @@ int main() {
     // Main loop
     while (1) {
         // Display the menu
-        displayMenu();
+        showMenu();
         // Read the user's choice and Handle the user's choice
-        handleMenuChoice(getChoice(), &antennaList, &effectList);
+        proceedUserPreference(requestUserChoice(), &antennaList, &effectList);
     }
 }

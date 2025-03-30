@@ -1,4 +1,4 @@
-var searchData =
-    [
-        ['next_0', ['next', ['../struct_antenna_node.html#a08b111d81c35c891d641e9c7e83c089c', 1, 'AntennaNode::next'], ['../struct_antenna_effect_node.html#a065195950f1b03698ab6f01ff381ab17', 1, 'AntennaEffectNode::next']]]
-    ];
+var searchData=
+[
+  ['symbol_0',['symbol',['../struct_antenna_node.html#ab66510a8ec3c8e9c00cdecd29f722545',1,'AntennaNode']]]
+];

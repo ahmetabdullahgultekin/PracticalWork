@@ -13,10 +13,10 @@
 #include <string.h>
 #include <Windows.h>
 
-#define INPUT_DIR "../input/"
-#define OUTPUT_DIR "../output/"
+#define INPUT_PATH "../input/"
+#define OUTPUT_PATH "../output/"
 
-int listFiles(char files[][256], int maxFiles);
+int getAllFiles(int fileLimit, char files[][256]);
 
 void promptFileSelection(char files[][256], int fileCount, char *selectedFile);
 

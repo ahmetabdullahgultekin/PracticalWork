@@ -1,6 +1,5 @@
-var searchData =
-    [
-        ['description_20of_20files_0', ['Description of Files', ['../md_include_2about-header-files.html#autotoc_md22', 1, 'Description of Files'], ['../md_src_2about-source-codes.html#autotoc_md43', 1, 'Description of Files']]],
-        ['displaymenu_1', ['displayMenu', ['../menu_8h.html#a59c2926dd9b0968badf463aaf4f91422', 1, 'displayMenu():&#160;menu.c'], ['../menu_8c.html#a59c2926dd9b0968badf463aaf4f91422', 1, 'displayMenu():&#160;menu.c']]],
-        ['documentation_2', ['Documentation', ['../md_docs_2about-docs.html', 1, 'Documentation'], ['../md_docs_2about-docs.html#autotoc_md16', 1, 'HTML Documentation']]]
-    ];
+var searchData=
+[
+  ['deleteantenna_0',['deleteAntenna',['../antenna_8h.html#ad5cde8e2cfa6a4eb996ec7208eb7d564',1,'deleteAntenna(int coordinateX, int coordinateY, char symbol, AntennaNode **listHead):&#160;antenna.c'],['../antenna_8c.html#ad5cde8e2cfa6a4eb996ec7208eb7d564',1,'deleteAntenna(int coordinateX, int coordinateY, char symbol, AntennaNode **listHead):&#160;antenna.c']]],
+  ['documentation_1',['Documentation',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]]
+];

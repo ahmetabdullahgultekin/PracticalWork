@@ -1,5 +1,6 @@
-var searchData =
-    [
-        ['o1_2etxt_0', ['o1.txt', ['../o1_8txt.html', 1, '']]],
-        ['ox_2etxt_1', ['ox.txt', ['../ox_8txt.html', 1, '']]]
-    ];
+var searchData=
+[
+  ['main_2ec_0',['main.c',['../main_8c.html',1,'']]],
+  ['menu_2ec_1',['menu.c',['../menu_8c.html',1,'']]],
+  ['menu_2eh_2',['menu.h',['../menu_8h.html',1,'']]]
+];

@@ -1,7 +1,8 @@
-var searchData =
-    [
-        ['printallantennaeffects_0', ['printAllAntennaEffects', ['../antenna__effect_8h.html#ac048372cf7839a8e34ced100fd3d4675', 1, 'printAllAntennaEffects(AntennaEffectNode *head):&#160;antenna_effect.c'], ['../antenna__effect_8c.html#ac048372cf7839a8e34ced100fd3d4675', 1, 'printAllAntennaEffects(AntennaEffectNode *head):&#160;antenna_effect.c']]],
-        ['printantennas_1', ['printAntennas', ['../antenna_8h.html#afb5a79065d1ef1f0504583789cf75fa4', 1, 'printAntennas(AntennaNode *head):&#160;antenna.c'], ['../antenna_8c.html#afb5a79065d1ef1f0504583789cf75fa4', 1, 'printAntennas(AntennaNode *head):&#160;antenna.c']]],
-        ['promptfilename_2', ['promptFilename', ['../io__ops_8h.html#a18304989550b41e47db4d8a3b8cd0d96', 1, 'promptFilename(char *filename, int isInput):&#160;io_ops.c'], ['../io__ops_8c.html#a18304989550b41e47db4d8a3b8cd0d96', 1, 'promptFilename(char *filename, int isInput):&#160;io_ops.c']]],
-        ['promptfileselection_3', ['promptFileSelection', ['../io__ops_8h.html#aa02fa2cdcfb12da9f8b61558b796d408', 1, 'promptFileSelection(char files[][256], int fileCount, char *selectedFile):&#160;io_ops.c'], ['../io__ops_8c.html#aa02fa2cdcfb12da9f8b61558b796d408', 1, 'promptFileSelection(char files[][256], int fileCount, char *selectedFile):&#160;io_ops.c']]]
-    ];
+var searchData=
+[
+  ['printallantennaeffects_0',['printAllAntennaEffects',['../antenna__effect_8h.html#a8642cf9a4ee37137b24b0887cb9bdad7',1,'printAllAntennaEffects(AntennaEffectNode *listHead):&#160;antenna_effect.c'],['../antenna__effect_8c.html#a8642cf9a4ee37137b24b0887cb9bdad7',1,'printAllAntennaEffects(AntennaEffectNode *listHead):&#160;antenna_effect.c']]],
+  ['printallantennas_1',['printAllAntennas',['../antenna_8h.html#a9d34568a631be32dfc6d5ac8abb2736c',1,'printAllAntennas(AntennaNode *listHead):&#160;antenna.c'],['../antenna_8c.html#a9d34568a631be32dfc6d5ac8abb2736c',1,'printAllAntennas(AntennaNode *listHead):&#160;antenna.c']]],
+  ['proceeduserpreference_2',['proceedUserPreference',['../menu_8h.html#a094db122fedffa0dfc39a14ab1da6738',1,'proceedUserPreference(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList):&#160;menu.c'],['../menu_8c.html#a094db122fedffa0dfc39a14ab1da6738',1,'proceedUserPreference(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList):&#160;menu.c']]],
+  ['promptfilename_3',['promptFilename',['../io__ops_8h.html#a18304989550b41e47db4d8a3b8cd0d96',1,'promptFilename(char *filename, int isInput):&#160;io_ops.c'],['../io__ops_8c.html#a18304989550b41e47db4d8a3b8cd0d96',1,'promptFilename(char *filename, int isInput):&#160;io_ops.c']]],
+  ['promptfileselection_4',['promptFileSelection',['../io__ops_8h.html#aa02fa2cdcfb12da9f8b61558b796d408',1,'promptFileSelection(char files[][256], int fileCount, char *selectedFile):&#160;io_ops.c'],['../io__ops_8c.html#aa02fa2cdcfb12da9f8b61558b796d408',1,'promptFileSelection(char files[][256], int fileCount, char *selectedFile):&#160;io_ops.c']]]
+];

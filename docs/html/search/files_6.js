@@ -1,5 +1,4 @@
-var searchData =
-    [
-        ['o1_2etxt_0', ['o1.txt', ['../cmake-build-debug_2o1_8txt.html', 1, '(Global Namespace)'], ['../output_2o1_8txt.html', 1, '(Global Namespace)']]],
-        ['ox_2etxt_1', ['ox.txt', ['../ox_8txt.html', 1, '']]]
-    ];
+var searchData=
+[
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]]
+];

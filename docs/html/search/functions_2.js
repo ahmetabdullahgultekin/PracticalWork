@@ -1,4 +1,4 @@
-var searchData =
-    [
-        ['getchoice_0', ['getChoice', ['../menu_8h.html#a8bd5a7bb28c819e2d9685be96f8d0ab7', 1, 'getChoice():&#160;menu.c'], ['../menu_8c.html#a8bd5a7bb28c819e2d9685be96f8d0ab7', 1, 'getChoice():&#160;menu.c']]]
-    ];
+var searchData=
+[
+  ['deleteantenna_0',['deleteAntenna',['../antenna_8h.html#ad5cde8e2cfa6a4eb996ec7208eb7d564',1,'deleteAntenna(int coordinateX, int coordinateY, char symbol, AntennaNode **listHead):&#160;antenna.c'],['../antenna_8c.html#ad5cde8e2cfa6a4eb996ec7208eb7d564',1,'deleteAntenna(int coordinateX, int coordinateY, char symbol, AntennaNode **listHead):&#160;antenna.c']]]
+];

@@ -1,7 +1,7 @@
-var searchData =
-    [
-        ['removeantenna_0', ['removeAntenna', ['../antenna_8h.html#a240b8f19f4839904a8c82de1d6552ee3', 1, 'removeAntenna(AntennaNode **head, int row, int col, char frequency):&#160;antenna.c'], ['../antenna_8c.html#a240b8f19f4839904a8c82de1d6552ee3', 1, 'removeAntenna(AntennaNode **head, int row, int col, char frequency):&#160;antenna.c']]],
-        ['requirements_1', ['Requirements', ['../md_about-project.html#autotoc_md3', 1, '']]],
-        ['row_2', ['row', ['../struct_antenna_node.html#a41878310cb4abd2f79327b776a581024', 1, 'AntennaNode::row'], ['../struct_antenna_effect_node.html#ab9d7c1c452dc585032cfb42eeeb69dd4', 1, 'AntennaEffectNode::row']]],
-        ['running_20the_20project_3', ['Running the Project', ['../md_about-project.html#autotoc_md10', 1, '']]]
-    ];
+var searchData=
+[
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['requestuserchoice_1',['requestUserChoice',['../menu_8h.html#a3c14493deb9119b9c33c832813de3a01',1,'requestUserChoice():&#160;menu.c'],['../menu_8c.html#a3c14493deb9119b9c33c832813de3a01',1,'requestUserChoice():&#160;menu.c']]],
+  ['requirements_2',['Requirements',['../md__r_e_a_d_m_e.html#autotoc_md10',1,'']]],
+  ['running_20the_20project_3',['Running the Project',['../md__r_e_a_d_m_e.html#autotoc_md12',1,'']]]
+];

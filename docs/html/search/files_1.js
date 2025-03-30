@@ -1,5 +1,5 @@
-var searchData =
-    [
-        ['cmakelists_2etxt_0', ['CMakeLists.txt', ['../_c_make_lists_8txt.html', 1, '']]],
-        ['configfile_2etxt_1', ['configfile.txt', ['../configfile_8txt.html', 1, '']]]
-    ];
+var searchData=
+[
+  ['b1_2etxt_0',['b1.txt',['../b1_8txt.html',1,'']]],
+  ['b2_2etxt_1',['b2.txt',['../b2_8txt.html',1,'']]]
+];

@@ -23,17 +23,19 @@ typedef struct Antenna\+Node \mbox{\hyperlink{antenna_8h_a4ba8196841a054ae98d6f7
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{antenna_8h_a8b0dac25b0480a361200d7a3018c5413}{insert\+Antenna}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}head, char frequency, int row, int col)
+\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{antenna_8h_a73c1c810bb3f94dbb19191cca47616ae}{add\+New\+Antenna}} (int coordinateX, int coordinateY, char symbol, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna_8h_a240b8f19f4839904a8c82de1d6552ee3}{remove\+Antenna}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}head, int row, int col, char frequency)
+void \mbox{\hyperlink{antenna_8h_ad5cde8e2cfa6a4eb996ec7208eb7d564}{delete\+Antenna}} (int coordinateX, int coordinateY, char symbol, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna_8h_afb5a79065d1ef1f0504583789cf75fa4}{print\+Antennas}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna_8h_a9d34568a631be32dfc6d5ac8abb2736c}{print\+All\+Antennas}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna_8h_a3c74ee4732fb38a02eeceee2e039543e}{clear\+Antennas\+List}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna_8h_a96c2d01ffdfbc93f12e16463ff35d612}{clear\+Antennas\+List}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna_8h_ae2846739c3056194174c1be66b4b86d2}{load\+Antennas\+From\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna_8h_a6d4580ad7a9adf78cd44a7e95e22fe60}{load\+Antennas\+From\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna_8h_adeae27a8819ac0daac2300c7703fb15d}{save\+Antennas\+To\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna_8h_a8a2672025142fda5b99d311e326978db}{save\+Antennas\+To\+File}} (const char \texorpdfstring{$\ast$}{*}file\+Name, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
+\item 
+void \mbox{\hyperlink{antenna_8h_ad549cf55ed8c167ddd2d4f4a9f10fcc5}{save\+Antennas\+To\+File\+With\+Dots}} (const char \texorpdfstring{$\ast$}{*}file\+Name, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
 \end{DoxyCompactItemize}
 
 
@@ -62,39 +64,45 @@ typedef struct Antenna\+Node Antenna\+Node}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{antenna_8h_a3c74ee4732fb38a02eeceee2e039543e}\index{antenna.h@{antenna.h}!clearAntennasList@{clearAntennasList}}
+\Hypertarget{antenna_8h_a73c1c810bb3f94dbb19191cca47616ae}\index{antenna.h@{antenna.h}!addNewAntenna@{addNewAntenna}}
+\index{addNewAntenna@{addNewAntenna}!antenna.h@{antenna.h}}
+\doxysubsubsection{\texorpdfstring{addNewAntenna()}{addNewAntenna()}}
+{\footnotesize\ttfamily \label{antenna_8h_a73c1c810bb3f94dbb19191cca47616ae} 
+\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*} add\+New\+Antenna (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{char}]{symbol}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
+
+\Hypertarget{antenna_8h_a96c2d01ffdfbc93f12e16463ff35d612}\index{antenna.h@{antenna.h}!clearAntennasList@{clearAntennasList}}
 \index{clearAntennasList@{clearAntennasList}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{clearAntennasList()}{clearAntennasList()}}
-{\footnotesize\ttfamily \label{antenna_8h_a3c74ee4732fb38a02eeceee2e039543e} 
-void clear\+Antennas\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna_8h_a96c2d01ffdfbc93f12e16463ff35d612} 
+void clear\+Antennas\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna_8h_a8b0dac25b0480a361200d7a3018c5413}\index{antenna.h@{antenna.h}!insertAntenna@{insertAntenna}}
-\index{insertAntenna@{insertAntenna}!antenna.h@{antenna.h}}
-\doxysubsubsection{\texorpdfstring{insertAntenna()}{insertAntenna()}}
-{\footnotesize\ttfamily \label{antenna_8h_a8b0dac25b0480a361200d7a3018c5413} 
-\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*} insert\+Antenna (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{head}{, }\item[{char}]{frequency}{, }\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+\Hypertarget{antenna_8h_ad5cde8e2cfa6a4eb996ec7208eb7d564}\index{antenna.h@{antenna.h}!deleteAntenna@{deleteAntenna}}
+\index{deleteAntenna@{deleteAntenna}!antenna.h@{antenna.h}}
+\doxysubsubsection{\texorpdfstring{deleteAntenna()}{deleteAntenna()}}
+{\footnotesize\ttfamily \label{antenna_8h_ad5cde8e2cfa6a4eb996ec7208eb7d564} 
+void delete\+Antenna (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{char}]{symbol}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna_8h_ae2846739c3056194174c1be66b4b86d2}\index{antenna.h@{antenna.h}!loadAntennasFromFile@{loadAntennasFromFile}}
+\Hypertarget{antenna_8h_a6d4580ad7a9adf78cd44a7e95e22fe60}\index{antenna.h@{antenna.h}!loadAntennasFromFile@{loadAntennasFromFile}}
 \index{loadAntennasFromFile@{loadAntennasFromFile}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{loadAntennasFromFile()}{loadAntennasFromFile()}}
-{\footnotesize\ttfamily \label{antenna_8h_ae2846739c3056194174c1be66b4b86d2} 
-void load\+Antennas\+From\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna_8h_a6d4580ad7a9adf78cd44a7e95e22fe60} 
+void load\+Antennas\+From\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna_8h_afb5a79065d1ef1f0504583789cf75fa4}\index{antenna.h@{antenna.h}!printAntennas@{printAntennas}}
-\index{printAntennas@{printAntennas}!antenna.h@{antenna.h}}
-\doxysubsubsection{\texorpdfstring{printAntennas()}{printAntennas()}}
-{\footnotesize\ttfamily \label{antenna_8h_afb5a79065d1ef1f0504583789cf75fa4} 
-void print\+Antennas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+\Hypertarget{antenna_8h_a9d34568a631be32dfc6d5ac8abb2736c}\index{antenna.h@{antenna.h}!printAllAntennas@{printAllAntennas}}
+\index{printAllAntennas@{printAllAntennas}!antenna.h@{antenna.h}}
+\doxysubsubsection{\texorpdfstring{printAllAntennas()}{printAllAntennas()}}
+{\footnotesize\ttfamily \label{antenna_8h_a9d34568a631be32dfc6d5ac8abb2736c} 
+void print\+All\+Antennas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna_8h_a240b8f19f4839904a8c82de1d6552ee3}\index{antenna.h@{antenna.h}!removeAntenna@{removeAntenna}}
-\index{removeAntenna@{removeAntenna}!antenna.h@{antenna.h}}
-\doxysubsubsection{\texorpdfstring{removeAntenna()}{removeAntenna()}}
-{\footnotesize\ttfamily \label{antenna_8h_a240b8f19f4839904a8c82de1d6552ee3} 
-void remove\+Antenna (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{head}{, }\item[{int}]{row}{, }\item[{int}]{col}{, }\item[{char}]{frequency}{}\end{DoxyParamCaption})}
-
-\Hypertarget{antenna_8h_adeae27a8819ac0daac2300c7703fb15d}\index{antenna.h@{antenna.h}!saveAntennasToFile@{saveAntennasToFile}}
+\Hypertarget{antenna_8h_a8a2672025142fda5b99d311e326978db}\index{antenna.h@{antenna.h}!saveAntennasToFile@{saveAntennasToFile}}
 \index{saveAntennasToFile@{saveAntennasToFile}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{saveAntennasToFile()}{saveAntennasToFile()}}
-{\footnotesize\ttfamily \label{antenna_8h_adeae27a8819ac0daac2300c7703fb15d} 
-void save\+Antennas\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna_8h_a8a2672025142fda5b99d311e326978db} 
+void save\+Antennas\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
+
+\Hypertarget{antenna_8h_ad549cf55ed8c167ddd2d4f4a9f10fcc5}\index{antenna.h@{antenna.h}!saveAntennasToFileWithDots@{saveAntennasToFileWithDots}}
+\index{saveAntennasToFileWithDots@{saveAntennasToFileWithDots}!antenna.h@{antenna.h}}
+\doxysubsubsection{\texorpdfstring{saveAntennasToFileWithDots()}{saveAntennasToFileWithDots()}}
+{\footnotesize\ttfamily \label{antenna_8h_ad549cf55ed8c167ddd2d4f4a9f10fcc5} 
+void save\+Antennas\+To\+File\+With\+Dots (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 

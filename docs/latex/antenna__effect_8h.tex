@@ -23,17 +23,19 @@ typedef struct Antenna\+Effect\+Node \mbox{\hyperlink{antenna__effect_8h_a1814b6
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{antenna__effect_8h_a9dd6dd0e68869f923d8f96fb7176a55a}{insert\+Antenna\+Effect}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}head, int row, int col)
+\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{antenna__effect_8h_a32ca8f168055456ebfa6c3410e4a0c25}{add\+New\+Antenna\+Effect}} (int coordinateX, int coordinateY, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-int \mbox{\hyperlink{antenna__effect_8h_a0d05ec0f7750002a6e14724cae668e14}{is\+Antenna\+Effect\+Exist}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}head, int row, int col)
+int \mbox{\hyperlink{antenna__effect_8h_ac3b04aaae848eb278d80fb7ea4f43982}{is\+Antenna\+Effect\+Exist}} (int coordinateX, int coordinateY, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}effects\+Head)
 \item 
-void \mbox{\hyperlink{antenna__effect_8h_ac048372cf7839a8e34ced100fd3d4675}{print\+All\+Antenna\+Effects}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna__effect_8h_a8642cf9a4ee37137b24b0887cb9bdad7}{print\+All\+Antenna\+Effects}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna__effect_8h_a8486e0ffdd1ccc5daa9cb0782a558ca2}{clear\+Antenna\+Effects\+List}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna__effect_8h_adb59b0bc7f5a9fcc4e50117ffe6ea158}{clear\+Antenna\+Effects\+List}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
 \item 
-void \mbox{\hyperlink{antenna__effect_8h_a19326abd2926b96ae6b05a0833ae35a6}{compute\+Effect\+Spots}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}antennas, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effects)
+void \mbox{\hyperlink{antenna__effect_8h_a49370cd34b85042bfd0f097432e0437f}{compute\+Effect\+Spots}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effects, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}antennas)
 \item 
-void \mbox{\hyperlink{antenna__effect_8h_a60a9bdd4ac8f2639e3ab085d869994da}{save\+Antenna\+Effects\+To\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}head)
+void \mbox{\hyperlink{antenna__effect_8h_aa5c3341c34b83fedc587b8c5be8354a0}{save\+Antenna\+Effects\+To\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
+\item 
+void \mbox{\hyperlink{antenna__effect_8h_a7afe5b47e6310a11ad3c8f208760663d}{save\+Antenna\+Effects\+To\+File\+With\+Dots}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head, const char \texorpdfstring{$\ast$}{*}file\+Name)
 \end{DoxyCompactItemize}
 
 
@@ -62,39 +64,45 @@ typedef struct Antenna\+Effect\+Node Antenna\+Effect\+Node}
 Typedef for \doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{antenna__effect_8h_a8486e0ffdd1ccc5daa9cb0782a558ca2}\index{antenna\_effect.h@{antenna\_effect.h}!clearAntennaEffectsList@{clearAntennaEffectsList}}
+\Hypertarget{antenna__effect_8h_a32ca8f168055456ebfa6c3410e4a0c25}\index{antenna\_effect.h@{antenna\_effect.h}!addNewAntennaEffect@{addNewAntennaEffect}}
+\index{addNewAntennaEffect@{addNewAntennaEffect}!antenna\_effect.h@{antenna\_effect.h}}
+\doxysubsubsection{\texorpdfstring{addNewAntennaEffect()}{addNewAntennaEffect()}}
+{\footnotesize\ttfamily \label{antenna__effect_8h_a32ca8f168055456ebfa6c3410e4a0c25} 
+\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*} add\+New\+Antenna\+Effect (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
+
+\Hypertarget{antenna__effect_8h_adb59b0bc7f5a9fcc4e50117ffe6ea158}\index{antenna\_effect.h@{antenna\_effect.h}!clearAntennaEffectsList@{clearAntennaEffectsList}}
 \index{clearAntennaEffectsList@{clearAntennaEffectsList}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{clearAntennaEffectsList()}{clearAntennaEffectsList()}}
-{\footnotesize\ttfamily \label{antenna__effect_8h_a8486e0ffdd1ccc5daa9cb0782a558ca2} 
-void clear\+Antenna\+Effects\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna__effect_8h_adb59b0bc7f5a9fcc4e50117ffe6ea158} 
+void clear\+Antenna\+Effects\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna__effect_8h_a19326abd2926b96ae6b05a0833ae35a6}\index{antenna\_effect.h@{antenna\_effect.h}!computeEffectSpots@{computeEffectSpots}}
+\Hypertarget{antenna__effect_8h_a49370cd34b85042bfd0f097432e0437f}\index{antenna\_effect.h@{antenna\_effect.h}!computeEffectSpots@{computeEffectSpots}}
 \index{computeEffectSpots@{computeEffectSpots}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{computeEffectSpots()}{computeEffectSpots()}}
-{\footnotesize\ttfamily \label{antenna__effect_8h_a19326abd2926b96ae6b05a0833ae35a6} 
-void compute\+Effect\+Spots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{antennas}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{effects}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna__effect_8h_a49370cd34b85042bfd0f097432e0437f} 
+void compute\+Effect\+Spots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{effects}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{antennas}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna__effect_8h_a9dd6dd0e68869f923d8f96fb7176a55a}\index{antenna\_effect.h@{antenna\_effect.h}!insertAntennaEffect@{insertAntennaEffect}}
-\index{insertAntennaEffect@{insertAntennaEffect}!antenna\_effect.h@{antenna\_effect.h}}
-\doxysubsubsection{\texorpdfstring{insertAntennaEffect()}{insertAntennaEffect()}}
-{\footnotesize\ttfamily \label{antenna__effect_8h_a9dd6dd0e68869f923d8f96fb7176a55a} 
-\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*} insert\+Antenna\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{head}{, }\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
-
-\Hypertarget{antenna__effect_8h_a0d05ec0f7750002a6e14724cae668e14}\index{antenna\_effect.h@{antenna\_effect.h}!isAntennaEffectExist@{isAntennaEffectExist}}
+\Hypertarget{antenna__effect_8h_ac3b04aaae848eb278d80fb7ea4f43982}\index{antenna\_effect.h@{antenna\_effect.h}!isAntennaEffectExist@{isAntennaEffectExist}}
 \index{isAntennaEffectExist@{isAntennaEffectExist}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{isAntennaEffectExist()}{isAntennaEffectExist()}}
-{\footnotesize\ttfamily \label{antenna__effect_8h_a0d05ec0f7750002a6e14724cae668e14} 
-int is\+Antenna\+Effect\+Exist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{, }\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna__effect_8h_ac3b04aaae848eb278d80fb7ea4f43982} 
+int is\+Antenna\+Effect\+Exist (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{effects\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna__effect_8h_ac048372cf7839a8e34ced100fd3d4675}\index{antenna\_effect.h@{antenna\_effect.h}!printAllAntennaEffects@{printAllAntennaEffects}}
+\Hypertarget{antenna__effect_8h_a8642cf9a4ee37137b24b0887cb9bdad7}\index{antenna\_effect.h@{antenna\_effect.h}!printAllAntennaEffects@{printAllAntennaEffects}}
 \index{printAllAntennaEffects@{printAllAntennaEffects}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{printAllAntennaEffects()}{printAllAntennaEffects()}}
-{\footnotesize\ttfamily \label{antenna__effect_8h_ac048372cf7839a8e34ced100fd3d4675} 
-void print\+All\+Antenna\+Effects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna__effect_8h_a8642cf9a4ee37137b24b0887cb9bdad7} 
+void print\+All\+Antenna\+Effects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
-\Hypertarget{antenna__effect_8h_a60a9bdd4ac8f2639e3ab085d869994da}\index{antenna\_effect.h@{antenna\_effect.h}!saveAntennaEffectsToFile@{saveAntennaEffectsToFile}}
+\Hypertarget{antenna__effect_8h_aa5c3341c34b83fedc587b8c5be8354a0}\index{antenna\_effect.h@{antenna\_effect.h}!saveAntennaEffectsToFile@{saveAntennaEffectsToFile}}
 \index{saveAntennaEffectsToFile@{saveAntennaEffectsToFile}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{saveAntennaEffectsToFile()}{saveAntennaEffectsToFile()}}
-{\footnotesize\ttfamily \label{antenna__effect_8h_a60a9bdd4ac8f2639e3ab085d869994da} 
-void save\+Antenna\+Effects\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{head}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{antenna__effect_8h_aa5c3341c34b83fedc587b8c5be8354a0} 
+void save\+Antenna\+Effects\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
+
+\Hypertarget{antenna__effect_8h_a7afe5b47e6310a11ad3c8f208760663d}\index{antenna\_effect.h@{antenna\_effect.h}!saveAntennaEffectsToFileWithDots@{saveAntennaEffectsToFileWithDots}}
+\index{saveAntennaEffectsToFileWithDots@{saveAntennaEffectsToFileWithDots}!antenna\_effect.h@{antenna\_effect.h}}
+\doxysubsubsection{\texorpdfstring{saveAntennaEffectsToFileWithDots()}{saveAntennaEffectsToFileWithDots()}}
+{\footnotesize\ttfamily \label{antenna__effect_8h_a7afe5b47e6310a11ad3c8f208760663d} 
+void save\+Antenna\+Effects\+To\+File\+With\+Dots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name}{}\end{DoxyParamCaption})}
 

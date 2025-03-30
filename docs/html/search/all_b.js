@@ -1,4 +1,5 @@
-var searchData =
-    [
-        ['next_0', ['next', ['../struct_antenna_node.html#a08b111d81c35c891d641e9c7e83c089c', 1, 'AntennaNode::next'], ['../struct_antenna_effect_node.html#a065195950f1b03698ab6f01ff381ab17', 1, 'AntennaEffectNode::next']]]
-    ];
+var searchData=
+[
+  ['nextantenna_0',['nextAntenna',['../struct_antenna_node.html#a7d5f090106bad5a539dc4373feb14fc1',1,'AntennaNode']]],
+  ['nexteffect_1',['nextEffect',['../struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110',1,'AntennaEffectNode']]]
+];

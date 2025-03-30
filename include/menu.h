@@ -10,11 +10,11 @@
 #include "antenna.h"
 #include "antenna_effect.h"
 
-void displayMenu();
+void showMenu();
 
-int getChoice();
+int requestUserChoice();
 
-void handleMenuChoice(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList);
+void proceedUserPreference(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList);
 
 int isChoiceValid(int choice);
 

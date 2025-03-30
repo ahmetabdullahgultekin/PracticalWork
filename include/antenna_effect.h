@@ -20,20 +20,22 @@
  * @brief AntennaEffectNode structure for a single effect position in the linked list.
  */
 typedef struct AntennaEffectNode {
-    int row, col;                   /**< Row coordinate of the effect position in the matrix */
-    struct AntennaEffectNode *next; /**< Pointer to the next node in the linked list */
+    int coordinateX, coordinateY;                   /**< Row coordinate of the effect position in the matrix */
+    struct AntennaEffectNode *nextEffect; /**< Pointer to the nextAntenna node in the linked list */
 } AntennaEffectNode;                /**< Typedef for AntennaEffectNode */
 
-AntennaEffectNode *insertAntennaEffect(AntennaEffectNode **head, int row, int col);
+AntennaEffectNode *addNewAntennaEffect(int coordinateX, int coordinateY, AntennaEffectNode **listHead);
 
-int isAntennaEffectExist(AntennaEffectNode *head, int row, int col);
+int isAntennaEffectExist(int coordinateX, int coordinateY, AntennaEffectNode *effectsHead);
 
-void printAllAntennaEffects(AntennaEffectNode *head);
+void printAllAntennaEffects(AntennaEffectNode *listHead);
 
-void clearAntennaEffectsList(AntennaEffectNode *head);
+void clearAntennaEffectsList(AntennaEffectNode *listHead);
 
-void computeEffectSpots(AntennaNode *antennas, AntennaEffectNode **effects);
+void computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas);
 
-void saveAntennaEffectsToFile(const char *filename, AntennaEffectNode *head);
+void saveAntennaEffectsToFile(const char *filename, AntennaEffectNode *listHead);
+
+void saveAntennaEffectsToFileWithDots(AntennaEffectNode *listHead, const char *fileName);
 
 #endif //PRACTICALWORK_ANTENNA_EFFECT_H

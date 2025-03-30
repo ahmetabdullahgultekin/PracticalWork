@@ -17,7 +17,7 @@
 void loadAndPrintAntennas(const char *filename, AntennaNode **antennaList) {
     loadAntennasFromFile(filename, antennaList);
     printf("\nLoaded antennas: \n");
-    printAntennas(*antennaList);
+    printAllAntennas(*antennaList);
 }
 
 /**
@@ -27,7 +27,7 @@ void loadAndPrintAntennas(const char *filename, AntennaNode **antennaList) {
  * @param effectList The list of effect positions.
  */
 void calculateAndPrintEffects(AntennaNode *antennaList, AntennaEffectNode **effectList) {
-    computeEffectSpots(antennaList, effectList);
+    computeEffectSpots(effectList, antennaList);
     printf("\nCalculated effect positions: \n");
     printAllAntennaEffects(*effectList);
 }
@@ -39,52 +39,54 @@ void calculateAndPrintEffects(AntennaNode *antennaList, AntennaEffectNode **effe
  * @return -1 if the choice is invalid, 0 otherwise.
  */
 int isChoiceValid(int choice) {
-    if (choice < 1 || choice > 8) {
+    if (choice < 1 || choice > 10) {
         return -1; // Invalid choice
     }
     return 0; // Valid choice
 }
 
 /**
- * @fn getChoice
+ * @fn requestUserChoice
  * @brief Get the user's choice from the menu.
  * @return The user's choice.
  */
-int getChoice() {
+int requestUserChoice() {
     int choice;
     do {
-        printf("Enter your choice (1-8): ");
+        printf("Enter your choice (1-10): ");
         if (scanf_s("%d", &choice) == 1 && isChoiceValid(choice) == 0) {
             return choice; // Valid choice
         }
         while (getchar() != '\n'); // Clear the input buffer
-        printf("Invalid input. Please enter a number between 1 and 8.\n");
+        printf("Invalid input. Please enter a number between 1 and 10.\n");
         choice = -1; // Set choice to an invalid value
     } while (isChoiceValid(choice) == -1);
     return 0;
 }
 
 /**
- * @fn displayMenu
+ * @fn showMenu
  * @brief Display the menu options.
  */
-void displayMenu() {
-    printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-    printf("                    MENU\n");
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+void showMenu() {
+    printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("                                  MENU\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     printf("1. LOAD   - Antennas From Input Folder\n");
     printf("2. PRINT  - Antennas\n");
     printf("3. PRINT  - Effect Positions\n");
     printf("4. INSERT - A New Antenna\n");
     printf("5. REMOVE - An Existing Antenna\n");
-    printf("6. SAVE   - Antennas To Output Folder\n");
-    printf("7. SAVE   - Effect Positions To Output Folder\n");
-    printf("8. QUIT   - Unsaved Changes Will Be Lost\n");
-    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("6. SAVE   - (TABLE) Antennas To Output Folder\n");
+    printf("7. SAVE   - (TABLE) Effect Positions To Output Folder\n");
+    printf("8. SAVE   - (DOT MAP) Antennas To Output Folder With Dots\n");
+    printf("9. SAVE   - (DOT MAP) Effect Positions To Output Folder With Dots\n");
+    printf("10. QUIT  - Unsaved Changes Will Be Lost\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 }
 
 /**
- * @fn handleMenuChoice
+ * @fn proceedUserPreference
  *
  * @brief Handle the user's choice from the menu.
  *
@@ -106,7 +108,11 @@ void displayMenu() {
  * \n
  * - case 7: Save effect positions to a file
  * \n
- * - case 8: Exit the program
+ * - case 8: Save antennas to a file with dots
+ * \n
+ * - case 9: Save effect positions to a file with dots
+ * \n
+ * - case 10: Quit the program
  *
  * @note If the user's input is invalid, print an error message.
  *
@@ -114,47 +120,56 @@ void displayMenu() {
  *
  * @return void
  */
-void handleMenuChoice(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList) {
-    char filename[256];
-    char frequency;
-    int row, col;
+void proceedUserPreference(int choice, AntennaNode **antennaList, AntennaEffectNode **effectList) {
+    char fileName[256];
+    char symbol;
+    int coordinateX, coordinateY;
 
     switch (choice) {
         case 1:
-            promptFilename(filename, 1); // Input file
-            loadAndPrintAntennas(filename, antennaList);
+            promptFilename(fileName, 1); // Input file
+            loadAndPrintAntennas(fileName, antennaList);
             break;
         case 2:
-            printAntennas(*antennaList);
+            printAllAntennas(*antennaList);
             break;
         case 3:
             calculateAndPrintEffects(*antennaList, effectList);
             break;
         case 4:
-            printf("Enter frequency, row, and column (0 1 2): ");
-            if (scanf_s(" %c %d %d", &frequency, 1, &row, &col) != 3) {
+            printf("Enter symbol, coordinateX, and column (0 1 2): ");
+            if (scanf_s(" %c %d %d", &symbol, 1, &coordinateX, &coordinateY) != 3) {
                 fprintf(stderr, "Invalid input. Try again.\n");
                 break;
             }
-            insertAntenna(antennaList, frequency, row, col);
+            addNewAntenna(coordinateX, coordinateY, symbol, antennaList);
             break;
         case 5:
-            printf("Enter frequency, row, and column (0 1 2): ");
-            if (scanf_s(" %c %d %d ", &frequency, 1, &row, &col) != 3) {
+            printf("Enter symbol, coordinateX, and column (0 1 2): ");
+            if (scanf_s(" %c %d %d", &symbol, 1, &coordinateX, &coordinateY) != 3) {
                 fprintf(stderr, "Invalid input. Try again.\n");
                 break;
             }
-            removeAntenna(antennaList, row, col, frequency);
+            deleteAntenna(coordinateX, coordinateY, symbol, antennaList);
             break;
         case 6:
-            promptFilename(filename, 0); // Output file
-            saveAntennasToFile(filename, *antennaList);
+            promptFilename(fileName, 0); // Output file
+            saveAntennasToFile(fileName, *antennaList);
             break;
         case 7:
-            promptFilename(filename, 0); // Output file
-            saveAntennaEffectsToFile(filename, *effectList);
+            promptFilename(fileName, 0); // Output file
+            saveAntennaEffectsToFile(fileName, *effectList);
             break;
         case 8:
+            promptFilename(fileName, 0); // Output file
+            saveAntennasToFileWithDots(fileName, *antennaList);
+            break;
+        case 9:
+            promptFilename(fileName, 0); // Output file
+            saveAntennaEffectsToFileWithDots(*effectList, fileName);
+            break;
+        case 10:
+            printf("Exiting the program. Unsaved changes will be lost.\n");
             clearAntennasList(*antennaList);
             clearAntennaEffectsList(*effectList);
             exit(EXIT_SUCCESS);
