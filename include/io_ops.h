@@ -22,4 +22,22 @@ void promptFileSelection(char files[][256], int fileCount, char *selectedFile);
 
 void promptFilename(char *filename, int isInput);
 
+/**
+ * @fn custom_getlines
+ * @brief Custom getline() implementation to read lines from a file.
+ * @param line Pointer to the line buffer.
+ * @param n Pointer to the size of the line buffer.
+ * @param stream File pointer to read from.
+ * @return The length of the line read.
+ */
+size_t custom_getlines(char **line, size_t *n, FILE *stream);
+
+/**
+ * @fn replace_newline
+ * @brief Replace the newline character in a string with a null terminator.
+ * @param str Pointer to the string.
+ * @return The length of the string after replacement.
+ */
+char *replace_newline(const char *str);
+
 #endif //PRACTICALWORK_IO_OPS_H

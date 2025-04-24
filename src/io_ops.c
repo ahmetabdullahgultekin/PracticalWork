@@ -90,3 +90,66 @@ void promptFilename(char *filename, int isInput) {
         }
     }
 }
+
+/**
+ * @fn custom_getlines
+ * @brief Custom getline() implementation to read lines from a file.
+ * @param line Pointer to the line buffer.
+ * @param n Pointer to the size of the line buffer.
+ * @param stream File pointer to read from.
+ * @return The length of the line read.
+ */
+size_t custom_getlines(char **line, size_t *n, FILE *stream) {
+    if (!line || !n || !stream) return -1;
+
+    size_t pos = 0;
+    int c;
+
+    if (*line == NULL || *n == 0) {
+        *n = 128; // Initial buffer size
+        *line = malloc(*n);
+        if (!*line) return -1;
+    }
+
+    while ((c = fgetc(stream)) != EOF) {
+        if (pos + 1 >= *n) {
+            *n *= 2;
+            char *new_ptr = realloc(*line, *n);
+            if (!new_ptr) return -1;
+            *line = new_ptr;
+        }
+        (*line)[pos++] = c;
+        if (c == '\n') break;
+    }
+
+    if (pos == 0 && c == EOF) return -1;
+
+    (*line)[pos] = '\0';
+    return pos;
+}
+
+/**
+ * @fn replace_newline
+ * @brief Replace occurrences of "\n" in a string with actual newline characters.
+ * @param str The input string.
+ * @return A new string with "\n" replaced by newline characters.
+ */
+char *replace_newline(const char *str) {
+    if (!str) return NULL;
+
+    size_t len = strlen(str);
+    char *result = malloc(len + 1); // Allocate memory for the result
+    if (!result) return NULL;
+
+    char *dst = result;
+    for (const char *src = str; *src; ++src) {
+        if (*src == '\\' && *(src + 1) == 'n') {
+            *dst++ = '\n'; // Replace "\n" with a newline character
+            ++src;         // Skip the 'n'
+        } else {
+            *dst++ = *src; // Copy other characters
+        }
+    }
+    *dst = '\0'; // Null-terminate the result
+    return result;
+}

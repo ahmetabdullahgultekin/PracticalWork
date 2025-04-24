@@ -7,6 +7,8 @@
 #ifndef PRACTICALWORK_ANTENNA_H
 #define PRACTICALWORK_ANTENNA_H
 
+#pragma once //the same
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

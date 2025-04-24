@@ -37,6 +37,7 @@
 #include "../include/antenna.h"
 #include "../include/antenna_effect.h"
 #include "../include/menu.h"
+#include "../include/lang.h"
 
 /**
  * @fn main
@@ -48,7 +49,11 @@
  *
  * @return EXIT_FAILURE if there is an error
  */
+/*
 int main() {
+    lang_init("pt");
+    printf("%s", tr(MSG_MENU_TITLE));
+    lang_close();
     // Initialize the linked lists
     AntennaNode *antennaList = NULL;
     AntennaEffectNode *effectList = NULL;
@@ -60,4 +65,4 @@ int main() {
         // Read the user's choice and Handle the user's choice
         proceedUserPreference(requestUserChoice(), &antennaList, &effectList);
     }
-}
+}*/

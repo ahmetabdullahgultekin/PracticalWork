@@ -12,4 +12,9 @@ add_executable(PracticalWork src/main.c
         include/io_ops.h
         src/menu.c
         include/menu.h
+        src/graph.c
+        include/graph.h
+        src/lang.c
+        include/lang.h
+        src/ui.c
 )

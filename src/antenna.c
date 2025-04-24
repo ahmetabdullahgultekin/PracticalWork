@@ -8,7 +8,7 @@
 #include "../include/antenna.h"
 #include "../include/io_ops.h"
 
-/**
+  /**
  * @fn addNewAntenna
  *
  * @brief Insert a new antenna node into the linked list.
@@ -150,7 +150,7 @@ void loadAntennasFromFile(const char *filename, AntennaNode **listHead) {
         for (int col = 0; line[col] != '\0'; col++) {
             // If the character is not '.', consider it as an antenna.
             if (line[col] != '.') {
-                addNewAntenna(row, col, line[col], listHead);
+                 addNewAntenna(row, col, line[col], listHead);
             }
         }
         row++;
