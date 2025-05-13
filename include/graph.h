@@ -43,15 +43,12 @@
  * ------------------------------------------------------------
  */
 
-#ifndef GRAPH_H
-#define GRAPH_H
-
 #include <stddef.h> /* size_t */
 #include <stdint.h> /* int32_t */
 #include <stdbool.h>
 
 /* --------------------------------------------------------- */
-/* Generic status codes shared by all Phase 2 modules        */
+/* Generic status codes shared by all Phase 2 modules        */
 /* --------------------------------------------------------- */
 
 typedef enum {
@@ -59,36 +56,58 @@ typedef enum {
     STATUS_ALLOC,      /* memory allocation failed           */
     STATUS_IO,         /* file or stream error                */
     STATUS_INVALID,    /* invalid argument or corrupt input   */
-    STATUS_NOT_FOUND   /* requested item does not exist       */
+    STATUS_NOT_FOUND,   /* the requested item does not exist       */
+    STATUS_WRITE,      /* write error                        */
+    STATUS_READ,       /* read error                         */
+    STATUS_EMPTY,      /* empty data structure                */
+    STATUS_OVERFLOW,   /* overflow error                     */
+    STATUS_UNDERFLOW,  /* underflow error                    */
+    STATUS_UNSUPPORTED /* unsupported operation              */
 } Status;
 
 /* --------------------------------------------------------- */
 /* Fundamental data types                                    */
 /* --------------------------------------------------------- */
 
+/* --------------------------------------------------------- */
+/* Internal structures and helpers                             */
+/* --------------------------------------------------------- */
+
+typedef struct EdgeNode {
+    size_t dest;            /* index of destination vertex */
+    struct EdgeNode *next;
+} EdgeNode;
+
 typedef struct {
-    char   freq;   /* antenna frequency (printable ASCII) */
+    char freq;   /* antenna frequency (printable ASCII) */
     int32_t row;   /* matrix row index                    */
     int32_t col;   /* matrix column index                 */
 } Vertex;
 
-/* Forward declaration so caller doesn’t see implementation. */
+struct Graph {
+    Vertex *v;            /* dynamic array of vertices           */
+    EdgeNode **adj;         /* array of adjacency lists            */
+    size_t n;            /* current vertex count                */
+    size_t cap;          /* allocated capacity                  */
+};
+
+/* Forward declaration so the caller doesn’t see implementation. */
 typedef struct Graph Graph;
 
 /* Visitor callback used by DFS/BFS traversals. Return value:
-   • STATUS_OK        → continue traversal
+   • STATUS_OK → continue traversal
    • any other Status → traversal aborts and propagates code  */
 typedef Status (*VisitFn)(const Vertex *v, void *ctx);
 
 /* Container for a variable‑length path (sequence of indices) */
 typedef struct {
     size_t *idx;       /* dynamic array of vertex indices */
-    size_t  len;
+    size_t len;
 } Path;
 
 /* Collection of paths (e.g., “all paths between two vertices”) */
 typedef struct {
-    Path  *path;       /* dynamic array */
+    Path *path;       /* dynamic array */
     size_t count;
 } PathSet;
 
@@ -99,8 +118,8 @@ typedef struct {
 } Coord;
 
 typedef struct {
-    Coord  *coord;     /* dynamic array */
-    size_t  count;
+    Coord *coord;     /* dynamic array */
+    size_t count;
 } CoordList;
 
 /* --------------------------------------------------------- */
@@ -113,10 +132,22 @@ Status graph_init(Graph **g, size_t reserve);
 /* Release all internal memory and *g itself; sets *g=NULL.  */
 Status graph_free(Graph **g);
 
+/* Clear all adjacency lists and free their memory.         */
+Status graph_clear_lists(Graph *g);
+
+/* Save the graph to a matrix file.                        */
+Status graph_save_matrix(const Graph *g, const char *path);
+
+/* Insert a vertex into the graph.                           */
+Status graph_insert_vertex(Graph *g, char freq, int row, int col);
+
+/* Remove a vertex from the graph.                           */
+Status graph_remove_vertex(Graph *g, size_t idx);
+
 /* Build a graph from a matrix stored in a text file.        */
 Status graph_from_matrix_file(Graph **g, const char *path);
 
-/* Depth‑first search starting at vertex index start.        */
+/* Depth‑first search starting at the vertex index start.        */
 Status graph_dfs(const Graph *g, size_t start, VisitFn fn, void *ctx);
 
 /* Breadth‑first search starting at vertex index start.      */
@@ -125,7 +156,7 @@ Status graph_bfs(const Graph *g, size_t start, VisitFn fn, void *ctx);
 /* Enumerate ALL simple paths between src and dst.           */
 Status graph_all_paths(const Graph *g, size_t src, size_t dst, PathSet *out);
 
-/* Given two frequencies A & B, return list of coordinate
+/* Given two frequencies A & B, return a list of coordinate
    pairs that are intersections of any antenna with freq A
    and any antenna with freq B (PDF requirement 3.d).        */
 Status graph_intersections(const Graph *g, char freqA, char freqB, CoordList *out);
@@ -141,9 +172,7 @@ size_t custom_getlines(char **line, size_t *n, FILE *stream);
 
 /* Convenience getters (do not expose internals).            */
 size_t graph_vertex_count(const Graph *g);
+
 const Vertex *graph_vertex_at(const Graph *g, size_t idx);
-
-#endif /* GRAPH_H */
-
 
 #endif //PRACTICALWORK_GRAPH_H

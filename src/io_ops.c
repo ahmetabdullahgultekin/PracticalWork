@@ -7,6 +7,7 @@
  * @author Ahmet Abdullah GULTEKIN
  */
 #include "../include/io_ops.h"
+#include "../include/strings.h"
 
 /**
  * @fn getAllFiles
@@ -47,21 +48,21 @@ int getAllFiles(int fileLimit, char files[][256]) {
  * @param fileCount Number of files in the array.
  * @param selectedFile Buffer to store the selected filename.
  */
-void promptFileSelection(char files[][256], int fileCount, char *selectedFile) {
-    printf("\nAvailable files:\n");
+Status promptFileSelection(char files[][256], int fileCount, char *selectedFile) {
+    puts(TR(STR_INFO_PROMPT_AVAILABLE_FILES));
     for (int i = 0; i < fileCount; i++) {
         printf("%d. %s\n", i + 1, files[i]);
     }
 
     int choice;
-    printf("Select a file by number: ");
+    puts(TR(STR_INFO_PROMPT_FILE_CHOICE));
     if (scanf_s("%d", &choice) != 1 || choice < 1 || choice > fileCount) {
-        fprintf(stderr, "Invalid selection. Exiting.\n");
-        exit(EXIT_FAILURE);
+        return STATUS_INVALID;
     }
 
-    // Copy the selected filename to the buffer
-    strncpy_s(selectedFile, 255, files[choice - 1], 255);
+    // Concat the selected filename to the buffer
+    snprintf(selectedFile, 256, "%s%s", INPUT_PATH, files[choice - 1]);
+    //strncpy_s(selectedFile, 255, files[choice - 1], 255);
     selectedFile[255] = '\0';
 }
 
@@ -71,22 +72,25 @@ void promptFileSelection(char files[][256], int fileCount, char *selectedFile) {
  * @param filename The buffer to store the filename.
  * @param isInput A flag indicating whether the file is for input (1) or output (0).
  */
-void promptFilename(char *filename, int isInput) {
+Status promptFilename(char *filename, int isInput) {
     if (isInput) {
         char files[100][256];
         int fileCount = getAllFiles(10, files);
 
         if (fileCount == 0) {
-            printf("No files found in the input directory.\n");
-            exit(EXIT_FAILURE);
+            /*puts(TR(STR_ERR_FILE_NOT_FOUND));*/
+            return STATUS_INVALID;
         }
 
-        promptFileSelection(files, fileCount, filename);
+        if (promptFileSelection(files, fileCount, filename) == STATUS_INVALID) {
+            /*puts(TR(STR_ERR_INVALID_CHOICE));*/
+            return STATUS_INVALID;
+        }
     } else {
-        printf("\nEnter the filename: ");
+        puts(TR(STR_INFO_PROMPT_PATH));
         if (scanf_s("%s", filename, 256) != 1) {
-            fprintf(stderr, "Error reading filename.\n");
-            exit(EXIT_FAILURE);
+            puts(TR(STR_ERR_IO));
+            return STATUS_INVALID;
         }
     }
 }

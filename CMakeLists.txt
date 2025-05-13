@@ -4,17 +4,19 @@ project(PracticalWork C)
 set(CMAKE_C_STANDARD 23)
 
 add_executable(PracticalWork src/main.c
-        src/antenna.c
-        include/antenna.h
+        #[[TODO Uncomment files if needed]]
+        #[[include/antenna.h
         src/antenna_effect.c
-        include/antenna_effect.h
+        include/antenna_effect.h]]
         src/io_ops.c
         include/io_ops.h
-        src/menu.c
-        include/menu.h
+        #[[src/menu.c
+        include/menu.h]]
         src/graph.c
         include/graph.h
-        src/lang.c
-        include/lang.h
         src/ui.c
+        include/ui.h
+        include/strings.h
 )
+
+target_compile_definitions(PracticalWork PRIVATE LANG_TR)

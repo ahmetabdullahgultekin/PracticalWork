@@ -1,4 +1,4 @@
-var searchData=
-[
-  ['summary_0',['Summary',['../index.html',1,'']]]
-];
+var searchData =
+    [
+        ['summary_0', ['Summary', ['../index.html', 1, '']]]
+    ];

@@ -1,43 +1,12 @@
-/**
- * @file main.c
- *
- * @author Ahmet Abdullah GULTEKIN
- * @brief Main file for the antenna effect program.
- *
- * @mainpage Summary
- * \n
- * Advanced Data Structures
- * \n
- * Practical Work - Term Project
- * \n
- * 2024-2025 Fall Semester
- * \n
- * Student ID: 51036
- * \n
- * Ahmet Abdullah GULTEKIN
- * \n \n
- * CMake Minimum Version: 3.30
- * \n
- * C Standard: C23
- * \n
- * IDE: CLion
- * \n \n
- *
- * @details This program reads a matrix from a file, where dots represent empty spaces and characters represent
- * identical antennas. The program then calculates the effect positions.
- * The effect positions are calculated by using the following formulas:
- * \n
- * L1 = (2 * row1 - row2, 2 * col1 - col2)
- * \n
- * L2 = (2 * row2 - row1, 2 * col2 - col1).
- * \n
- * The program also provides the functionality to insert, remove, print antennas and clear the lists.
- */
 
-#include "../include/antenna.h"
-#include "../include/antenna_effect.h"
-#include "../include/menu.h"
-#include "../include/lang.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "../include/strings.h"
+#include "../include/graph.h"
+#include "../include/io_ops.h"
+#include "../include/ui.h"
 
 /**
  * @fn main
@@ -49,11 +18,8 @@
  *
  * @return EXIT_FAILURE if there is an error
  */
-/*
+/* Fase 1 main function
 int main() {
-    lang_init("pt");
-    printf("%s", tr(MSG_MENU_TITLE));
-    lang_close();
     // Initialize the linked lists
     AntennaNode *antennaList = NULL;
     AntennaEffectNode *effectList = NULL;
@@ -66,3 +32,174 @@ int main() {
         proceedUserPreference(requestUserChoice(), &antennaList, &effectList);
     }
 }*/
+
+int main(void) {
+    Graph *g = NULL;
+
+    for (;;) {
+        show_menu();
+        int choice = read_int();
+        if (choice < 0) continue;
+
+        if (choice == 0) {
+            puts(TR(STR_INFO_SUCCESS_QUIT));
+            break;
+        }
+
+        char path[128] = INPUT_PATH;
+        size_t idx1, idx2;
+        char freqA, freqB;
+        PathSet paths;
+        CoordList inters;
+
+        switch (choice) {
+            case 1:
+                promptFilename(path, 1);
+                path[strcspn(path, "\n")] = '\0';
+                if (graph_from_matrix_file(&g, path) == STATUS_OK)
+                    puts(TR(STR_INFO_SUCCESS_LOAD));
+                else
+                    puts(TR(STR_ERR_IO));
+                break;
+
+            case 2: // DFS
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                idx1 = (size_t) read_int();
+                if (graph_dfs(g, idx1, print_vertex, NULL) != STATUS_OK) {
+                    puts(TR(STR_ERR_NOT_IMPLEMENTED));
+                    break;
+                }
+                break;
+
+            case 3: // BFS
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                idx1 = (size_t) read_int();
+                graph_bfs(g, idx1, print_vertex, NULL);
+                break;
+
+            case 4: // All paths
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                printf(TR(STR_INFO_SOURCE_INDEX));
+                idx1 = (size_t) read_int();
+                printf(TR(STR_INFO_DEST_INDEX));
+                idx2 = (size_t) read_int();
+                if (graph_all_paths(g, idx1, idx2, &paths) != STATUS_OK) {
+                    puts(TR(STR_ERR_NOT_IMPLEMENTED));
+                    break;
+                }
+                for (size_t p = 0; p < paths.count; ++p) {
+                    for (size_t s = 0; s < paths.path[p].len; ++s) {
+                        const Vertex *v = graph_vertex_at(g, paths.path[p].idx[s]);
+                        printf("(%d,%d)%s", v->row, v->col, s + 1 == paths.path[p].len ? "" : " -> ");
+                    }
+                    puts("");
+                }
+                // TODO free PathSet helper
+                break;
+
+            case 5: // Intersections
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+
+                // Initialize CoordList
+                inters.coord = NULL;
+                inters.count = 0;
+
+                printf(TR(STR_INFO_FREQUENCY_A));
+                freqA = getchar();
+                while (getchar() != '\n'); // Clear input buffer
+
+                printf(TR(STR_INFO_FREQUENCY_B));
+                freqB = getchar();
+                while (getchar() != '\n'); // Clear input buffer
+
+                // Call graph_intersections and check for errors
+                if (graph_intersections(g, freqA, freqB, &inters) != STATUS_OK) {
+                    puts(TR(STR_ERR_NOT_IMPLEMENTED));
+                    break;
+                }
+
+                // Print intersections
+                for (size_t i = 0; i < inters.count; ++i) {
+                    printf("(%d,%d)\n", inters.coord[i].row, inters.coord[i].col);
+                }
+
+                // Free CoordList resources
+                free(inters.coord);
+                inters.coord = NULL;
+                break;
+            case 6: // Insert
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                idx1 = (size_t) read_int();
+                printf(TR(STR_INFO_FREQUENCY_A));
+                freqA = getchar();
+                while (getchar() != '\n'); // Clear input buffer
+                graph_insert_vertex(g, freqA, idx1, idx2);
+                break;
+            case 7: // Remove
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                idx1 = (size_t) read_int();
+                graph_remove_vertex(g, idx1);
+                break;
+            case 8: // Print antennas
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                for (size_t i = 0; i < g->n; ++i) {
+                    const Vertex *v = graph_vertex_at(g, i);
+                    printf("%c -> (%d,%d)\n", v->freq, v->col, v->row);
+                }
+                break;
+            case 9: // Clear lists
+                if (!g) {
+                    puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
+                    break;
+                }
+                if (graph_clear_lists(g) != STATUS_OK) {
+                    puts(TR(STR_ERR_GRAPH_COULD_NOT_CLEARED));
+                    break;
+                }
+                puts(TR(STR_INFO_LISTS_CLEARED));
+                break;
+            case 10: // Save matrix
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                promptFilename(path, 0);
+                path[strcspn(path, "\n")] = '\0';
+                if (graph_save_matrix(g, path) == STATUS_OK)
+                    puts(TR(STR_INFO_SUCCESS_SAVE));
+                else
+                    puts(TR(STR_ERR_IO));
+                break;
+            default:
+                puts(TR(STR_ERR_INVALID_CHOICE));
+        }
+    }
+
+    graph_free(&g);
+    return 0;
+}

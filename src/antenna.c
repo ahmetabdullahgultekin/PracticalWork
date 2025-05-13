@@ -8,17 +8,17 @@
 #include "../include/antenna.h"
 #include "../include/io_ops.h"
 
-  /**
- * @fn addNewAntenna
- *
- * @brief Insert a new antenna node into the linked list.
- *
- * @param listHead The listHead of the linked list
- * @param symbol The symbol of the antenna
- * @param coordinateX The coordinateX of the antenna
- * @param coordinateY The column of the antenna
- * @return The newly created node
- */
+/**
+* @fn addNewAntenna
+*
+* @brief Insert a new antenna node into the linked list.
+*
+* @param listHead The listHead of the linked list
+* @param symbol The symbol of the antenna
+* @param coordinateX The coordinateX of the antenna
+* @param coordinateY The column of the antenna
+* @return The newly created node
+*/
 AntennaNode *addNewAntenna(int coordinateX, int coordinateY, char symbol, AntennaNode **listHead) {
 
     // Create a new node and allocate memory for it
@@ -150,7 +150,7 @@ void loadAntennasFromFile(const char *filename, AntennaNode **listHead) {
         for (int col = 0; line[col] != '\0'; col++) {
             // If the character is not '.', consider it as an antenna.
             if (line[col] != '.') {
-                 addNewAntenna(row, col, line[col], listHead);
+                addNewAntenna(row, col, line[col], listHead);
             }
         }
         row++;

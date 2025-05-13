@@ -12,15 +12,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <Windows.h>
+#include "../include/graph.h"
 
 #define INPUT_PATH "../input/"
 #define OUTPUT_PATH "../output/"
 
 int getAllFiles(int fileLimit, char files[][256]);
 
-void promptFileSelection(char files[][256], int fileCount, char *selectedFile);
+Status promptFileSelection(char files[][256], int fileCount, char *selectedFile);
 
-void promptFilename(char *filename, int isInput);
+Status promptFilename(char *filename, int isInput);
 
 /**
  * @fn custom_getlines

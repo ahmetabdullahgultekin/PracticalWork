@@ -1,10 +1,21 @@
 {
-  "MSG_MENU_TITLE": "============================\n        MENU PRINCIPAL\n============================\n",
+  "MSG_MENU_TITLE": "============================\\n        MENU PRINCIPAL\\n============================\\n",
   "MSG_PROMPT_CHOICE": "Escolha (1-10): ",
-  "ERR_IO": "Erro E/S – não foi possível abrir o ficheiro\n",
-  "ERR_MEM": "Falha de memória\n",
-  "SUCCESS_LOAD": "Matriz carregada com sucesso\n",
-  "SUCCESS_QUIT": "Adeus!\n",
-  "MSG_MENU_OPTIONS": "1. Carregar Matriz\n2. Imprimir Matriz\n3. Multiplicar Matriz\n4. Somar Matriz\n5. Subtrair Matriz\n6. Transpor Matriz\n7. Inverter Matriz\n8. Operar com Elementos da Matriz\n9. Trocar Elementos da Matriz\n10. Sair\n",
-  "MSG_MATRIX_LOADED": "Matriz carregada com sucesso\n"
+  "ERR_IO": "Erro E/S – não foi possível abrir o ficheiro\\n",
+  "ERR_MEM": "Falha de memória\\n",
+  "SUCCESS_LOAD": "Matriz carregada com sucesso\\n",
+  "SUCCESS_QUIT": "Adeus!\\n",
+  "MSG_MENU_OPTIONS": [
+    "1. Carregar matriz\\n",
+    "2. Mostrar matriz\\n",
+    "3. Transpor matriz\\n",
+    "4. Multiplicar matriz por escalar\\n",
+    "5. Somar matrizes\\n",
+    "6. Multiplicar matrizes\\n",
+    "7. Calcular determinante\\n",
+    "8. Calcular inversa\\n",
+    "9. Sair\\n",
+    "10. Limpar e sair\\n"
+  ],
+  "MSG_MATRIX_LOADED": "Matriz carregada com sucesso\\n"
 }
