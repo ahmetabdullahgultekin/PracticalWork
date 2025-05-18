@@ -49,13 +49,13 @@ int getAllFiles(int fileLimit, char files[][256]) {
  * @param selectedFile Buffer to store the selected filename.
  */
 Status promptFileSelection(char files[][256], int fileCount, char *selectedFile) {
-    puts(TR(STR_INFO_PROMPT_AVAILABLE_FILES));
+    printf("\n%s", TR(STR_INFO_PROMPT_AVAILABLE_FILES));
     for (int i = 0; i < fileCount; i++) {
-        printf("%d. %s\n", i + 1, files[i]);
+        printf("\n[%d] -> %s", i + 1, files[i]);
     }
 
     int choice;
-    puts(TR(STR_INFO_PROMPT_FILE_CHOICE));
+    printf("\n\n%s [1,%d]: ", TR(STR_INFO_PROMPT_FILE_CHOICE), fileCount);
     if (scanf_s("%d", &choice) != 1 || choice < 1 || choice > fileCount) {
         return STATUS_INVALID;
     }
@@ -64,6 +64,8 @@ Status promptFileSelection(char files[][256], int fileCount, char *selectedFile)
     snprintf(selectedFile, 256, "%s%s", INPUT_PATH, files[choice - 1]);
     //strncpy_s(selectedFile, 255, files[choice - 1], 255);
     selectedFile[255] = '\0';
+
+    return STATUS_OK;
 }
 
 /**
@@ -86,12 +88,15 @@ Status promptFilename(char *filename, int isInput) {
             /*puts(TR(STR_ERR_INVALID_CHOICE));*/
             return STATUS_INVALID;
         }
+
+        return STATUS_OK;
     } else {
         puts(TR(STR_INFO_PROMPT_PATH));
         if (scanf_s("%s", filename, 256) != 1) {
             puts(TR(STR_ERR_IO));
             return STATUS_INVALID;
         }
+        return STATUS_OK;
     }
 }
 

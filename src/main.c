@@ -33,6 +33,16 @@ int main() {
     }
 }*/
 
+/**
+ * @fn main
+ *
+ * @brief Main function for the antenna program.
+ * Start an infinite loop to display the menu, read the user's choice, and handle the choice.
+ *
+ * @return  0 if the program exits successfully
+ *
+ * @return EXIT_FAILURE if there is an error
+ */
 int main(void) {
     Graph *g = NULL;
 
@@ -67,7 +77,7 @@ int main(void) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
-                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                printf("\n%s [0-%zu]:", TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
                 idx1 = (size_t) read_int();
                 if (graph_dfs(g, idx1, print_vertex, NULL) != STATUS_OK) {
                     puts(TR(STR_ERR_NOT_IMPLEMENTED));
@@ -80,7 +90,7 @@ int main(void) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
-                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                printf("\n%s [0-%zu]:", TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
                 idx1 = (size_t) read_int();
                 graph_bfs(g, idx1, print_vertex, NULL);
                 break;
@@ -90,18 +100,32 @@ int main(void) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
-                printf(TR(STR_INFO_SOURCE_INDEX));
+                printf("\n%s [0-%zu]:", TR(STR_INFO_SOURCE_INDEX), graph_vertex_count(g) - 1);
                 idx1 = (size_t) read_int();
-                printf(TR(STR_INFO_DEST_INDEX));
+                printf("\n%s [0-%zu]:", TR(STR_INFO_DEST_INDEX), graph_vertex_count(g) - 1);
                 idx2 = (size_t) read_int();
+
+                // Check if frequencies are equal
+                if (graph_vertex_at(g, idx1)->freq != graph_vertex_at(g, idx2)->freq) {
+                    puts(TR(STR_ERR_FREQUENCY_NOT_EQUAL));
+                    break;
+                }
+
                 if (graph_all_paths(g, idx1, idx2, &paths) != STATUS_OK) {
                     puts(TR(STR_ERR_NOT_IMPLEMENTED));
                     break;
                 }
+
+                printf("\n%s:", TR(STR_INFO_PATHS_FOUND));
+                // Print paths
                 for (size_t p = 0; p < paths.count; ++p) {
+                    printf("\n%zu. %s\n", p + 1, TR(STR_INFO_PATH));
                     for (size_t s = 0; s < paths.path[p].len; ++s) {
                         const Vertex *v = graph_vertex_at(g, paths.path[p].idx[s]);
-                        printf("(%d,%d)%s", v->row, v->col, s + 1 == paths.path[p].len ? "" : " -> ");
+                        printf("%s %zu | %s %c | %s (%d,%d)\n",
+                               TR(STR_INFO_INDEX), paths.path[p].idx[s],
+                               TR(STR_INFO_FREQUENCY), v->freq,
+                               TR(STR_INFO_COORDINATES), v->col, v->row);
                     }
                     puts("");
                 }
@@ -118,11 +142,11 @@ int main(void) {
                 inters.coord = NULL;
                 inters.count = 0;
 
-                printf(TR(STR_INFO_FREQUENCY_A));
+                printf("\n%s", TR(STR_INFO_FREQUENCY_A));
                 freqA = getchar();
                 while (getchar() != '\n'); // Clear input buffer
 
-                printf(TR(STR_INFO_FREQUENCY_B));
+                printf("\n%s", TR(STR_INFO_FREQUENCY_B));
                 freqB = getchar();
                 while (getchar() != '\n'); // Clear input buffer
 
@@ -132,28 +156,69 @@ int main(void) {
                     break;
                 }
 
-                // Print intersections
-                for (size_t i = 0; i < inters.count; ++i) {
-                    printf("(%d,%d)\n", inters.coord[i].row, inters.coord[i].col);
+                // Check if intersections were found
+                if (inters.count == 0) {
+                    printf("\n%s", TR(STR_ERR_INTERSECTIONS_NOT_FOUND));
+                    goto endIntersections;
                 }
 
+                // Print intersections
+                for (size_t i = 0; i < inters.count; ++i) {
+                    printf("\n(%d,%d)", inters.coord[i].row, inters.coord[i].col);
+                }
+
+            endIntersections:
                 // Free CoordList resources
                 free(inters.coord);
                 inters.coord = NULL;
                 break;
-            case 6: // Insert
+            case 6: // Danger overlaps
+                if (!g) {
+                    puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
+                    break;
+                }
+                printf("\n%s", TR(STR_INFO_FREQUENCY_A));
+                freqA = getchar();
+                while (getchar() != '\n'); // Clear input buffer
+
+                printf("\n%s", TR(STR_INFO_FREQUENCY_B));
+                freqB = getchar();
+                while (getchar() != '\n'); // Clear input buffer
+
+                if (graph_danger_overlaps(g, freqA, freqB, &inters) != STATUS_OK) {
+                    puts(TR(STR_ERR_NOT_IMPLEMENTED));
+                    break;
+                }
+
+                if (inters.count == 0) {
+                    printf("\n%s", TR(STR_ERR_INTERSECTIONS_NOT_FOUND));
+                    goto endOverlaps;
+                }
+
+                printf("\n%s:", TR(STR_INFO_PATHS_FOUND));
+
+                for (size_t i = 0; i < inters.count; ++i) {
+                    printf("(%d,%d)\n", inters.coord[i].row, inters.coord[i].col);
+                }
+
+
+            endOverlaps:
+                free(inters.coord);
+                inters.coord = NULL;
+                break;
+            case 7: // Insert
                 if (!g) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
                 printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
                 idx1 = (size_t) read_int();
-                printf(TR(STR_INFO_FREQUENCY_A));
+                printf("\n%s", TR(STR_INFO_FREQUENCY_A));
                 freqA = getchar();
                 while (getchar() != '\n'); // Clear input buffer
                 graph_insert_vertex(g, freqA, idx1, idx2);
                 break;
-            case 7: // Remove
+            case 8: // Remove
                 if (!g) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
@@ -162,17 +227,20 @@ int main(void) {
                 idx1 = (size_t) read_int();
                 graph_remove_vertex(g, idx1);
                 break;
-            case 8: // Print antennas
+            case 9: // Print antennas
                 if (!g) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
                 for (size_t i = 0; i < g->n; ++i) {
                     const Vertex *v = graph_vertex_at(g, i);
-                    printf("%c -> (%d,%d)\n", v->freq, v->col, v->row);
+                    printf("\n%s %zu | %s %c | %s (%d,%d)",
+                           TR(STR_INFO_INDEX), i,
+                           TR(STR_INFO_FREQUENCY), v->freq,
+                           TR(STR_INFO_COORDINATES), v->col, v->row);
                 }
                 break;
-            case 9: // Clear lists
+            case 10: // Clear lists
                 if (!g) {
                     puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
                     break;
@@ -183,7 +251,7 @@ int main(void) {
                 }
                 puts(TR(STR_INFO_LISTS_CLEARED));
                 break;
-            case 10: // Save matrix
+            case 11: // Save matrix
                 if (!g) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;

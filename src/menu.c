@@ -3,6 +3,10 @@
  * @brief Implementation of Menu system for the antenna effect program.
  * @author Ahmet Abdullah GULTEKIN
  * @date 2025-03-30
+ *
+ * @deprecated This file is deprecated and will be removed in future versions.
+ * @warning This file is deprecated and will be removed in future versions.
+ * @note This file is deprecated and will be removed in future versions.
  */
 
 #include "../include/menu.h"

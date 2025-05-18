@@ -27,29 +27,20 @@
 
 #pragma once //the same
 
-/**
- * graph.h – Phase 2 (Graph‑based solution)
- * ------------------------------------------------------------
- *  This header contains the public API for the GR (graph) data
- *  structure used in Phase 2.  All functions are pure business
- *  logic: no direct console I/O; they return a Status code so
- *  callers can react or propagate errors.  See docs/GRAPH.md for
- *  usage examples.
- *
- *  Differences vs Phase 1:
- *    • No printf() here – that lives in ui.c only.
- *    • All functions return Status (never void).
- *    • Single‑responsibility: one clear job each.
- * ------------------------------------------------------------
- */
-
 #include <stddef.h> /* size_t */
 #include <stdint.h> /* int32_t */
 #include <stdbool.h>
 
-/* --------------------------------------------------------- */
-/* Generic status codes shared by all Phase 2 modules        */
-/* --------------------------------------------------------- */
+/**
+ * @struct Status
+ *
+ * @brief Status codes for various operations.
+
+ * These status codes are used to indicate the success or failure
+ * of various operations performed on the graph data structure.
+ * Each status code corresponds to a specific type of error or
+ * condition that may occur during the operation.
+ */
 
 typedef enum {
     STATUS_OK = 0,
@@ -65,114 +56,257 @@ typedef enum {
     STATUS_UNSUPPORTED /* unsupported operation              */
 } Status;
 
-/* --------------------------------------------------------- */
-/* Fundamental data types                                    */
-/* --------------------------------------------------------- */
-
-/* --------------------------------------------------------- */
-/* Internal structures and helpers                             */
-/* --------------------------------------------------------- */
-
+/**
+ * @struct EdgeNode
+ *
+ * @brief EdgeNode structure representing an edge in the graph.
+ * Each edge is represented as a linked list node
+ * pointing to the destination vertex.
+ *
+ */
 typedef struct EdgeNode {
     size_t dest;            /* index of destination vertex */
     struct EdgeNode *next;
 } EdgeNode;
 
+/**
+ * @struct Vertex
+ *
+ * @brief Vertex structure representing a vertex in the graph.
+ * Each vertex contains a frequency,
+ * row index, and column index.
+ */
 typedef struct {
     char freq;   /* antenna frequency (printable ASCII) */
     int32_t row;   /* matrix row index                    */
     int32_t col;   /* matrix column index                 */
 } Vertex;
 
+/**
+ * @struct Graph
+ *
+ * @brief Graph structure representing a graph.
+ * It contains an array of vertices,
+ * an array of adjacency lists,
+ * and the current vertex count.
+ */
 struct Graph {
-    Vertex *v;            /* dynamic array of vertices           */
-    EdgeNode **adj;         /* array of adjacency lists            */
+    Vertex *v;           /* dynamic array of vertices           */
+    EdgeNode **adj;      /* array of adjacency lists            */
     size_t n;            /* current vertex count                */
     size_t cap;          /* allocated capacity                  */
 };
 
-/* Forward declaration so the caller doesn’t see implementation. */
+/**
+ * Forward declaration of the Graph structure for use in function prototypes.
+ */
 typedef struct Graph Graph;
 
-/* Visitor callback used by DFS/BFS traversals. Return value:
-   • STATUS_OK → continue traversal
-   • any other Status → traversal aborts and propagates code  */
+/**
+ * Function pointer type for visiting vertices during traversal.
+ * The function should return a Status code indicating success or failure.
+ */
 typedef Status (*VisitFn)(const Vertex *v, void *ctx);
 
-/* Container for a variable‑length path (sequence of indices) */
+/**
+ * @struct Path
+ *
+ * @brief Path structure representing a path in the graph.
+ * It contains an array of vertex indices
+ * and the length of the path.
+ */
 typedef struct {
     size_t *idx;       /* dynamic array of vertex indices */
     size_t len;
 } Path;
 
-/* Collection of paths (e.g., “all paths between two vertices”) */
+/**
+ * @struct PathSet
+ *
+ * @brief PathSet structure representing a set of paths.
+ * It contains a dynamic array of paths
+ * and the count of paths.
+ */
 typedef struct {
     Path *path;       /* dynamic array */
     size_t count;
 } PathSet;
 
-/* Helper for intersection results (row, col pairs) */
+/**
+ * @struct Coord
+ *
+ * @brief Coord structure representing a coordinate in the graph.
+ * It contains row and column indices.
+ */
 typedef struct {
     int32_t row;
     int32_t col;
 } Coord;
 
+/**
+ * @struct CoordList
+ *
+ * @brief CoordList structure representing a list of coordinates.
+ * It contains a dynamic array of coordinates
+ * and the count of coordinates.
+ */
 typedef struct {
     Coord *coord;     /* dynamic array */
     size_t count;
 } CoordList;
 
-/* --------------------------------------------------------- */
-/* Public API                                                */
-/* --------------------------------------------------------- */
-
-/* Allocate an empty graph with a reserve capacity.          */
+/**
+ * @brief Initialize a graph with a given capacity.
+ * @param g Pointer to the graph to be initialized.
+ * @param reserve Initial capacity of the graph.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_init(Graph **g, size_t reserve);
 
-/* Release all internal memory and *g itself; sets *g=NULL.  */
+/**
+ * @brief Free the graph and its resources.
+ * @param g Pointer to the graph to be freed.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_free(Graph **g);
 
-/* Clear all adjacency lists and free their memory.         */
+/**
+ * @brief Clear the adjacency lists of the graph.
+ * @param g Pointer to the graph to be cleared.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_clear_lists(Graph *g);
 
-/* Save the graph to a matrix file.                        */
+/**
+ * @brief Save the graph to a file.
+ * @param g Pointer to the graph to be saved.
+ * @param path Path to the file where the graph will be saved.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_save_matrix(const Graph *g, const char *path);
 
-/* Insert a vertex into the graph.                           */
+/**
+ * @brief Insert a vertex into the graph.
+ * @param g Pointer to the graph.
+ * @param freq Frequency of the vertex.
+ * @param row Row index of the vertex.
+ * @param col Column index of the vertex.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_insert_vertex(Graph *g, char freq, int row, int col);
 
-/* Remove a vertex from the graph.                           */
+/**
+ * @brief Remove a vertex from the graph.
+ * @param g Pointer to the graph.
+ * @param idx Index of the vertex to be removed.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_remove_vertex(Graph *g, size_t idx);
 
-/* Build a graph from a matrix stored in a text file.        */
+/**
+ * @brief Load a graph from a matrix file.
+ * @param g Pointer to the graph to be loaded.
+ * @param path Path to the matrix file.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_from_matrix_file(Graph **g, const char *path);
 
-/* Depth‑first search starting at the vertex index start.        */
+/**
+ * @brief Depth-first search starting at vertex index start.
+ * @param g Pointer to the graph.
+ * @param start Starting vertex index.
+ * @param fn Function to be called for each visited vertex.
+ * @param ctx Context pointer to be passed to the function.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_dfs(const Graph *g, size_t start, VisitFn fn, void *ctx);
 
-/* Breadth‑first search starting at vertex index start.      */
+/**
+ * @brief Breadth-first search starting at vertex index start.
+ * @param g Pointer to the graph.
+ * @param start Starting vertex index.
+ * @param fn Function to be called for each visited vertex.
+ * @param ctx Context pointer to be passed to the function.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_bfs(const Graph *g, size_t start, VisitFn fn, void *ctx);
 
-/* Enumerate ALL simple paths between src and dst.           */
+/**
+ * @brief Find all paths from src to dst in the graph.
+ * @param g Pointer to the graph.
+ * @param src Source vertex index.
+ * @param dst Destination vertex index.
+ * @param out Pointer to the PathSet to store the found paths.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_all_paths(const Graph *g, size_t src, size_t dst, PathSet *out);
 
-/* Given two frequencies A & B, return a list of coordinate
-   pairs that are intersections of any antenna with freq A
-   and any antenna with freq B (PDF requirement 3.d).        */
+/**
+ * @brief Find all intersections between two frequencies in the graph.
+ * @param g Pointer to the graph.
+ * @param freqA First frequency.
+ * @param freqB Second frequency.
+ * @param out Pointer to the CoordList to store the intersections.
+ *
+ * @return Status code indicating success or failure.
+ */
 Status graph_intersections(const Graph *g, char freqA, char freqB, CoordList *out);
 
-/*
- * Custom getline() implementation to read lines from a file.
- * This function dynamically allocates memory for the line
- * and resizes it as needed.
- * Returns the length of the line read.
+/**
+ * @brief Find all dangerous points for a given frequency.
+ * @param g Pointer to the graph.
+ * @param freq Frequency to check for dangerous points.
+ * @param danger Pointer to the CoordList to store the dangerous points.
+ * @param count Pointer to store the count of dangerous points.
+ */
+static void compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count);
+
+/**
+ * @brief Find all dangerous point intersections between two frequencies.
+ * @param g Pointer to the graph.
+ * @param freqA First frequency.
+ * @param freqB Second frequency.
+ * @param out Pointer to the CoordList to store the intersections.
  *
+ * @return Status code indicating success or failure.
+ */
+Status graph_danger_overlaps(const Graph *g, char freqA, char freqB, CoordList *out);
+
+/**
+ * @brief Custom getline() implementation to read lines from a file.
+ * @param line Pointer to the line buffer.
+ * @param n Pointer to the size of the line buffer.
+ * @param stream File pointer to read from.
+ *
+ * @return The length of the line read.
  */
 size_t custom_getlines(char **line, size_t *n, FILE *stream);
 
-/* Convenience getters (do not expose internals).            */
+/**
+ * @brief Replace occurrences of "\n" in a string with actual newline characters.
+ * @param str The input string.
+ *
+ * @return A new string with "\n" replaced by newline characters.
+ */
 size_t graph_vertex_count(const Graph *g);
 
+/**
+ * @brief Get the vertex at a specific index in the graph.
+ * @param g Pointer to the graph.
+ * @param idx Index of the vertex to retrieve.
+ *
+ * @return Pointer to the Vertex structure at the specified index.
+ */
 const Vertex *graph_vertex_at(const Graph *g, size_t idx);
 
 #endif //PRACTICALWORK_GRAPH_H

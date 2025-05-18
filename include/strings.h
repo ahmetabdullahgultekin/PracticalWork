@@ -1,21 +1,34 @@
 #ifndef PRACTICALWORK_STRINGS_H
 #define PRACTICALWORK_STRINGS_H
 
-/** strings.h – compile-time language table
- *
- *   Pass -DLANG_EN or -DLANG_PT or -DLANG_TR when you compile.
- *   Default is English if no macro is supplied.
+/**
+ * @file strings.h
+ * @brief Header file for string constants used in the program.
+ * @author Ahmet Abdullah GULTEKIN
+ * @date 2025-05-18
  */
 
-/** ---------- message indexes (keep in sync across langs) ---------- */
+/**
+ * @enum STR
+ * @brief Enumeration of string constants used in the program.
+ * @details This enumeration defines the string constants used in the program.
+ *          The strings are used for displaying messages to the user and for
+ *          error handling. The strings are defined in different languages
+ *          (English, Portuguese, Turkish) based on the compilation flags.
+ */
 enum {
     STR_INFO_MENU_TITLE = 0,
     STR_INFO_MENU_OPTIONS,
     STR_INFO_PROMPT_CHOICE,
+    STR_INFO_INDEX,
+    STR_INFO_FREQUENCY,
+    STR_INFO_COORDINATES,
     STR_INFO_SUCCESS_LOAD,
     STR_INFO_SUCCESS_SAVE,
     STR_INFO_SUCCESS_QUIT,
     STR_INFO_PROMPT_PATH,
+    STR_INFO_PATH,
+    STR_INFO_PATHS_FOUND,
     STR_INFO_VERTEX_INDEX,
     STR_INFO_SOURCE_INDEX,
     STR_INFO_DEST_INDEX,
@@ -31,36 +44,68 @@ enum {
     STR_ERR_FILE_NOT_LOADED,
     STR_ERR_NOT_IMPLEMENTED,
     STR_ERR_INVALID_CHOICE,
+    STR_ERR_FREQUENCY_NOT_EQUAL,
+    STR_ERR_INTERSECTIONS_NOT_FOUND,
     STR_COUNT               /* number of strings */
 };
 
 /**
- * strings.h – compile‑time dictionary (ASCII‑only)
- * --------------------------------------------------
- *  Select language at build time with
- *      -DLANG_PT   -DLANG_TR   (default is English)
- *  All text has been stripped of 8‑bit/Unicode characters so the
- *  source remains pure 7‑bit ASCII and safe for any compiler/terminal.
- */
-
-/** --------------------------------------------------
-*  Portuguese (LANG_PT) – ASCII transliteration
-* -------------------------------------------------- */
+ * @brief String constants for different languages.
+    * @details The strings are defined in different languages (English, Portuguese, Turkish)
+    * based on the compilation flags. The strings are used for displaying messages to the user
+    * and for error handling.
+    *
+    * @note The strings are defined in the following languages:
+    * - LANG_EN: English (default)
+    * - LANG_PT: Portuguese
+    * - LANG_TR: Turkish
+    *
+    * @warning The strings are defined in different languages based on the compilation flags.
+    * Make sure to define the appropriate language flag before compiling the program.
+    * @see STR_INFO_MENU_TITLE, STR_INFO_MENU_OPTIONS, STR_INFO_PROMPT_CHOICE, STR_INFO_INDEX,
+    * STR_INFO_FREQUENCY, STR_INFO_COORDINATES, STR_INFO_SUCCESS_LOAD,
+    * STR_INFO_SUCCESS_SAVE, STR_INFO_SUCCESS_QUIT,
+    * STR_INFO_PROMPT_PATH, STR_INFO_PATH,
+    * STR_INFO_PATHS_FOUND, STR_INFO_VERTEX_INDEX,
+    * STR_INFO_SOURCE_INDEX, STR_INFO_DEST_INDEX,
+    * STR_INFO_FREQUENCY_A, STR_INFO_FREQUENCY_B,
+    * STR_INFO_PROMPT_AVAILABLE_FILES,
+    * STR_INFO_PROMPT_FILE_CHOICE,
+    * STR_INFO_LISTS_CLEARED,
+    * STR_ERR_IO,
+    * STR_ERR_GRAPH_COULD_NOT_FIND,
+    * STR_ERR_GRAPH_COULD_NOT_CLEARED,
+    * STR_ERR_FILE_NOT_FOUND,
+    * STR_ERR_FILE_NOT_LOADED,
+    * STR_ERR_NOT_IMPLEMENTED,
+    * STR_ERR_INVALID_CHOICE,
+    * STR_ERR_FREQUENCY_NOT_EQUAL,
+    * STR_ERR_INTERSECTIONS_NOT_FOUND
+    * @see STR_COUNT
+    * @note The strings are used for displaying messages to the user and for error handling.
+    */
 #if defined(LANG_PT)
 static const char *const STR[STR_COUNT] = {
-        "\n============================\n       MENU PRINCIPAL\n============================\n",
-        "1. Carregar matriz\n2. DFS\n3. BFS\n4. Intersecoes\n5. Inserir\n6. Remover\n7. Imprimir antenas\n8. Limpar listas\n9. Salvar matriz\n0. Sair\n",
-        "Escolha (0-10): ",
+        "\n============================\n         MENU PRINCIPAL\n============================\n",
+        "1. Carregar matriz\n2. Busca em profundidade (DFS)\n3. Busca em largura (BFS)"
+        "\n4. Todos os caminhos\n5. Interseccao de frequencias\n6. Interseccao de pontos perigosos"
+        "\n7. Inserir\n8. Remover\n9. Imprimir antenas\n10. Limpar listas\n11. Salvar matriz\n0. Sair\n",
+        "Escolha uma opcao",
+        "Indice: ",
+        "Frequencia: ",
+        "Coordenadas (x,y): ",
         "Matriz carregada com sucesso\n",
-        "Matriz salva com sucesso!\n",
+        "\nMatriz salva com sucesso!\n",
         "Adeus!\n",
         "Caminho do ficheiro: ",
-        "Indice do vertice: ",
-        "Indice de origem: ",
-        "Indice de destino: ",
+        "Caminho",
+        "Todos os caminhos encontrados",
+        "Indice do vertice",
+        "Indice de origem",
+        "Indice de destino",
         "Frequencia A: ",
         "Frequencia B: ",
-        "Ficheiros disponiveis:",
+        "Ficheiros disponiveis",
         "Escolha um ficheiro pelo numero: ",
         "Listas limpas com sucesso.\n",
         "Erro E/S - nao foi possivel abrir o ficheiro\n",
@@ -69,28 +114,40 @@ static const char *const STR[STR_COUNT] = {
         "Erro - ficheiro nao encontrado\n",
         "Erro - ficheiro nao carregado\n",
         "Erro - funcionalidade nao implementada\n",
-        "Opcao invalida, tente novamente\n"
+        "Opcao invalida, tente novamente\n",
+        "Frequencias diferentes, tente novamente.\n",
+        "Interseccao nao encontrada.\n"
 };
 
-/** --------------------------------------------------
-*  Turkish (LANG_TR) – ASCII transliteration
-* -------------------------------------------------- */
+/**
+ * @brief String constants for Turkish language.
+ * @details The strings are defined in Turkish language.
+ * The strings are used for displaying messages to the user
+ * and for error handling.
+ */
 #elif defined(LANG_TR)
 static const char *const STR[STR_COUNT] = {
-        "\n============================\n       ANA MENU\n============================\n",
-        "1. Matris yukle\n2. DFS\n3. BFS\n4. Tum Rotalar\n5. Kesisimler\n6. Ekle\n7. Sil\n8. Antenleri yazdir\n9. Listeyi temizle\n10. Matris kaydet\n0. Cikis\n",
-        "Seciminizi giriniz (0-10): ",
-        "Matris basariyla yuklendi!",
+        "\n============================\n          ANA MENU\n============================\n",
+        "1. Matris yukle\n2. Derinlik Onceli Arama (DFS)\n3. Genislik Onceli Arama (BFS)"
+        "\n4. Tum Rotalar\n5. Frekans Kesismeleri\n6. Zararli Nokta Kesismeleri"
+        "\n7. Ekle\n8. Cikar\n9. Antenleri Yazdir\n10. Listeyi Temizle\n11. Matris Kaydet\n0. Cikis\n",
+        "Seciminizi giriniz",
+        "Indeks: ",
+        "Frekans: ",
+        "Koordinatlar (x,y): ",
+        "\nMatris basariyla yuklendi!",
         "Matris basariyla kaydedildi!\n",
         "Hosca kal!\n",
         "Dosya yolu giriniz: ",
-        "Dugum indeksi giriniz: ",
-        "Kaynak indeksi giriniz: ",
-        "Hedef indeksi giriniz: ",
+        "Yol",
+        "Bulunan Tum Yollar",
+        "Dugum indeksi giriniz",
+        "Kaynak indeksi giriniz",
+        "Hedef indeksi giriniz",
         "Frekans A giriniz: ",
         "Frekans B giriniz: ",
         "Bulunan dosyalar:",
-        "Dosya numarasini seciniz: ",
+        "Dosya numarasini seciniz",
         "Listeler basariyla temizlendi.\n",
         "G/C hatasi - dosya acilamadi!\n",
         "Hata - graf bulunamadi.\n",
@@ -98,27 +155,39 @@ static const char *const STR[STR_COUNT] = {
         "Hata - dosya bulunamadi.\n",
         "Hata - dosya yuklu degil.\n",
         "Hata - ozellik uygulanamadi.\n",
-        "Gecersiz secim, tekrar deneyiniz.\n"
+        "Gecersiz secim, tekrar deneyiniz.\n",
+        "Frekanslar esit degil, lutfen tekrar deneyin.\n",
+        "Kesisim bulunamadi.\n"
 };
 
-/** --------------------------------------------------
-*  English default
-* -------------------------------------------------- */
+/**
+ * @brief String constants for English language.
+ * @details The strings are defined in English language.
+ * The strings are used for displaying messages to the user
+ * and for error handling.
+ */
 #else /* LANG_EN (default) */
 static const char *const STR[STR_COUNT] = {
-    "\n============================\n       MAIN MENU\n============================\n",
-    "1. Load matrix\n2. DFS\n3. BFS\n4. All paths\n5. Intersections\n6. Insert\n7. Remove\n8. Print antennas\n9. Clear lists\n10. Save matrix\n0. Quit\n",
-    "Enter your choice (0-10): ",
-    "Matrix loaded successfully\n",
+    "\n============================\n         MAIN MENU\n============================\n",
+    "1. Load matrix\n2. Depth-First Search (DFS)\n3. Breadth-First Search (BFS)"
+    "\n4. All Paths\n5. Frequency Intersections\n6. Danger Point Intersections"
+    "\n7. Insert\n8. Remove\n9. Print antennas\n10. Clear lists\n11. Save matrix\n0. Quit\n",
+    "Enter your choice",
+    "Index: ",
+    "Frequency: ",
+    "Coordinates (x,y): ",
+    "\nMatrix loaded successfully\n",
     "Matrix saved successfully!\n",
     "Good-bye!\n",
     "Enter file path: ",
-    "Enter vertex index: ",
-    "Enter source index: ",
-    "Enter destination index: ",
+    "Path",
+    "All paths found",
+    "Enter vertex index",
+    "Enter source index",
+    "Enter destination index",
     "Enter frequency A: ",
     "Enter frequency B: ",
-    "Available files:",
+    "Available files",
     "Select a file by number: ",
     "Lists cleared successfully.\n",
     "I/O error - cannot open file\n",
@@ -127,10 +196,17 @@ static const char *const STR[STR_COUNT] = {
     "Error - file not found\n",
     "Error - no file loaded\n",
     "Error - feature not implemented\n",
-    "Invalid choice, try again\n"
+    "Invalid choice, try again\n",
+    "Frequencies are not equal, please try again.\n",
+    "Intersections not found.\n"
 };
 #endif
 
+/**
+ * @brief Macro to convert enum value to string.
+ * @param id The enum value to convert.
+ * @return The string representation of the enum value.
+ */
 #define TR(id) (STR[(id)])
 
 #endif // PRACTICALWORK_STRINGS_H
