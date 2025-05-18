@@ -6,14 +6,19 @@ Implementation of Input/\+Output operations for file handling. This file contain
 
 
 {\ttfamily \#include "{}../include/io\+\_\+ops.\+h"{}}\newline
+{\ttfamily \#include "{}../include/strings.\+h"{}}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{io__ops_8c_aeb8396e4f830c9c31d03077b4f89539e}{get\+All\+Files}} (int file\+Limit, char files\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]})
 \item 
-void \mbox{\hyperlink{io__ops_8c_aa02fa2cdcfb12da9f8b61558b796d408}{prompt\+File\+Selection}} (char files\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, int file\+Count, char \texorpdfstring{$\ast$}{*}selected\+File)
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{io__ops_8c_ad04535258c1fdf3f7cfb3477d82dd344}{prompt\+File\+Selection}} (char files\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, int file\+Count, char \texorpdfstring{$\ast$}{*}selected\+File)
 \item 
-void \mbox{\hyperlink{io__ops_8c_a18304989550b41e47db4d8a3b8cd0d96}{prompt\+Filename}} (char \texorpdfstring{$\ast$}{*}filename, int is\+Input)
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{io__ops_8c_a159a8e7d4c006a1f5d60ceae61f94d57}{prompt\+Filename}} (char \texorpdfstring{$\ast$}{*}filename, int is\+Input)
+\item 
+size\+\_\+t \mbox{\hyperlink{io__ops_8c_a0a55434e5010b8c981d16f5262e7a838}{custom\+\_\+getlines}} (char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}line, size\+\_\+t \texorpdfstring{$\ast$}{*}n, FILE \texorpdfstring{$\ast$}{*}stream)
+\begin{DoxyCompactList}\small\item\em Custom getline() implementation to read lines from a file. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{io__ops_8c_a8f63bb7d965530522d1005f17df1cedb}{replace\+\_\+newline}} (const char \texorpdfstring{$\ast$}{*}str)
 \end{DoxyCompactItemize}
 
 
@@ -29,21 +34,49 @@ Ahmet Abdullah GULTEKIN
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{io__ops_8c_a0a55434e5010b8c981d16f5262e7a838}\index{io\_ops.c@{io\_ops.c}!custom\_getlines@{custom\_getlines}}
+\index{custom\_getlines@{custom\_getlines}!io\_ops.c@{io\_ops.c}}
+\doxysubsubsection{\texorpdfstring{custom\_getlines()}{custom\_getlines()}}
+{\footnotesize\ttfamily \label{io__ops_8c_a0a55434e5010b8c981d16f5262e7a838} 
+size\+\_\+t custom\+\_\+getlines (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{line}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream}{}\end{DoxyParamCaption})}
+
+
+
+Custom getline() implementation to read lines from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Pointer to the line buffer. \\
+\hline
+{\em n} & Pointer to the size of the line buffer. \\
+\hline
+{\em stream} & File pointer to read from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the line read. 
+\end{DoxyReturn}
 \Hypertarget{io__ops_8c_aeb8396e4f830c9c31d03077b4f89539e}\index{io\_ops.c@{io\_ops.c}!getAllFiles@{getAllFiles}}
 \index{getAllFiles@{getAllFiles}!io\_ops.c@{io\_ops.c}}
 \doxysubsubsection{\texorpdfstring{getAllFiles()}{getAllFiles()}}
 {\footnotesize\ttfamily \label{io__ops_8c_aeb8396e4f830c9c31d03077b4f89539e} 
 int get\+All\+Files (\begin{DoxyParamCaption}\item[{int}]{file\+Limit}{, }\item[{char}]{files}{\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}}\end{DoxyParamCaption})}
 
-\Hypertarget{io__ops_8c_a18304989550b41e47db4d8a3b8cd0d96}\index{io\_ops.c@{io\_ops.c}!promptFilename@{promptFilename}}
+\Hypertarget{io__ops_8c_a159a8e7d4c006a1f5d60ceae61f94d57}\index{io\_ops.c@{io\_ops.c}!promptFilename@{promptFilename}}
 \index{promptFilename@{promptFilename}!io\_ops.c@{io\_ops.c}}
 \doxysubsubsection{\texorpdfstring{promptFilename()}{promptFilename()}}
-{\footnotesize\ttfamily \label{io__ops_8c_a18304989550b41e47db4d8a3b8cd0d96} 
-void prompt\+Filename (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{int}]{is\+Input}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{io__ops_8c_a159a8e7d4c006a1f5d60ceae61f94d57} 
+\mbox{\hyperlink{struct_status}{Status}} prompt\+Filename (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{int}]{is\+Input}{}\end{DoxyParamCaption})}
 
-\Hypertarget{io__ops_8c_aa02fa2cdcfb12da9f8b61558b796d408}\index{io\_ops.c@{io\_ops.c}!promptFileSelection@{promptFileSelection}}
+\Hypertarget{io__ops_8c_ad04535258c1fdf3f7cfb3477d82dd344}\index{io\_ops.c@{io\_ops.c}!promptFileSelection@{promptFileSelection}}
 \index{promptFileSelection@{promptFileSelection}!io\_ops.c@{io\_ops.c}}
 \doxysubsubsection{\texorpdfstring{promptFileSelection()}{promptFileSelection()}}
-{\footnotesize\ttfamily \label{io__ops_8c_aa02fa2cdcfb12da9f8b61558b796d408} 
-void prompt\+File\+Selection (\begin{DoxyParamCaption}\item[{char}]{files}{\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, }\item[{int}]{file\+Count}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{selected\+File}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{io__ops_8c_ad04535258c1fdf3f7cfb3477d82dd344} 
+\mbox{\hyperlink{struct_status}{Status}} prompt\+File\+Selection (\begin{DoxyParamCaption}\item[{char}]{files}{\mbox{[}$\,$\mbox{]}\mbox{[}256\mbox{]}, }\item[{int}]{file\+Count}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{selected\+File}{}\end{DoxyParamCaption})}
+
+\Hypertarget{io__ops_8c_a8f63bb7d965530522d1005f17df1cedb}\index{io\_ops.c@{io\_ops.c}!replace\_newline@{replace\_newline}}
+\index{replace\_newline@{replace\_newline}!io\_ops.c@{io\_ops.c}}
+\doxysubsubsection{\texorpdfstring{replace\_newline()}{replace\_newline()}}
+{\footnotesize\ttfamily \label{io__ops_8c_a8f63bb7d965530522d1005f17df1cedb} 
+char \texorpdfstring{$\ast$}{*} replace\+\_\+newline (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
 

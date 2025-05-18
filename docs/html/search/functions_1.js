@@ -1,7 +1,9 @@
-var searchData =
-    [
-        ['calculateandprinteffects_0', ['calculateAndPrintEffects', ['../menu_8c.html#a32990f6e097204a70e3b703dd8cedb43', 1, 'menu.c']]],
-        ['clearantennaeffectslist_1', ['clearAntennaEffectsList', ['../antenna__effect_8h.html#adb59b0bc7f5a9fcc4e50117ffe6ea158', 1, 'clearAntennaEffectsList(AntennaEffectNode *listHead):&#160;antenna_effect.c'], ['../antenna__effect_8c.html#adb59b0bc7f5a9fcc4e50117ffe6ea158', 1, 'clearAntennaEffectsList(AntennaEffectNode *listHead):&#160;antenna_effect.c']]],
-        ['clearantennaslist_2', ['clearAntennasList', ['../antenna_8h.html#a96c2d01ffdfbc93f12e16463ff35d612', 1, 'clearAntennasList(AntennaNode *listHead):&#160;antenna.c'], ['../antenna_8c.html#a96c2d01ffdfbc93f12e16463ff35d612', 1, 'clearAntennasList(AntennaNode *listHead):&#160;antenna.c']]],
-        ['computeeffectspots_3', ['computeEffectSpots', ['../antenna__effect_8h.html#a49370cd34b85042bfd0f097432e0437f', 1, 'computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas):&#160;antenna_effect.c'], ['../antenna__effect_8c.html#a49370cd34b85042bfd0f097432e0437f', 1, 'computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas):&#160;antenna_effect.c']]]
-    ];
+var searchData=
+[
+  ['calculateandprinteffects_0',['calculateAndPrintEffects',['../menu_8c.html#a32990f6e097204a70e3b703dd8cedb43',1,'menu.c']]],
+  ['clearantennaeffectslist_1',['clearAntennaEffectsList',['../antenna__effect_8h.html#adb59b0bc7f5a9fcc4e50117ffe6ea158',1,'clearAntennaEffectsList(AntennaEffectNode *listHead):&#160;antenna_effect.c'],['../antenna__effect_8c.html#adb59b0bc7f5a9fcc4e50117ffe6ea158',1,'clearAntennaEffectsList(AntennaEffectNode *listHead):&#160;antenna_effect.c']]],
+  ['clearantennaslist_2',['clearAntennasList',['../antenna_8h.html#a96c2d01ffdfbc93f12e16463ff35d612',1,'clearAntennasList(AntennaNode *listHead):&#160;antenna.c'],['../antenna_8c.html#a96c2d01ffdfbc93f12e16463ff35d612',1,'clearAntennasList(AntennaNode *listHead):&#160;antenna.c']]],
+  ['compute_5fdanger_5fpoints_3',['compute_danger_points',['../graph_8h.html#ad46c8b761b0ca9f2d7dc40f81bf83e45',1,'compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count):&#160;graph.c'],['../graph_8c.html#ad46c8b761b0ca9f2d7dc40f81bf83e45',1,'compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count):&#160;graph.c']]],
+  ['computeeffectspots_4',['computeEffectSpots',['../antenna__effect_8h.html#a49370cd34b85042bfd0f097432e0437f',1,'computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas):&#160;antenna_effect.c'],['../antenna__effect_8c.html#a49370cd34b85042bfd0f097432e0437f',1,'computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas):&#160;antenna_effect.c']]],
+  ['custom_5fgetlines_5',['custom_getlines',['../graph_8h.html#a0a55434e5010b8c981d16f5262e7a838',1,'custom_getlines(char **line, size_t *n, FILE *stream):&#160;io_ops.c'],['../io__ops_8h.html#a0a55434e5010b8c981d16f5262e7a838',1,'custom_getlines(char **line, size_t *n, FILE *stream):&#160;io_ops.c'],['../io__ops_8c.html#a0a55434e5010b8c981d16f5262e7a838',1,'custom_getlines(char **line, size_t *n, FILE *stream):&#160;io_ops.c']]]
+];

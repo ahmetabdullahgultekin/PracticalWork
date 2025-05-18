@@ -1,4 +1,4 @@
-var searchData =
-    [
-        ['y_2etxt_0', ['y.txt', ['../y_8txt.html', 1, '']]]
-    ];
+var searchData=
+[
+  ['strings_2eh_0',['strings.h',['../strings_8h.html',1,'']]]
+];

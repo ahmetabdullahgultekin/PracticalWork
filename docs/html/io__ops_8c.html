@@ -1,275 +1,267 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-    <meta content="text/xhtml;charset=UTF-8" http-equiv="Content-Type"/>
-    <meta content="IE=11" http-equiv="X-UA-Compatible"/>
-    <meta content="Doxygen 1.13.2" name="generator"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Antenna Mapping (EDA Practical Work): src/io_ops.c File Reference</title>
-    <link href="tabs.css" rel="stylesheet" type="text/css"/>
-    <script src="jquery.js" type="text/javascript"></script>
-    <script src="dynsections.js" type="text/javascript"></script>
-    <script src="clipboard.js" type="text/javascript"></script>
-    <link href="navtree.css" rel="stylesheet" type="text/css"/>
-    <script src="navtreedata.js" type="text/javascript"></script>
-    <script src="navtree.js" type="text/javascript"></script>
-    <script src="resize.js" type="text/javascript"></script>
-    <script src="cookie.js" type="text/javascript"></script>
-    <link href="search/search.css" rel="stylesheet" type="text/css"/>
-    <script src="search/searchdata.js" type="text/javascript"></script>
-    <script src="search/search.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-        $(function () {
-            init_search();
-        });
-        /* @license-end */
-    </script>
-    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Antenna Mapping (EDA Practical Work): src/io_ops.c File Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-    <div id="titlearea">
-        <table cellpadding="0" cellspacing="0">
-            <tbody>
-            <tr id="projectrow">
-                <td id="projectalign">
-                    <div id="projectname">Antenna Mapping (EDA Practical Work)
-                    </div>
-                </td>
-                <td>
-                    <div class="MSearchBoxInactive" id="MSearchBox">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Antenna Mapping (EDA Practical Work)
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
-          <span id="MSearchSelect" onmouseout="return searchBox.OnSearchSelectHide()"
-                onmouseover="return searchBox.OnSearchSelectShow()">&#160;</span>
-          <input accesskey="S" id="MSearchField" onblur="searchBox.OnSearchFieldFocus(false)"
-                 onfocus="searchBox.OnSearchFieldFocus(true)" onkeyup="searchBox.OnSearchFieldChange(event)"
-                 placeholder="Search"
-                 type="text"
-                 value=""/>
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
-            <a href="javascript:searchBox.CloseResultsWindow()" id="MSearchClose"><img alt="" border="0"
-                                                                                       id="MSearchCloseImg"
-                                                                                       src="search/close.svg"/></a>
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
           </span>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- end header part -->
-    <!-- Generated by Doxygen 1.13.2 -->
-    <script type="text/javascript">
-        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-        var searchBox = new SearchBox("searchBox", "search/", '.html');
-        /* @license-end */
-    </script>
-    <script type="text/javascript">
-        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-        $(function () {
-            codefold.init(0);
-        });
-        /* @license-end */
-    </script>
-</div><!-- top -->
-<div class="ui-resizable side-nav-resizable" id="side-nav">
-    <div id="nav-tree">
-        <div id="nav-tree-contents">
-            <div class="sync" id="nav-sync"></div>
         </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
     </div>
-    <div class="ui-resizable-handle" id="splitbar"
-         style="-moz-user-select:none;">
-    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
 </div>
 <script type="text/javascript">
-    /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-    $(function () {
-        initNavTree('io__ops_8c.html', '');
-        initResizable(true);
-    });
-    /* @license-end */
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('io__ops_8c.html',''); initResizable(true); });
+/* @license-end */
 </script>
 <div id="doc-content">
-    <!-- window showing the filter options -->
-    <div id="MSearchSelectWindow"
-         onkeydown="return searchBox.OnSearchSelectKey(event)"
-         onmouseout="return searchBox.OnSearchSelectHide()"
-         onmouseover="return searchBox.OnSearchSelectShow()">
-    </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
 
-    <!-- iframe showing the search results (closed by default) -->
-    <div id="MSearchResultsWindow">
-        <div id="MSearchResults">
-            <div class="SRPage">
-                <div id="SRIndex">
-                    <div id="SRResults"></div>
-                    <div class="SRStatus" id="Loading">Loading...</div>
-                    <div class="SRStatus" id="Searching">Searching...</div>
-                    <div class="SRStatus" id="NoMatches">No Matches</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
 
-    <div class="header">
-        <div class="summary">
-            <a href="#func-members">Functions</a></div>
-        <div class="headertitle">
-            <div class="title">io_ops.c File Reference</div>
-        </div>
-    </div><!--header-->
-    <div class="contents">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">io_ops.c File Reference</div></div>
+</div><!--header-->
+<div class="contents">
 
-        <p>Implementation of Input/Output operations for file handling. This file contains functions to list files in a
-            directory, prompt the user for file selection, and handle input/output operations.
-            <a href="#details">More...</a></p>
-        <div class="textblock"><code>#include &quot;<a class="el" href="io__ops_8h_source.html">../include/io_ops.h</a>&quot;</code><br/>
-        </div>
-        <table class="memberdecls">
-            <tr class="heading">
-                <td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-                    Functions</h2></td>
-            </tr>
-            <tr class="memitem:aeb8396e4f830c9c31d03077b4f89539e" id="r_aeb8396e4f830c9c31d03077b4f89539e">
-                <td align="right" class="memItemLeft" valign="top">int&#160;</td>
-                <td class="memItemRight" valign="bottom"><a class="el" href="#aeb8396e4f830c9c31d03077b4f89539e">getAllFiles</a>
-                    (int fileLimit, char files[][256])
-                </td>
-            </tr>
-            <tr class="separator:aeb8396e4f830c9c31d03077b4f89539e">
-                <td class="memSeparator" colspan="2">&#160;</td>
-            </tr>
-            <tr class="memitem:aa02fa2cdcfb12da9f8b61558b796d408" id="r_aa02fa2cdcfb12da9f8b61558b796d408">
-                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
-                <td class="memItemRight" valign="bottom"><a class="el" href="#aa02fa2cdcfb12da9f8b61558b796d408">promptFileSelection</a>
-                    (char files[][256], int fileCount, char *selectedFile)
-                </td>
-            </tr>
-            <tr class="separator:aa02fa2cdcfb12da9f8b61558b796d408">
-                <td class="memSeparator" colspan="2">&#160;</td>
-            </tr>
-            <tr class="memitem:a18304989550b41e47db4d8a3b8cd0d96" id="r_a18304989550b41e47db4d8a3b8cd0d96">
-                <td align="right" class="memItemLeft" valign="top">void&#160;</td>
-                <td class="memItemRight" valign="bottom"><a class="el" href="#a18304989550b41e47db4d8a3b8cd0d96">promptFilename</a>
-                    (char *filename, int isInput)
-                </td>
-            </tr>
-            <tr class="separator:a18304989550b41e47db4d8a3b8cd0d96">
-                <td class="memSeparator" colspan="2">&#160;</td>
-            </tr>
-        </table>
-        <a id="details" name="details"></a>
-        <h2 class="groupheader">Detailed Description</h2>
-        <div class="textblock"><p>Implementation of Input/Output operations for file handling. This file contains
-            functions to list files in a directory, prompt the user for file selection, and handle input/output
-            operations. </p>
-            <dl class="section date">
-                <dt>Date</dt>
-                <dd>2025-03-30</dd>
-            </dl>
-            <dl class="section author">
-                <dt>Author</dt>
-                <dd>Ahmet Abdullah GULTEKIN</dd>
-            </dl>
-        </div>
-        <h2 class="groupheader">Function Documentation</h2>
-        <a id="aeb8396e4f830c9c31d03077b4f89539e" name="aeb8396e4f830c9c31d03077b4f89539e"></a>
-        <h2 class="memtitle"><span class="permalink"><a
-                href="#aeb8396e4f830c9c31d03077b4f89539e">&#9670;&#160;</a></span>getAllFiles()</h2>
+<p>Implementation of Input/Output operations for file handling. This file contains functions to list files in a directory, prompt the user for file selection, and handle input/output operations.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="io__ops_8h_source.html">../include/io_ops.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="strings_8h_source.html">../include/strings.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aeb8396e4f830c9c31d03077b4f89539e" id="r_aeb8396e4f830c9c31d03077b4f89539e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb8396e4f830c9c31d03077b4f89539e">getAllFiles</a> (int fileLimit, char files[][256])</td></tr>
+<tr class="separator:aeb8396e4f830c9c31d03077b4f89539e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04535258c1fdf3f7cfb3477d82dd344" id="r_ad04535258c1fdf3f7cfb3477d82dd344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad04535258c1fdf3f7cfb3477d82dd344">promptFileSelection</a> (char files[][256], int fileCount, char *selectedFile)</td></tr>
+<tr class="separator:ad04535258c1fdf3f7cfb3477d82dd344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a159a8e7d4c006a1f5d60ceae61f94d57" id="r_a159a8e7d4c006a1f5d60ceae61f94d57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_status.html">Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a159a8e7d4c006a1f5d60ceae61f94d57">promptFilename</a> (char *filename, int isInput)</td></tr>
+<tr class="separator:a159a8e7d4c006a1f5d60ceae61f94d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a55434e5010b8c981d16f5262e7a838" id="r_a0a55434e5010b8c981d16f5262e7a838"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a55434e5010b8c981d16f5262e7a838">custom_getlines</a> (char **line, size_t *n, FILE *stream)</td></tr>
+<tr class="memdesc:a0a55434e5010b8c981d16f5262e7a838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom getline() implementation to read lines from a file.  <br /></td></tr>
+<tr class="separator:a0a55434e5010b8c981d16f5262e7a838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f63bb7d965530522d1005f17df1cedb" id="r_a8f63bb7d965530522d1005f17df1cedb"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f63bb7d965530522d1005f17df1cedb">replace_newline</a> (const char *str)</td></tr>
+<tr class="separator:a8f63bb7d965530522d1005f17df1cedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of Input/Output operations for file handling. This file contains functions to list files in a directory, prompt the user for file selection, and handle input/output operations. </p>
+<dl class="section date"><dt>Date</dt><dd>2025-03-30 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Ahmet Abdullah GULTEKIN </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0a55434e5010b8c981d16f5262e7a838" name="a0a55434e5010b8c981d16f5262e7a838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a55434e5010b8c981d16f5262e7a838">&#9670;&#160;</a></span>custom_getlines()</h2>
 
-        <div class="memitem">
-            <div class="memproto">
-                <table class="memname">
-                    <tr>
-                        <td class="memname">int getAllFiles</td>
-                        <td>(</td>
-                        <td class="paramtype">int</td>
-                        <td class="paramname"><span class="paramname"><em>fileLimit</em></span>,</td>
-                    </tr>
-                    <tr>
-                        <td class="paramkey"></td>
-                        <td></td>
-                        <td class="paramtype">char</td>
-                        <td class="paramname"><span class="paramname"><em>files</em></span>[][256]&#160;)</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="memdoc">
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t custom_getlines </td>
+          <td>(</td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-            </div>
-        </div>
-        <a id="a18304989550b41e47db4d8a3b8cd0d96" name="a18304989550b41e47db4d8a3b8cd0d96"></a>
-        <h2 class="memtitle"><span class="permalink"><a
-                href="#a18304989550b41e47db4d8a3b8cd0d96">&#9670;&#160;</a></span>promptFilename()</h2>
+<p>Custom getline() implementation to read lines from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>Pointer to the line buffer. </td></tr>
+    <tr><td class="paramname">n</td><td>Pointer to the size of the line buffer. </td></tr>
+    <tr><td class="paramname">stream</td><td>File pointer to read from.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the line read. </dd></dl>
 
-        <div class="memitem">
-            <div class="memproto">
-                <table class="memname">
-                    <tr>
-                        <td class="memname">void promptFilename</td>
-                        <td>(</td>
-                        <td class="paramtype">char *</td>
-                        <td class="paramname"><span class="paramname"><em>filename</em></span>,</td>
-                    </tr>
-                    <tr>
-                        <td class="paramkey"></td>
-                        <td></td>
-                        <td class="paramtype">int</td>
-                        <td class="paramname"><span class="paramname"><em>isInput</em></span>&#160;)</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="memdoc">
+</div>
+</div>
+<a id="aeb8396e4f830c9c31d03077b4f89539e" name="aeb8396e4f830c9c31d03077b4f89539e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb8396e4f830c9c31d03077b4f89539e">&#9670;&#160;</a></span>getAllFiles()</h2>
 
-            </div>
-        </div>
-        <a id="aa02fa2cdcfb12da9f8b61558b796d408" name="aa02fa2cdcfb12da9f8b61558b796d408"></a>
-        <h2 class="memtitle"><span class="permalink"><a
-                href="#aa02fa2cdcfb12da9f8b61558b796d408">&#9670;&#160;</a></span>promptFileSelection()</h2>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getAllFiles </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fileLimit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>files</em></span>[][256]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-        <div class="memitem">
-            <div class="memproto">
-                <table class="memname">
-                    <tr>
-                        <td class="memname">void promptFileSelection</td>
-                        <td>(</td>
-                        <td class="paramtype">char</td>
-                        <td class="paramname"><span class="paramname"><em>files</em></span>[][256],</td>
-                    </tr>
-                    <tr>
-                        <td class="paramkey"></td>
-                        <td></td>
-                        <td class="paramtype">int</td>
-                        <td class="paramname"><span class="paramname"><em>fileCount</em></span>,</td>
-                    </tr>
-                    <tr>
-                        <td class="paramkey"></td>
-                        <td></td>
-                        <td class="paramtype">char *</td>
-                        <td class="paramname"><span class="paramname"><em>selectedFile</em></span>&#160;)</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="memdoc">
+</div>
+</div>
+<a id="a159a8e7d4c006a1f5d60ceae61f94d57" name="a159a8e7d4c006a1f5d60ceae61f94d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159a8e7d4c006a1f5d60ceae61f94d57">&#9670;&#160;</a></span>promptFilename()</h2>
 
-            </div>
-        </div>
-    </div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_status.html">Status</a> promptFilename </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>isInput</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad04535258c1fdf3f7cfb3477d82dd344" name="ad04535258c1fdf3f7cfb3477d82dd344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad04535258c1fdf3f7cfb3477d82dd344">&#9670;&#160;</a></span>promptFileSelection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_status.html">Status</a> promptFileSelection </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>files</em></span>[][256], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fileCount</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>selectedFile</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f63bb7d965530522d1005f17df1cedb" name="a8f63bb7d965530522d1005f17df1cedb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f63bb7d965530522d1005f17df1cedb">&#9670;&#160;</a></span>replace_newline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * replace_newline </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
-<div class="navpath" id="nav-path"><!-- id is needed for treeview function! -->
-    <ul>
-        <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>
-        <li class="navelem"><a class="el" href="io__ops_8c.html">io_ops.c</a></li>
-        <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img alt="doxygen"
-                                                                                          class="footer" height="31"
-                                                                                          src="doxygen.svg"
-                                                                                          width="104"/></a> 1.13.2
-        </li>
-    </ul>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="io__ops_8c.html">io_ops.c</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
 </div>
 </body>
 </html>

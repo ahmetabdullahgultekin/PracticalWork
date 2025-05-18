@@ -1,0 +1,154 @@
+\doxysection{strings.\+h}
+\hypertarget{strings_8h_source}{}\label{strings_8h_source}\index{include/strings.h@{include/strings.h}}
+\mbox{\hyperlink{strings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PRACTICALWORK\_STRINGS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PRACTICALWORK\_STRINGS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbae3de6befb550c42f87ddd3c1955f7490}{STR\_INFO\_MENU\_TITLE}}\ =\ 0,}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba9d4b582a5699074c262f32b3074b8e44}{STR\_INFO\_MENU\_OPTIONS}},}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbac20b075252a394754fc440883c2574f0}{STR\_INFO\_PROMPT\_CHOICE}},}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba0f0ed4a42d8124dec187eff3d506d9cf}{STR\_INFO\_INDEX}},}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba2612e60199e8ce4a58646f1ddbeec7ad}{STR\_INFO\_FREQUENCY}},}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba84a5902e56d541fe80842c003ce23934}{STR\_INFO\_COORDINATES}},}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba625a5e9e23951d577730168cecc85af2}{STR\_INFO\_SUCCESS\_LOAD}},}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbaf785be11fd4511a5471a9148767292fc}{STR\_INFO\_SUCCESS\_SAVE}},}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba950638d2eb07aadd2d028158f9b98417}{STR\_INFO\_SUCCESS\_QUIT}},}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba14c121ac0ad224cef69de00398e21235}{STR\_INFO\_PROMPT\_PATH}},}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba18702fc1af7b072c22d04801720aa371}{STR\_INFO\_PATH}},}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba8f9e66cc5012f7030d7e6c9f9d25b374}{STR\_INFO\_PATHS\_FOUND}},}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba830a8007293ab04b8447854fc313f99e}{STR\_INFO\_VERTEX\_INDEX}},}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba4c6ca4ba6ce9888cd709272fc686b45f}{STR\_INFO\_SOURCE\_INDEX}},}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba66ba8f9f8d414425d20dbd04594f7c41}{STR\_INFO\_DEST\_INDEX}},}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba8c27989dcb74c7318779ff5a932afda4}{STR\_INFO\_FREQUENCY\_A}},}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbac0c54566f038762dfdd3322e52842bb4}{STR\_INFO\_FREQUENCY\_B}},}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba1c68f3f0fb525425d7822eb54ec7e70c}{STR\_INFO\_PROMPT\_AVAILABLE\_FILES}},}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba06c01f82f9488bf91fde312e8424a6a3}{STR\_INFO\_PROMPT\_FILE\_CHOICE}},}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbaeda59ccb52be2cb3c49811cb450f8117}{STR\_INFO\_LISTS\_CLEARED}},}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba264f83fad6ee80f22cd49f01defe9088}{STR\_INFO\_DANGER\_POINTS}},}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbac0690f4bdbc4b00d3cc87e2f2fd6d181}{STR\_INFO\_DANGER\_OVERLAPS}},}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba016ddadb5352ca5a79b844a3426c2b7a}{STR\_ERR\_IO}},}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba5b2dd3c2f80220d8b4153148213bd58e}{STR\_ERR\_GRAPH\_COULD\_NOT\_FIND}},}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbaf95539fa42a4ef3d5714e06519e123c8}{STR\_ERR\_GRAPH\_COULD\_NOT\_CLEARED}},}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba39b42774387aee71d8db9eb439a7539a}{STR\_ERR\_FILE\_NOT\_FOUND}},}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba3ad9dc33fe1a61f5dbca149a49c33e21}{STR\_ERR\_FILE\_NOT\_LOADED}},}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba3309749983c992e817c18feeb006f8b4}{STR\_ERR\_NOT\_IMPLEMENTED}},}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbac2f90063ced2b5941243ea45e3888ab4}{STR\_ERR\_INVALID\_CHOICE}},}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbab233514ed547a63afd600376441f5cf2}{STR\_ERR\_FREQUENCY\_NOT\_EQUAL}},}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbbac2d35b53766de13e38e69c8c143525cb}{STR\_ERR\_INTERSECTIONS\_NOT\_FOUND}},}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba7516b15aba41a57d0fc85908af0e630b}{STR\_COUNT}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ number\ of\ strings\ */}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#if\ defined(LANG\_PT)}}
+\DoxyCodeLine{00090\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ STR[\mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba7516b15aba41a57d0fc85908af0e630b}{STR\_COUNT}}]\ =\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n============================\(\backslash\)n\ \ \ \ \ \ \ MENU\ PRINCIPAL\(\backslash\)n============================\(\backslash\)n"{}},}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1.\ Carregar\ matriz\(\backslash\)n2.\ Busca\ em\ profundidade\ (DFS)\(\backslash\)n3.\ Busca\ em\ largura\ (BFS)\(\backslash\)n4.\ Todos\ os\ caminhos\(\backslash\)n5.\ Interseccao\ de\ frequencias\(\backslash\)n6.\ Interseccao\ de\ pontos\ perigosos\(\backslash\)n7.\ Inserir\(\backslash\)n8.\ Remover\(\backslash\)n9.\ Imprimir\ antenas\(\backslash\)n10.\ Imprimir\ arestas\(\backslash\)n11.\ Imprimir\ pontos\ perigosos\(\backslash\)n12.\ Limpar\ listas\(\backslash\)n13.\ Salvar\ matriz\(\backslash\)n0.\ Sair\(\backslash\)n"{}},}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Escolha\ uma\ opcao"{}},}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Indice:\ "{}},}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frequencia:\ "{}},}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Coordenadas\ (x,y):\ "{}},}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Matriz\ carregada\ com\ sucesso\(\backslash\)n"{}},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)nMatriz\ salva\ com\ sucesso!\(\backslash\)n"{}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Adeus!\(\backslash\)n"{}},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Caminho\ do\ ficheiro:\ "{}},}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Caminho"{}},}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Todos\ os\ caminhos\ encontrados"{}},}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Indice\ do\ vertice"{}},}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Indice\ de\ origem"{}},}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Indice\ de\ destino"{}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frequencia\ A:\ "{}},}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frequencia\ B:\ "{}},}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Ficheiros\ disponiveis"{}},}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Escolha\ um\ ficheiro\ pelo\ numero:\ "{}},}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Listas\ limpas\ com\ sucesso.\(\backslash\)n"{}},}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Pontos\ perigosos\ para\ a\ frequencia"{}},}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Interseccao\ de\ pontos\ perigosos\ para\ as\ frequencias"{}},}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Erro\ E/S\ -\/\ nao\ foi\ possivel\ abrir\ o\ ficheiro\(\backslash\)n"{}},}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Erro\ -\/\ o\ grafo\ nao\ foi\ encontrado\(\backslash\)n"{}},}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Erro\ -\/\ o\ grafo\ nao\ pode\ ser\ limpo\(\backslash\)n"{}},}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Erro\ -\/\ ficheiro\ nao\ encontrado\(\backslash\)n"{}},}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Erro\ -\/\ ficheiro\ nao\ carregado\(\backslash\)n"{}},}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Erro\ -\/\ funcionalidade\ nao\ implementada\(\backslash\)n"{}},}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Opcao\ invalida,\ tente\ novamente\(\backslash\)n"{}},}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frequencias\ diferentes,\ tente\ novamente.\(\backslash\)n"{}},}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Interseccao\ nao\ encontrada.\(\backslash\)n"{}}}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#elif\ defined(LANG\_TR)}}
+\DoxyCodeLine{00131\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ STR[\mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba7516b15aba41a57d0fc85908af0e630b}{STR\_COUNT}}]\ =\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n============================\(\backslash\)n\ \ \ \ \ \ \ \ \ \ ANA\ MENU\(\backslash\)n============================\(\backslash\)n"{}},}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1.\ Matris\ yukle\(\backslash\)n2.\ Derinlik\ Onceli\ Arama\ (DFS)\(\backslash\)n3.\ Genislik\ Onceli\ Arama\ (BFS)\(\backslash\)n4.\ Tum\ Rotalar\(\backslash\)n5.\ Frekans\ Kesismeleri\(\backslash\)n6.\ Zararli\ Nokta\ Kesismeleri\(\backslash\)n7.\ Ekle\(\backslash\)n8.\ Cikar\(\backslash\)n9.\ Antenleri\ Yazdir\(\backslash\)n10.\ Kenarlari\ Yazdir\(\backslash\)n11.\ Tehlikeli\ Noktalari\ Yazdir\(\backslash\)n12.\ Listeyi\ Temizle\(\backslash\)n13.\ Matris\ Kaydet\(\backslash\)n0.\ Cikis\(\backslash\)n"{}},}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Seciminizi\ giriniz"{}},}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Indeks:\ "{}},}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frekans:\ "{}},}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Koordinatlar\ (x,y):\ "{}},}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)nMatris\ basariyla\ yuklendi!"{}},}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Matris\ basariyla\ kaydedildi!\(\backslash\)n"{}},}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hosca\ kal!\(\backslash\)n"{}},}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Dosya\ yolu\ giriniz:\ "{}},}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Yol"{}},}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Bulunan\ Tum\ Yollar"{}},}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Dugum\ indeksi\ giriniz"{}},}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Kaynak\ indeksi\ giriniz"{}},}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hedef\ indeksi\ giriniz"{}},}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frekans\ A\ giriniz:\ "{}},}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frekans\ B\ giriniz:\ "{}},}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Bulunan\ dosyalar:"{}},}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Dosya\ numarasini\ seciniz"{}},}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Listeler\ basariyla\ temizlendi.\(\backslash\)n"{}},}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frekansi\ icin\ tehlike\ noktaları"{}},}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frekanslar\ icin\ tehlike\ kesisimleri"{}},}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}G/C\ hatasi\ -\/\ dosya\ acilamadi!\(\backslash\)n"{}},}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hata\ -\/\ Graf\ bulunamadi.\(\backslash\)n"{}},}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hata\ -\/\ Graf\ temizlenemedi.\(\backslash\)n"{}},}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hata\ -\/\ dosya\ bulunamadi.\(\backslash\)n"{}},}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hata\ -\/\ dosya\ yuklu\ degil.\(\backslash\)n"{}},}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hata\ -\/\ ozellik\ uygulanamadi.\(\backslash\)n"{}},}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Gecersiz\ secim,\ tekrar\ deneyiniz.\(\backslash\)n"{}},}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frekanslar\ esit\ degil,\ lutfen\ tekrar\ deneyin.\(\backslash\)n"{}},}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Kesisim\ bulunamadi.\(\backslash\)n"{}}}
+\DoxyCodeLine{00163\ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ LANG\_EN\ (default)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00172\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ STR[\mbox{\hyperlink{strings_8h_abb145607fccbd210f9b7a6d341610dbba7516b15aba41a57d0fc85908af0e630b}{STR\_COUNT}}]\ =\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n============================\(\backslash\)n\ \ \ \ \ \ \ \ \ MAIN\ MENU\(\backslash\)n============================\(\backslash\)n"{}},}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1.\ Load\ matrix\(\backslash\)n2.\ Depth-\/First\ Search\ (DFS)\(\backslash\)n3.\ Breadth-\/First\ Search\ (BFS)\(\backslash\)n4.\ All\ Paths\(\backslash\)n5.\ Frequency\ Intersections\(\backslash\)n6.\ Danger\ Point\ Intersections\(\backslash\)n7.\ Insert\(\backslash\)n8.\ Remove\(\backslash\)n9.\ Print\ antennas\(\backslash\)n10.\ Print\ edges\(\backslash\)n11.\ Print\ Danger\ Points\(\backslash\)n12.\ Clear\ lists\(\backslash\)n13.\ Save\ matrix\(\backslash\)n0.\ Exit\(\backslash\)n"{}},}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ your\ choice"{}},}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Index:\ "{}},}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frequency:\ "{}},}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Coordinates\ (x,y):\ "{}},}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)nMatrix\ loaded\ successfully\(\backslash\)n"{}},}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Matrix\ saved\ successfully!\(\backslash\)n"{}},}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Good-\/bye!\(\backslash\)n"{}},}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ file\ path:\ "{}},}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Path"{}},}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}All\ paths\ found"{}},}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ vertex\ index"{}},}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ source\ index"{}},}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ destination\ index"{}},}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ frequency\ A:\ "{}},}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Enter\ frequency\ B:\ "{}},}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Available\ files"{}},}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Select\ a\ file\ by\ number:\ "{}},}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Lists\ cleared\ successfully.\(\backslash\)n"{}},}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Danger\ points\ for\ frequency"{}},}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Danger\ overlaps\ for\ frequencies"{}},}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I/O\ error\ -\/\ cannot\ open\ file\(\backslash\)n"{}},}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error\ -\/\ graph\ could\ not\ be\ found\(\backslash\)n"{}},}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error\ -\/\ graph\ could\ not\ be\ cleared\(\backslash\)n"{}},}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error\ -\/\ file\ not\ found\(\backslash\)n"{}},}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error\ -\/\ no\ file\ loaded\(\backslash\)n"{}},}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Error\ -\/\ feature\ not\ implemented\(\backslash\)n"{}},}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Invalid\ choice,\ try\ again\(\backslash\)n"{}},}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Frequencies\ are\ not\ equal,\ please\ try\ again.\(\backslash\)n"{}},}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Intersections\ not\ found.\(\backslash\)n"{}}}
+\DoxyCodeLine{00204\ \};}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ TR(id)\ (STR[(id)])}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRACTICALWORK\_STRINGS\_H}}
+
+\end{DoxyCode}

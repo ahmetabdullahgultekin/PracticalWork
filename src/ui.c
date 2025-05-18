@@ -23,11 +23,13 @@
  * @brief Displays the main menu to the user.
  * @details Prints the program's menu options and prompts the user to make a selection.
  */
-void show_menu(void) {
+int show_menu(void) {
     puts(TR(STR_INFO_MENU_TITLE));
     puts(TR(STR_INFO_MENU_OPTIONS));
-    printf("%s [0,10]:", TR(STR_INFO_PROMPT_CHOICE));
+    printf("%s [0,13]:", TR(STR_INFO_PROMPT_CHOICE));
     fflush(stdout);
+
+    return 0;
 }
 
 /**

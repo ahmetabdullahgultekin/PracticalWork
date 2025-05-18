@@ -268,8 +268,10 @@ Status graph_intersections(const Graph *g, char freqA, char freqB, CoordList *ou
  * @param freq Frequency to check for dangerous points.
  * @param danger Pointer to the CoordList to store the dangerous points.
  * @param count Pointer to store the count of dangerous points.
+ *
+ * @return Status code indicating success or failure.
  */
-static void compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count);
+Status compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count);
 
 /**
  * @brief Find all dangerous point intersections between two frequencies.

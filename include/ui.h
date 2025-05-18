@@ -21,7 +21,7 @@
  * and prompts the user to make a selection.
  */
 
-void show_menu(void);
+int show_menu(void);
 
 /**
  * @brief Reads an integer input from the user.

@@ -1,320 +1,163 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-    <meta content="text/xhtml;charset=UTF-8" http-equiv="Content-Type"/>
-    <meta content="IE=11" http-equiv="X-UA-Compatible"/>
-    <meta content="Doxygen 1.13.2" name="generator"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Antenna Mapping (EDA Practical Work): include/antenna_effect.h Source File</title>
-    <link href="tabs.css" rel="stylesheet" type="text/css"/>
-    <script src="jquery.js" type="text/javascript"></script>
-    <script src="dynsections.js" type="text/javascript"></script>
-    <script src="clipboard.js" type="text/javascript"></script>
-    <link href="navtree.css" rel="stylesheet" type="text/css"/>
-    <script src="navtreedata.js" type="text/javascript"></script>
-    <script src="navtree.js" type="text/javascript"></script>
-    <script src="resize.js" type="text/javascript"></script>
-    <script src="cookie.js" type="text/javascript"></script>
-    <link href="search/search.css" rel="stylesheet" type="text/css"/>
-    <script src="search/searchdata.js" type="text/javascript"></script>
-    <script src="search/search.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-        $(function () {
-            init_search();
-        });
-        /* @license-end */
-    </script>
-    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Antenna Mapping (EDA Practical Work): include/antenna_effect.h Source File</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-    <div id="titlearea">
-        <table cellpadding="0" cellspacing="0">
-            <tbody>
-            <tr id="projectrow">
-                <td id="projectalign">
-                    <div id="projectname">Antenna Mapping (EDA Practical Work)
-                    </div>
-                </td>
-                <td>
-                    <div class="MSearchBoxInactive" id="MSearchBox">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Antenna Mapping (EDA Practical Work)
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
-          <span id="MSearchSelect" onmouseout="return searchBox.OnSearchSelectHide()"
-                onmouseover="return searchBox.OnSearchSelectShow()">&#160;</span>
-          <input accesskey="S" id="MSearchField" onblur="searchBox.OnSearchFieldFocus(false)"
-                 onfocus="searchBox.OnSearchFieldFocus(true)" onkeyup="searchBox.OnSearchFieldChange(event)"
-                 placeholder="Search"
-                 type="text"
-                 value=""/>
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
           </span><span class="right">
-            <a href="javascript:searchBox.CloseResultsWindow()" id="MSearchClose"><img alt="" border="0"
-                                                                                       id="MSearchCloseImg"
-                                                                                       src="search/close.svg"/></a>
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
           </span>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- end header part -->
-    <!-- Generated by Doxygen 1.13.2 -->
-    <script type="text/javascript">
-        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-        var searchBox = new SearchBox("searchBox", "search/", '.html');
-        /* @license-end */
-    </script>
-    <script type="text/javascript">
-        /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-        $(function () {
-            codefold.init(0);
-        });
-        /* @license-end */
-    </script>
-</div><!-- top -->
-<div class="ui-resizable side-nav-resizable" id="side-nav">
-    <div id="nav-tree">
-        <div id="nav-tree-contents">
-            <div class="sync" id="nav-sync"></div>
         </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
     </div>
-    <div class="ui-resizable-handle" id="splitbar"
-         style="-moz-user-select:none;">
-    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
 </div>
 <script type="text/javascript">
-    /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-    $(function () {
-        initNavTree('antenna__effect_8h_source.html', '');
-        initResizable(true);
-    });
-    /* @license-end */
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('antenna__effect_8h_source.html',''); initResizable(true); });
+/* @license-end */
 </script>
 <div id="doc-content">
-    <!-- window showing the filter options -->
-    <div id="MSearchSelectWindow"
-         onkeydown="return searchBox.OnSearchSelectKey(event)"
-         onmouseout="return searchBox.OnSearchSelectHide()"
-         onmouseover="return searchBox.OnSearchSelectShow()">
-    </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
 
-    <!-- iframe showing the search results (closed by default) -->
-    <div id="MSearchResultsWindow">
-        <div id="MSearchResults">
-            <div class="SRPage">
-                <div id="SRIndex">
-                    <div id="SRResults"></div>
-                    <div class="SRStatus" id="Loading">Loading...</div>
-                    <div class="SRStatus" id="Searching">Searching...</div>
-                    <div class="SRStatus" id="NoMatches">No Matches</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
 
-    <div class="header">
-        <div class="headertitle">
-            <div class="title">antenna_effect.h</div>
-        </div>
-    </div><!--header-->
-    <div class="contents">
-        <a href="antenna__effect_8h.html">Go to the documentation of this file.</a>
-        <div class="fragment">
-            <div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
-            <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span
-                    class="preprocessor">#ifndef PRACTICALWORK_ANTENNA_EFFECT_H</span></div>
-            <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span
-                    class="preprocessor">#define PRACTICALWORK_ANTENNA_EFFECT_H</span></div>
-            <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
-            <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span
-                    class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-            <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span
-                    class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-            <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span
-                    class="preprocessor">#include &lt;string.h&gt;</span></div>
-            <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span
-                    class="preprocessor">#include &lt;ctype.h&gt;</span></div>
-            <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span
-                    class="preprocessor">#include &quot;<a class="code"
-                                                           href="antenna_8h.html">antenna.h</a>&quot;</span></div>
-            <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
-            <div class="foldopen" data-end="};" data-start="{" id="foldopen00022">
-                <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line"
-                                                                                           href="struct_antenna_effect_node.html">   22</a></span><span
-                        class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct"
-                                                                                              href="struct_antenna_effect_node.html">AntennaEffectNode</a>
-                    {
-                </div>
-                <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line"
-                                                                                           href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">   23</a></span>
-                    <span class="keywordtype">int</span> <a class="code hl_variable"
-                                                            href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">coordinateX</a>,
-                    <a class="code hl_variable"
-                       href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">coordinateY</a>;
-                </div>
-                <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line"
-                                                                                           href="struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110">   24</a></span>
-                    <span class="keyword">struct </span><a class="code hl_struct"
-                                                           href="struct_antenna_effect_node.html">AntennaEffectNode</a>
-                    *<a class="code hl_variable"
-                        href="struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110">nextEffect</a>;
-                </div>
-                <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line"
-                                                                                           href="antenna__effect_8h.html#a1814b6598ab66b821ccd5d6f2affd4f1">   25</a></span>}
-                    <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a>;
-                </div>
-            </div>
-            <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-            <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><a
-                    class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *<a
-                    class="code hl_function" href="antenna__effect_8h.html#a32ca8f168055456ebfa6c3410e4a0c25">addNewAntennaEffect</a>(<span
-                    class="keywordtype">int</span> <a class="code hl_variable"
-                                                      href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">coordinateX</a>,
-                <span class="keywordtype">int</span> <a class="code hl_variable"
-                                                        href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">coordinateY</a>,
-                <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **listHead);
-            </div>
-            <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-            <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span
-                    class="keywordtype">int</span> <a class="code hl_function"
-                                                      href="antenna__effect_8h.html#ac3b04aaae848eb278d80fb7ea4f43982">isAntennaEffectExist</a>(<span
-                    class="keywordtype">int</span> <a class="code hl_variable"
-                                                      href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">coordinateX</a>,
-                <span class="keywordtype">int</span> <a class="code hl_variable"
-                                                        href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">coordinateY</a>,
-                <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *effectsHead);
-            </div>
-            <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
-            <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span
-                    class="keywordtype">void</span> <a class="code hl_function"
-                                                       href="antenna__effect_8h.html#a8642cf9a4ee37137b24b0887cb9bdad7">printAllAntennaEffects</a>(<a
-                    class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead);
-            </div>
-            <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
-            <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span
-                    class="keywordtype">void</span> <a class="code hl_function"
-                                                       href="antenna__effect_8h.html#adb59b0bc7f5a9fcc4e50117ffe6ea158">clearAntennaEffectsList</a>(<a
-                    class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead);
-            </div>
-            <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
-            <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span
-                    class="keywordtype">void</span> <a class="code hl_function"
-                                                       href="antenna__effect_8h.html#a49370cd34b85042bfd0f097432e0437f">computeEffectSpots</a>(<a
-                    class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **effects, <a
-                    class="code hl_struct" href="struct_antenna_node.html">AntennaNode</a> *antennas);
-            </div>
-            <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
-            <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span
-                    class="keywordtype">void</span> <a class="code hl_function"
-                                                       href="antenna__effect_8h.html#aa5c3341c34b83fedc587b8c5be8354a0">saveAntennaEffectsToFile</a>(<span
-                    class="keyword">const</span> <span class="keywordtype">char</span> *filename, <a
-                    class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead);
-            </div>
-            <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
-            <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span
-                    class="keywordtype">void</span> <a class="code hl_function"
-                                                       href="antenna__effect_8h.html#a7afe5b47e6310a11ad3c8f208760663d">saveAntennaEffectsToFileWithDots</a>(<a
-                    class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead, <span
-                    class="keyword">const</span> <span class="keywordtype">char</span> *fileName);
-            </div>
-            <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-            <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span
-                    class="preprocessor">#endif </span><span class="comment">//PRACTICALWORK_ANTENNA_EFFECT_H</span>
-            </div>
-            <div class="ttc" id="aantenna_8h_html">
-                <div class="ttname"><a href="antenna_8h.html">antenna.h</a></div>
-                <div class="ttdoc">Header file for antenna system functions.</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_a32ca8f168055456ebfa6c3410e4a0c25">
-                <div class="ttname"><a href="antenna__effect_8h.html#a32ca8f168055456ebfa6c3410e4a0c25">addNewAntennaEffect</a>
-                </div>
-                <div class="ttdeci">AntennaEffectNode * addNewAntennaEffect(int coordinateX, int coordinateY,
-                    AntennaEffectNode **listHead)
-                </div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:23</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_a49370cd34b85042bfd0f097432e0437f">
-                <div class="ttname"><a href="antenna__effect_8h.html#a49370cd34b85042bfd0f097432e0437f">computeEffectSpots</a>
-                </div>
-                <div class="ttdeci">void computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas)</div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:109</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_a7afe5b47e6310a11ad3c8f208760663d">
-                <div class="ttname"><a href="antenna__effect_8h.html#a7afe5b47e6310a11ad3c8f208760663d">saveAntennaEffectsToFileWithDots</a>
-                </div>
-                <div class="ttdeci">void saveAntennaEffectsToFileWithDots(AntennaEffectNode *listHead, const char
-                    *fileName)
-                </div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:169</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_a8642cf9a4ee37137b24b0887cb9bdad7">
-                <div class="ttname"><a href="antenna__effect_8h.html#a8642cf9a4ee37137b24b0887cb9bdad7">printAllAntennaEffects</a>
-                </div>
-                <div class="ttdeci">void printAllAntennaEffects(AntennaEffectNode *listHead)</div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:74</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_aa5c3341c34b83fedc587b8c5be8354a0">
-                <div class="ttname"><a href="antenna__effect_8h.html#aa5c3341c34b83fedc587b8c5be8354a0">saveAntennaEffectsToFile</a>
-                </div>
-                <div class="ttdeci">void saveAntennaEffectsToFile(const char *filename, AntennaEffectNode *listHead)
-                </div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:132</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_ac3b04aaae848eb278d80fb7ea4f43982">
-                <div class="ttname"><a href="antenna__effect_8h.html#ac3b04aaae848eb278d80fb7ea4f43982">isAntennaEffectExist</a>
-                </div>
-                <div class="ttdeci">int isAntennaEffectExist(int coordinateX, int coordinateY, AntennaEffectNode
-                    *effectsHead)
-                </div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:58</div>
-            </div>
-            <div class="ttc" id="aantenna__effect_8h_html_adb59b0bc7f5a9fcc4e50117ffe6ea158">
-                <div class="ttname"><a href="antenna__effect_8h.html#adb59b0bc7f5a9fcc4e50117ffe6ea158">clearAntennaEffectsList</a>
-                </div>
-                <div class="ttdeci">void clearAntennaEffectsList(AntennaEffectNode *listHead)</div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.c:90</div>
-            </div>
-            <div class="ttc" id="astruct_antenna_effect_node_html">
-                <div class="ttname"><a href="struct_antenna_effect_node.html">AntennaEffectNode</a></div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.h:22</div>
-            </div>
-            <div class="ttc" id="astruct_antenna_effect_node_html_a6c275446fb6860ee1f565c0df73db110">
-                <div class="ttname"><a href="struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110">AntennaEffectNode::nextEffect</a>
-                </div>
-                <div class="ttdeci">struct AntennaEffectNode * nextEffect</div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.h:24</div>
-            </div>
-            <div class="ttc" id="astruct_antenna_effect_node_html_ab66c03647ac5127ec939b0b3baacbb63">
-                <div class="ttname"><a href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">AntennaEffectNode::coordinateY</a>
-                </div>
-                <div class="ttdeci">int coordinateY</div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.h:23</div>
-            </div>
-            <div class="ttc" id="astruct_antenna_effect_node_html_afb7de355bb43953233de3c943b80be0a">
-                <div class="ttname"><a href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">AntennaEffectNode::coordinateX</a>
-                </div>
-                <div class="ttdeci">int coordinateX</div>
-                <div class="ttdef"><b>Definition</b> antenna_effect.h:23</div>
-            </div>
-            <div class="ttc" id="astruct_antenna_node_html">
-                <div class="ttname"><a href="struct_antenna_node.html">AntennaNode</a></div>
-                <div class="ttdef"><b>Definition</b> antenna.h:22</div>
-            </div>
-        </div><!-- fragment --></div><!-- contents -->
+<div class="header">
+  <div class="headertitle"><div class="title">antenna_effect.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="antenna__effect_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef PRACTICALWORK_ANTENNA_EFFECT_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define PRACTICALWORK_ANTENNA_EFFECT_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="antenna_8h.html">antenna.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="struct_antenna_effect_node.html">   22</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">   23</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">coordinateX</a>, <a class="code hl_variable" href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">coordinateY</a>;                   </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110">   24</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *<a class="code hl_variable" href="struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110">nextEffect</a>; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="antenna__effect_8h.html#a1814b6598ab66b821ccd5d6f2affd4f1">   25</a></span>} <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a>;                </div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *<a class="code hl_function" href="antenna__effect_8h.html#a32ca8f168055456ebfa6c3410e4a0c25">addNewAntennaEffect</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">coordinateX</a>, <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">coordinateY</a>, <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **listHead);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">int</span> <a class="code hl_function" href="antenna__effect_8h.html#ac3b04aaae848eb278d80fb7ea4f43982">isAntennaEffectExist</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">coordinateX</a>, <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">coordinateY</a>, <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *effectsHead);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> <a class="code hl_function" href="antenna__effect_8h.html#a8642cf9a4ee37137b24b0887cb9bdad7">printAllAntennaEffects</a>(<a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> <a class="code hl_function" href="antenna__effect_8h.html#adb59b0bc7f5a9fcc4e50117ffe6ea158">clearAntennaEffectsList</a>(<a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="antenna__effect_8h.html#a49370cd34b85042bfd0f097432e0437f">computeEffectSpots</a>(<a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> **effects, <a class="code hl_struct" href="struct_antenna_node.html">AntennaNode</a> *antennas);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="antenna__effect_8h.html#aa5c3341c34b83fedc587b8c5be8354a0">saveAntennaEffectsToFile</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *filename, <a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="antenna__effect_8h.html#a7afe5b47e6310a11ad3c8f208760663d">saveAntennaEffectsToFileWithDots</a>(<a class="code hl_struct" href="struct_antenna_effect_node.html">AntennaEffectNode</a> *listHead, <span class="keyword">const</span> <span class="keywordtype">char</span> *fileName);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif </span><span class="comment">//PRACTICALWORK_ANTENNA_EFFECT_H</span></div>
+<div class="ttc" id="aantenna_8h_html"><div class="ttname"><a href="antenna_8h.html">antenna.h</a></div><div class="ttdoc">Header file for antenna system functions.</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_a32ca8f168055456ebfa6c3410e4a0c25"><div class="ttname"><a href="antenna__effect_8h.html#a32ca8f168055456ebfa6c3410e4a0c25">addNewAntennaEffect</a></div><div class="ttdeci">AntennaEffectNode * addNewAntennaEffect(int coordinateX, int coordinateY, AntennaEffectNode **listHead)</div><div class="ttdoc">Function to add a new antenna effect to the linked list.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:23</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_a49370cd34b85042bfd0f097432e0437f"><div class="ttname"><a href="antenna__effect_8h.html#a49370cd34b85042bfd0f097432e0437f">computeEffectSpots</a></div><div class="ttdeci">void computeEffectSpots(AntennaEffectNode **effects, AntennaNode *antennas)</div><div class="ttdoc">Function to compute the effect positions of antennas.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:109</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_a7afe5b47e6310a11ad3c8f208760663d"><div class="ttname"><a href="antenna__effect_8h.html#a7afe5b47e6310a11ad3c8f208760663d">saveAntennaEffectsToFileWithDots</a></div><div class="ttdeci">void saveAntennaEffectsToFileWithDots(AntennaEffectNode *listHead, const char *fileName)</div><div class="ttdoc">Function to load antenna effects from a file.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:169</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_a8642cf9a4ee37137b24b0887cb9bdad7"><div class="ttname"><a href="antenna__effect_8h.html#a8642cf9a4ee37137b24b0887cb9bdad7">printAllAntennaEffects</a></div><div class="ttdeci">void printAllAntennaEffects(AntennaEffectNode *listHead)</div><div class="ttdoc">Function to print all antenna effects in the linked list.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:74</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_aa5c3341c34b83fedc587b8c5be8354a0"><div class="ttname"><a href="antenna__effect_8h.html#aa5c3341c34b83fedc587b8c5be8354a0">saveAntennaEffectsToFile</a></div><div class="ttdeci">void saveAntennaEffectsToFile(const char *filename, AntennaEffectNode *listHead)</div><div class="ttdoc">Function to save the antenna effects to a file.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:132</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_ac3b04aaae848eb278d80fb7ea4f43982"><div class="ttname"><a href="antenna__effect_8h.html#ac3b04aaae848eb278d80fb7ea4f43982">isAntennaEffectExist</a></div><div class="ttdeci">int isAntennaEffectExist(int coordinateX, int coordinateY, AntennaEffectNode *effectsHead)</div><div class="ttdoc">Function to delete an antenna effect from the linked list.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:58</div></div>
+<div class="ttc" id="aantenna__effect_8h_html_adb59b0bc7f5a9fcc4e50117ffe6ea158"><div class="ttname"><a href="antenna__effect_8h.html#adb59b0bc7f5a9fcc4e50117ffe6ea158">clearAntennaEffectsList</a></div><div class="ttdeci">void clearAntennaEffectsList(AntennaEffectNode *listHead)</div><div class="ttdoc">Function to clear the antenna effects list.</div><div class="ttdef"><b>Definition</b> antenna_effect.c:90</div></div>
+<div class="ttc" id="astruct_antenna_effect_node_html"><div class="ttname"><a href="struct_antenna_effect_node.html">AntennaEffectNode</a></div><div class="ttdef"><b>Definition</b> antenna_effect.h:22</div></div>
+<div class="ttc" id="astruct_antenna_effect_node_html_a6c275446fb6860ee1f565c0df73db110"><div class="ttname"><a href="struct_antenna_effect_node.html#a6c275446fb6860ee1f565c0df73db110">AntennaEffectNode::nextEffect</a></div><div class="ttdeci">struct AntennaEffectNode * nextEffect</div><div class="ttdef"><b>Definition</b> antenna_effect.h:24</div></div>
+<div class="ttc" id="astruct_antenna_effect_node_html_ab66c03647ac5127ec939b0b3baacbb63"><div class="ttname"><a href="struct_antenna_effect_node.html#ab66c03647ac5127ec939b0b3baacbb63">AntennaEffectNode::coordinateY</a></div><div class="ttdeci">int coordinateY</div><div class="ttdef"><b>Definition</b> antenna_effect.h:23</div></div>
+<div class="ttc" id="astruct_antenna_effect_node_html_afb7de355bb43953233de3c943b80be0a"><div class="ttname"><a href="struct_antenna_effect_node.html#afb7de355bb43953233de3c943b80be0a">AntennaEffectNode::coordinateX</a></div><div class="ttdeci">int coordinateX</div><div class="ttdef"><b>Definition</b> antenna_effect.h:23</div></div>
+<div class="ttc" id="astruct_antenna_node_html"><div class="ttname"><a href="struct_antenna_node.html">AntennaNode</a></div><div class="ttdef"><b>Definition</b> antenna.h:24</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
-<div class="navpath" id="nav-path"><!-- id is needed for treeview function! -->
-    <ul>
-        <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>
-        <li class="navelem"><a class="el" href="antenna__effect_8h.html">antenna_effect.h</a></li>
-        <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img alt="doxygen"
-                                                                                          class="footer" height="31"
-                                                                                          src="doxygen.svg"
-                                                                                          width="104"/></a> 1.13.2
-        </li>
-    </ul>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="antenna__effect_8h.html">antenna_effect.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
 </div>
 </body>
 </html>

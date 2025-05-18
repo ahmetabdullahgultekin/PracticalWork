@@ -138,6 +138,7 @@ Status graph_clear_lists(Graph *g) {
         }
         g->adj[i] = NULL;
     }
+    g->n = 0; // Reset vertex count
     return STATUS_OK;
 }
 
@@ -593,7 +594,7 @@ static bool coord_in_set(const Coord *arr, size_t count, Coord c) {
  * @param danger Array to store danger points.
  * @param count Pointer to the count of danger points.
  */
-static void compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count) {
+Status compute_danger_points(const Graph *g, char freq, Coord *danger, size_t *count) {
     *count = 0;
     for (size_t i = 0; i < g->n; ++i) {
         if (g->v[i].freq != freq) continue;
@@ -601,19 +602,16 @@ static void compute_danger_points(const Graph *g, char freq, Coord *danger, size
             if (g->v[j].freq != freq) continue;
             int dr = g->v[j].row - g->v[i].row;
             int dc = g->v[j].col - g->v[i].col;
-            // Check alignment and double distance (horizontal, vertical, or diagonal)
-            if ((dr == 0 && abs(dc) == 2) ||
-                (dc == 0 && abs(dr) == 2) ||
-                (abs(dr) == 2 && abs(dc) == 2)) {
-                // Points between i and j, and the two sides:
-                int mr = g->v[i].row + dr / 2;
-                int mc = g->v[i].col + dc / 2;
-                Coord c1 = {mr, mc};
-                // Add both directions (i->j and j->i) for symmetry
-                add_unique_coord(danger, count, c1);
-            }
+            if (dr == 0 && dc == 0) continue; // skip same point
+
+            // Extend in both directions by the distance between antennas
+            Coord out1 = {g->v[i].row - dr, g->v[i].col - dc};
+            Coord out2 = {g->v[j].row + dr, g->v[j].col + dc};
+            add_unique_coord(danger, count, out1);
+            add_unique_coord(danger, count, out2);
         }
     }
+    return STATUS_OK;
 }
 
 /**

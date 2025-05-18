@@ -1,0 +1,102 @@
+\doxysection{include/ui.h File Reference}
+\hypertarget{ui_8h}{}\label{ui_8h}\index{include/ui.h@{include/ui.h}}
+
+
+Header file for the user interface functions.  
+
+
+{\ttfamily \#include "{}../include/graph.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ui_8h_a4ef888219e76d12c60fdd302e916172f}{show\+\_\+menu}} (void)
+\begin{DoxyCompactList}\small\item\em Displays the main menu to the user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ui_8h_a7e3198000e4526a9c2a59deea9053e10}{read\+\_\+int}} (void)
+\begin{DoxyCompactList}\small\item\em Reads an integer input from the user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{ui_8h_a8a439368f05955882b3d041a05947a2c}{print\+\_\+vertex}} (const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}v, void \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Callback function to print a vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the user interface functions. 
+
+This file contains the declarations of functions used for interacting with the user via the console, including displaying menus, reading input, and printing graph vertices.
+
+\begin{DoxyAuthor}{Author}
+Ahmet Abdullah GULTEKIN 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/05-\/11 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ui_8h_a8a439368f05955882b3d041a05947a2c}\index{ui.h@{ui.h}!print\_vertex@{print\_vertex}}
+\index{print\_vertex@{print\_vertex}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{print\_vertex()}{print\_vertex()}}
+{\footnotesize\ttfamily \label{ui_8h_a8a439368f05955882b3d041a05947a2c} 
+\mbox{\hyperlink{struct_status}{Status}} print\+\_\+vertex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}}]{v}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Callback function to print a vertex. 
+
+This function is used as a callback during graph traversal (e.\+g., DFS or BFS) to print the details of a vertex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the vertex to be printed. \\
+\hline
+{\em ctx} & Context pointer (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily STATUS\+\_\+\+OK} if the vertex is printed successfully.
+\end{DoxyReturn}
+Callback function to print a vertex.
+
+Prints the details of a vertex, including its row, column, and frequency.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the vertex to be printed. \\
+\hline
+{\em ctx} & Context pointer (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily STATUS\+\_\+\+OK} if the vertex is printed successfully. 
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a7e3198000e4526a9c2a59deea9053e10}\index{ui.h@{ui.h}!read\_int@{read\_int}}
+\index{read\_int@{read\_int}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{read\_int()}{read\_int()}}
+{\footnotesize\ttfamily \label{ui_8h_a7e3198000e4526a9c2a59deea9053e10} 
+int read\+\_\+int (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads an integer input from the user. 
+
+This function reads a line of input from the user, converts it to an integer, and returns the result. If the input is invalid, it returns -\/1.
+
+\begin{DoxyReturn}{Returns}
+The integer value entered by the user, or -\/1 if the input is invalid.
+\end{DoxyReturn}
+Reads a line of input, converts it to an integer, and returns the result. If the input is invalid, it returns -\/1.
+
+\begin{DoxyReturn}{Returns}
+The integer value entered by the user, or -\/1 if the input is invalid. 
+\end{DoxyReturn}
+\Hypertarget{ui_8h_a4ef888219e76d12c60fdd302e916172f}\index{ui.h@{ui.h}!show\_menu@{show\_menu}}
+\index{show\_menu@{show\_menu}!ui.h@{ui.h}}
+\doxysubsubsection{\texorpdfstring{show\_menu()}{show\_menu()}}
+{\footnotesize\ttfamily \label{ui_8h_a4ef888219e76d12c60fdd302e916172f} 
+int show\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Displays the main menu to the user. 
+
+This function prints the available options in the program\textquotesingle{}s menu and prompts the user to make a selection.
+
+Prints the program\textquotesingle{}s menu options and prompts the user to make a selection. 

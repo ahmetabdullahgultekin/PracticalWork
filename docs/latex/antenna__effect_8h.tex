@@ -19,24 +19,24 @@ struct \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}}
 \begin{DoxyCompactItemize}
 \item 
 typedef struct Antenna\+Effect\+Node \mbox{\hyperlink{antenna__effect_8h_a1814b6598ab66b821ccd5d6f2affd4f1}{Antenna\+Effect\+Node}}
-\begin{DoxyCompactList}\small\item\em \doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} structure for a single effect position in the linked list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} structure for a single antenna effect in the linked list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{antenna__effect_8h_a32ca8f168055456ebfa6c3410e4a0c25}{add\+New\+Antenna\+Effect}} (int coordinateX, int coordinateY, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to add a new antenna effect to the linked list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{antenna__effect_8h_ac3b04aaae848eb278d80fb7ea4f43982}{is\+Antenna\+Effect\+Exist}} (int coordinateX, int coordinateY, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}effects\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to delete an antenna effect from the linked list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna__effect_8h_a8642cf9a4ee37137b24b0887cb9bdad7}{print\+All\+Antenna\+Effects}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to print all antenna effects in the linked list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna__effect_8h_adb59b0bc7f5a9fcc4e50117ffe6ea158}{clear\+Antenna\+Effects\+List}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to clear the antenna effects list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna__effect_8h_a49370cd34b85042bfd0f097432e0437f}{compute\+Effect\+Spots}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effects, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}antennas)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to compute the effect positions of antennas. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna__effect_8h_aa5c3341c34b83fedc587b8c5be8354a0}{save\+Antenna\+Effects\+To\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to save the antenna effects to a file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna__effect_8h_a7afe5b47e6310a11ad3c8f208760663d}{save\+Antenna\+Effects\+To\+File\+With\+Dots}} (\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}list\+Head, const char \texorpdfstring{$\ast$}{*}file\+Name)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to load antenna effects from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -59,7 +59,9 @@ typedef struct Antenna\+Effect\+Node Antenna\+Effect\+Node}
 
 
 
-\doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} structure for a single effect position in the linked list. 
+\doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} structure for a single antenna effect in the linked list. 
+
+\doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} structure for a single effect position in the linked list.
 
 Typedef for \doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node} 
 
@@ -70,39 +72,119 @@ Typedef for \doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node}
 {\footnotesize\ttfamily \label{antenna__effect_8h_a32ca8f168055456ebfa6c3410e4a0c25} 
 \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*} add\+New\+Antenna\+Effect (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to add a new antenna effect to the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinateX} & X coordinate of the antenna effect. \\
+\hline
+{\em coordinateY} & Y coordinate of the antenna effect. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the newly created \doxylink{struct_antenna_effect_node}{Antenna\+Effect\+Node}. 
+\end{DoxyReturn}
 \Hypertarget{antenna__effect_8h_adb59b0bc7f5a9fcc4e50117ffe6ea158}\index{antenna\_effect.h@{antenna\_effect.h}!clearAntennaEffectsList@{clearAntennaEffectsList}}
 \index{clearAntennaEffectsList@{clearAntennaEffectsList}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{clearAntennaEffectsList()}{clearAntennaEffectsList()}}
 {\footnotesize\ttfamily \label{antenna__effect_8h_adb59b0bc7f5a9fcc4e50117ffe6ea158} 
 void clear\+Antenna\+Effects\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to clear the antenna effects list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna__effect_8h_a49370cd34b85042bfd0f097432e0437f}\index{antenna\_effect.h@{antenna\_effect.h}!computeEffectSpots@{computeEffectSpots}}
 \index{computeEffectSpots@{computeEffectSpots}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{computeEffectSpots()}{computeEffectSpots()}}
 {\footnotesize\ttfamily \label{antenna__effect_8h_a49370cd34b85042bfd0f097432e0437f} 
 void compute\+Effect\+Spots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{effects}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{antennas}{}\end{DoxyParamCaption})}
 
+
+
+Function to compute the effect positions of antennas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em effects} & Pointer to the head of the linked list of antenna effects. \\
+\hline
+{\em antennas} & Pointer to the head of the linked list of antennas. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna__effect_8h_ac3b04aaae848eb278d80fb7ea4f43982}\index{antenna\_effect.h@{antenna\_effect.h}!isAntennaEffectExist@{isAntennaEffectExist}}
 \index{isAntennaEffectExist@{isAntennaEffectExist}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{isAntennaEffectExist()}{isAntennaEffectExist()}}
 {\footnotesize\ttfamily \label{antenna__effect_8h_ac3b04aaae848eb278d80fb7ea4f43982} 
 int is\+Antenna\+Effect\+Exist (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{effects\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to delete an antenna effect from the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinateX} & X coordinate of the antenna effect to be deleted. \\
+\hline
+{\em coordinateY} & Y coordinate of the antenna effect to be deleted. \\
+\hline
+{\em effects\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna__effect_8h_a8642cf9a4ee37137b24b0887cb9bdad7}\index{antenna\_effect.h@{antenna\_effect.h}!printAllAntennaEffects@{printAllAntennaEffects}}
 \index{printAllAntennaEffects@{printAllAntennaEffects}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{printAllAntennaEffects()}{printAllAntennaEffects()}}
 {\footnotesize\ttfamily \label{antenna__effect_8h_a8642cf9a4ee37137b24b0887cb9bdad7} 
 void print\+All\+Antenna\+Effects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to print all antenna effects in the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna__effect_8h_aa5c3341c34b83fedc587b8c5be8354a0}\index{antenna\_effect.h@{antenna\_effect.h}!saveAntennaEffectsToFile@{saveAntennaEffectsToFile}}
 \index{saveAntennaEffectsToFile@{saveAntennaEffectsToFile}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{saveAntennaEffectsToFile()}{saveAntennaEffectsToFile()}}
 {\footnotesize\ttfamily \label{antenna__effect_8h_aa5c3341c34b83fedc587b8c5be8354a0} 
 void save\+Antenna\+Effects\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to save the antenna effects to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to save the antenna effects. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna__effect_8h_a7afe5b47e6310a11ad3c8f208760663d}\index{antenna\_effect.h@{antenna\_effect.h}!saveAntennaEffectsToFileWithDots@{saveAntennaEffectsToFileWithDots}}
 \index{saveAntennaEffectsToFileWithDots@{saveAntennaEffectsToFileWithDots}!antenna\_effect.h@{antenna\_effect.h}}
 \doxysubsubsection{\texorpdfstring{saveAntennaEffectsToFileWithDots()}{saveAntennaEffectsToFileWithDots()}}
 {\footnotesize\ttfamily \label{antenna__effect_8h_a7afe5b47e6310a11ad3c8f208760663d} 
 void save\+Antenna\+Effects\+To\+File\+With\+Dots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name}{}\end{DoxyParamCaption})}
 
+
+
+Function to load antenna effects from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Name of the file to load the antenna effects from. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}

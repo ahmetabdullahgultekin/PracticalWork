@@ -1,0 +1,107 @@
+\doxysection{graph.\+h}
+\hypertarget{graph_8h_source}{}\label{graph_8h_source}\index{include/graph.h@{include/graph.h}}
+\mbox{\hyperlink{graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ PRACTICALWORK\_GRAPH\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ PRACTICALWORK\_GRAPH\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#pragma\ once\ }\textcolor{comment}{//the\ same}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <stddef.h>}\ \textcolor{comment}{/*\ size\_t\ */}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <stdint.h>}\ \textcolor{comment}{/*\ int32\_t\ */}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba7e4a42e3b6dd63708c64cf3db6f69566}{STATUS\_OK}}\ =\ 0,}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bad63f9ac5c532c8875aa8fcb1df3bc649}{STATUS\_ALLOC}},\ \ \ \ \ \ \textcolor{comment}{/*\ memory\ allocation\ failed\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba4b1d2adb0b10a74bf6a08a457dab15c8}{STATUS\_IO}},\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ file\ or\ stream\ error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bae83d84fa3518dd04613345b248bc1994}{STATUS\_INVALID}},\ \ \ \ \textcolor{comment}{/*\ invalid\ argument\ or\ corrupt\ input\ \ \ */}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5beadd7da049edbb6bbe9a9d50973ac8}{STATUS\_NOT\_FOUND}},\ \ \ \textcolor{comment}{/*\ the\ requested\ item\ does\ not\ exist\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5c51e58cdcaba2ce0653eb2ff530cd34}{STATUS\_WRITE}},\ \ \ \ \ \ \textcolor{comment}{/*\ write\ error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba843be8f85807ba8b0e2623a264f2fb03}{STATUS\_READ}},\ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bacd3a674284820d9278f9fe53ac255ec2}{STATUS\_EMPTY}},\ \ \ \ \ \ \textcolor{comment}{/*\ empty\ data\ structure\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bab3f01b37ed094cdc26467b162889ea51}{STATUS\_OVERFLOW}},\ \ \ \textcolor{comment}{/*\ overflow\ error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba8a2f60c882bec119afb30cd65358e87c}{STATUS\_UNDERFLOW}},\ \ \textcolor{comment}{/*\ underflow\ error\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baef2b214bb9b6ccc009f27c76e81b3fef}{STATUS\_UNSUPPORTED}}\ \textcolor{comment}{/*\ unsupported\ operation\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00057\ \}\ \mbox{\hyperlink{struct_status}{Status}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_edge_node}{EdgeNode}}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_edge_node_a5790e531359ce72bfa9cd915c9c912a8}{dest}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ index\ of\ destination\ vertex\ */}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_edge_node}{EdgeNode}}\ *\mbox{\hyperlink{struct_edge_node_abf130d69a3db0ad6ea3201cfe21e0651}{next}};}
+\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{struct_edge_node}{EdgeNode}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_vertex_a070df26428c989992ba97b112d1e199d}{freq}};\ \ \ \textcolor{comment}{/*\ antenna\ frequency\ (printable\ ASCII)\ */}}
+\DoxyCodeLine{00081\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct_vertex_a4ef22e7f65c32d6d667a21087d243413}{row}};\ \ \ \textcolor{comment}{/*\ matrix\ row\ index\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00082\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct_vertex_a55a87fdc79d5f2759bfe2e8b23fc8c7f}{col}};\ \ \ \textcolor{comment}{/*\ matrix\ column\ index\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00083\ \}\ \mbox{\hyperlink{struct_vertex}{Vertex}};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_graph}{Graph}}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{struct_vertex}{Vertex}}\ *\mbox{\hyperlink{struct_graph_a67afed3abdc05ce7da32c444c80eb77e}{v}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ dynamic\ array\ of\ vertices\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{struct_edge_node}{EdgeNode}}\ **\mbox{\hyperlink{struct_graph_ac30e1d8e4a51262df66eb3bbe9e4c068}{adj}};\ \ \ \ \ \ \textcolor{comment}{/*\ array\ of\ adjacency\ lists\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_graph_a6196749068b51bc6bd9c4b81bbf68b5b}{n}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ current\ vertex\ count\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_graph_a5408bb3cc4f7a06688d95f7cf79546bf}{cap}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ allocated\ capacity\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_graph}{Graph}}\ \mbox{\hyperlink{struct_graph}{Graph}};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}}\ (*\mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{VisitFn}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex}{Vertex}}\ *\mbox{\hyperlink{struct_graph_a67afed3abdc05ce7da32c444c80eb77e}{v}},\ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ *\mbox{\hyperlink{struct_path_a6a68896f677912640174c534b200d265}{idx}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ dynamic\ array\ of\ vertex\ indices\ */}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_path_a8b839f71edb8a7b321bf67a78536dfe6}{len}};}
+\DoxyCodeLine{00121\ \}\ \mbox{\hyperlink{struct_path}{Path}};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{struct_path}{Path}}\ *\mbox{\hyperlink{struct_path_set_ace61e00fd071420985bb1378ff12ceea}{path}};\ \ \ \ \ \ \ \textcolor{comment}{/*\ dynamic\ array\ */}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_path_set_aa6b8928f76c87afafc3b9b55ffe0fdd9}{count}};}
+\DoxyCodeLine{00133\ \}\ \mbox{\hyperlink{struct_path_set}{PathSet}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00142\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct_coord_ab94d45a5f9b0af635f4107865b327154}{row}};}
+\DoxyCodeLine{00143\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct_coord_a945daa1c7cceab7850debe7621713fd1}{col}};}
+\DoxyCodeLine{00144\ \}\ \mbox{\hyperlink{struct_coord}{Coord}};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00153\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{struct_coord}{Coord}}\ *\mbox{\hyperlink{struct_coord_list_a2a7188a7ad3a507325371a5855def334}{coord}};\ \ \ \ \ \textcolor{comment}{/*\ dynamic\ array\ */}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_coord_list_a622318f9db6bed3d3d1f10c889c79c69}{count}};}
+\DoxyCodeLine{00156\ \}\ \mbox{\hyperlink{struct_coord_list}{CoordList}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00165\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_aa209fcc58946ede1e33019d5bf5a4bb9}{graph\_init}}(\mbox{\hyperlink{struct_graph}{Graph}}\ **g,\ \textcolor{keywordtype}{size\_t}\ reserve);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00173\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_aff367a29c944481ae97e0a951f15612a}{graph\_free}}(\mbox{\hyperlink{struct_graph}{Graph}}\ **g);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00181\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_a5103384dd35398206440f3b0c05d47c2}{graph\_clear\_lists}}(\mbox{\hyperlink{struct_graph}{Graph}}\ *g);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00190\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_a4a7ab7eda04ba2af5869672da4bb4e55}{graph\_save\_matrix}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00201\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_ae241c7292b4cfbc8f4bf065b685a1ed4}{graph\_insert\_vertex}}(\mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{char}\ freq,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00210\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_a923ea8e6102f571c644c9510effa676e}{graph\_remove\_vertex}}(\mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00219\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_a7763f2b2b135d6479f6cce16aafd892e}{graph\_from\_matrix\_file}}(\mbox{\hyperlink{struct_graph}{Graph}}\ **g,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00230\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_af8e0c51d70adb169d78658f36d17f7ca}{graph\_dfs}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{size\_t}\ start,\ \mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{VisitFn}}\ fn,\ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00241\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_a241e23f6ed965ffa4c7e5859e87f04e1}{graph\_bfs}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{size\_t}\ start,\ \mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{VisitFn}}\ fn,\ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00252\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_adb0661a7bd7223407d4d75a76a45facb}{graph\_all\_paths}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{size\_t}\ src,\ \textcolor{keywordtype}{size\_t}\ dst,\ \mbox{\hyperlink{struct_path_set}{PathSet}}\ *out);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00263\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_acb1957d01c0c7cd81c01e79c4070f94d}{graph\_intersections}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{char}\ freqA,\ \textcolor{keywordtype}{char}\ freqB,\ \mbox{\hyperlink{struct_coord_list}{CoordList}}\ *out);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00274\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_ad46c8b761b0ca9f2d7dc40f81bf83e45}{compute\_danger\_points}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{char}\ freq,\ \mbox{\hyperlink{struct_coord}{Coord}}\ *danger,\ \textcolor{keywordtype}{size\_t}\ *count);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00285\ \mbox{\hyperlink{struct_status}{Status}}\ \mbox{\hyperlink{graph_8h_a0fc38d0fc674ae0c0ead2ccca6d9255f}{graph\_danger\_overlaps}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{char}\ freqA,\ \textcolor{keywordtype}{char}\ freqB,\ \mbox{\hyperlink{struct_coord_list}{CoordList}}\ *out);}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00295\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{graph_8h_a0a55434e5010b8c981d16f5262e7a838}{custom\_getlines}}(\textcolor{keywordtype}{char}\ **line,\ \textcolor{keywordtype}{size\_t}\ *n,\ FILE\ *stream);}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00303\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{graph_8h_a9e1b61ee3243dd96ca03245bd67c3ec0}{graph\_vertex\_count}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00312\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vertex}{Vertex}}\ *\mbox{\hyperlink{graph_8h_a1d3ac6689b1688e74af9f6899a3abed9}{graph\_vertex\_at}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_graph}{Graph}}\ *g,\ \textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PRACTICALWORK\_GRAPH\_H}}
+
+\end{DoxyCode}

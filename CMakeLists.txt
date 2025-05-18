@@ -19,4 +19,4 @@ add_executable(PracticalWork src/main.c
         include/strings.h
 )
 
-target_compile_definitions(PracticalWork PRIVATE LANG_TR)
+target_compile_definitions(PracticalWork PRIVATE #[[LANG_PT]])

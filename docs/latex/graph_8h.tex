@@ -1,0 +1,531 @@
+\doxysection{include/graph.h File Reference}
+\hypertarget{graph_8h}{}\label{graph_8h}\index{include/graph.h@{include/graph.h}}
+
+
+Header file for the graph data structure and its operations.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_edge_node}{Edge\+Node}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_edge_node}{Edge\+Node} structure representing an edge in the graph. Each edge is represented as a linked list node pointing to the destination vertex. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_vertex}{Vertex}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_vertex}{Vertex} structure representing a vertex in the graph. Each vertex contains a frequency, row index, and column index. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_graph}{Graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_graph}{Graph} structure representing a graph. It contains an array of vertices, an array of adjacency lists, and the current vertex count. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_path}{Path}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_path}{Path} structure representing a path in the graph. It contains an array of vertex indices and the length of the path. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_path_set}{Path\+Set}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_path_set}{Path\+Set} structure representing a set of paths. It contains a dynamic array of paths and the count of paths. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_coord}{Coord}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_coord}{Coord} structure representing a coordinate in the graph. It contains row and column indices. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_coord_list}{Coord\+List}}
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_coord_list}{Coord\+List} structure representing a list of coordinates. It contains a dynamic array of coordinates and the count of coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Edge\+Node \mbox{\hyperlink{graph_8h_a40f96f3460b73bf912d6fd09e98963b6}{Edge\+Node}}
+\item 
+typedef struct Graph \mbox{\hyperlink{graph_8h_a0c94bbeb31bba748d2897a168f62e9bc}{Graph}}
+\item 
+typedef \mbox{\hyperlink{struct_status}{Status}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{Visit\+Fn}}) (const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}v, void \texorpdfstring{$\ast$}{*}ctx)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}{Status}} \{ \newline
+\mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba7e4a42e3b6dd63708c64cf3db6f69566}{STATUS\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bad63f9ac5c532c8875aa8fcb1df3bc649}{STATUS\+\_\+\+ALLOC}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba4b1d2adb0b10a74bf6a08a457dab15c8}{STATUS\+\_\+\+IO}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bae83d84fa3518dd04613345b248bc1994}{STATUS\+\_\+\+INVALID}}
+, \newline
+\mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5beadd7da049edbb6bbe9a9d50973ac8}{STATUS\+\_\+\+NOT\+\_\+\+FOUND}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5c51e58cdcaba2ce0653eb2ff530cd34}{STATUS\+\_\+\+WRITE}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba843be8f85807ba8b0e2623a264f2fb03}{STATUS\+\_\+\+READ}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bacd3a674284820d9278f9fe53ac255ec2}{STATUS\+\_\+\+EMPTY}}
+, \newline
+\mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bab3f01b37ed094cdc26467b162889ea51}{STATUS\+\_\+\+OVERFLOW}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba8a2f60c882bec119afb30cd65358e87c}{STATUS\+\_\+\+UNDERFLOW}}
+, \mbox{\hyperlink{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baef2b214bb9b6ccc009f27c76e81b3fef}{STATUS\+\_\+\+UNSUPPORTED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_aa209fcc58946ede1e33019d5bf5a4bb9}{graph\+\_\+init}} (\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}g, size\+\_\+t reserve)
+\begin{DoxyCompactList}\small\item\em Initialize a graph with a given capacity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_aff367a29c944481ae97e0a951f15612a}{graph\+\_\+free}} (\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Free the graph and its resources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_a5103384dd35398206440f3b0c05d47c2}{graph\+\_\+clear\+\_\+lists}} (\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Clear the adjacency lists of the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_a4a7ab7eda04ba2af5869672da4bb4e55}{graph\+\_\+save\+\_\+matrix}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Save the graph to a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_ae241c7292b4cfbc8f4bf065b685a1ed4}{graph\+\_\+insert\+\_\+vertex}} (\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, char freq, int row, int col)
+\begin{DoxyCompactList}\small\item\em Insert a vertex into the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_a923ea8e6102f571c644c9510effa676e}{graph\+\_\+remove\+\_\+vertex}} (\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Remove a vertex from the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_a7763f2b2b135d6479f6cce16aafd892e}{graph\+\_\+from\+\_\+matrix\+\_\+file}} (\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}g, const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em Load a graph from a matrix file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_af8e0c51d70adb169d78658f36d17f7ca}{graph\+\_\+dfs}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, size\+\_\+t start, \mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{Visit\+Fn}} fn, void \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Depth-\/first search starting at vertex index start. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_a241e23f6ed965ffa4c7e5859e87f04e1}{graph\+\_\+bfs}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, size\+\_\+t start, \mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{Visit\+Fn}} fn, void \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Breadth-\/first search starting at vertex index start. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_adb0661a7bd7223407d4d75a76a45facb}{graph\+\_\+all\+\_\+paths}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, size\+\_\+t src, size\+\_\+t dst, \mbox{\hyperlink{struct_path_set}{Path\+Set}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Find all paths from src to dst in the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_acb1957d01c0c7cd81c01e79c4070f94d}{graph\+\_\+intersections}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, char freqA, char freqB, \mbox{\hyperlink{struct_coord_list}{Coord\+List}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Find all intersections between two frequencies in the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_ad46c8b761b0ca9f2d7dc40f81bf83e45}{compute\+\_\+danger\+\_\+points}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, char freq, \mbox{\hyperlink{struct_coord}{Coord}} \texorpdfstring{$\ast$}{*}danger, size\+\_\+t \texorpdfstring{$\ast$}{*}count)
+\begin{DoxyCompactList}\small\item\em Find all dangerous points for a given frequency. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{graph_8h_a0fc38d0fc674ae0c0ead2ccca6d9255f}{graph\+\_\+danger\+\_\+overlaps}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, char freqA, char freqB, \mbox{\hyperlink{struct_coord_list}{Coord\+List}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Find all dangerous point intersections between two frequencies. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{graph_8h_a0a55434e5010b8c981d16f5262e7a838}{custom\+\_\+getlines}} (char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}line, size\+\_\+t \texorpdfstring{$\ast$}{*}n, FILE \texorpdfstring{$\ast$}{*}stream)
+\begin{DoxyCompactList}\small\item\em Custom getline() implementation to read lines from a file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{graph_8h_a9e1b61ee3243dd96ca03245bd67c3ec0}{graph\+\_\+vertex\+\_\+count}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Replace occurrences of "{}\textbackslash{}n"{} in a string with actual newline characters. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8h_a1d3ac6689b1688e74af9f6899a3abed9}{graph\+\_\+vertex\+\_\+at}} (const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}g, size\+\_\+t idx)
+\begin{DoxyCompactList}\small\item\em Get the vertex at a specific index in the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the graph data structure and its operations. 
+
+This file contains the definition of the graph data structure, as well as the function prototypes for various operations that can be performed on the graph.
+
+This header file is part of the Advanced Data Structures course project. It includes the necessary data structures and function prototypes for working with graphs.
+
+\begin{DoxyNote}{Note}
+The graph is represented as an adjacency list, where each vertex is associated with a list of its neighbors. The graph can be used to represent various types of data, such as networks, social connections, or any other relationships.
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Ahmet Abdullah GULTEKIN 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/04-\/24 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{graph_8h_a40f96f3460b73bf912d6fd09e98963b6}\index{graph.h@{graph.h}!EdgeNode@{EdgeNode}}
+\index{EdgeNode@{EdgeNode}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{EdgeNode}{EdgeNode}}
+{\footnotesize\ttfamily \label{graph_8h_a40f96f3460b73bf912d6fd09e98963b6} 
+typedef struct Edge\+Node Edge\+Node}
+
+\Hypertarget{graph_8h_a0c94bbeb31bba748d2897a168f62e9bc}\index{graph.h@{graph.h}!Graph@{Graph}}
+\index{Graph@{Graph}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{Graph}{Graph}}
+{\footnotesize\ttfamily \label{graph_8h_a0c94bbeb31bba748d2897a168f62e9bc} 
+typedef struct Graph Graph}
+
+Forward declaration of the \doxylink{struct_graph}{Graph} structure for use in function prototypes. \Hypertarget{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}\index{graph.h@{graph.h}!VisitFn@{VisitFn}}
+\index{VisitFn@{VisitFn}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{VisitFn}{VisitFn}}
+{\footnotesize\ttfamily \label{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5} 
+typedef \mbox{\hyperlink{struct_status}{Status}}(\texorpdfstring{$\ast$}{*} Visit\+Fn) (const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}v, void \texorpdfstring{$\ast$}{*}ctx)}
+
+Function pointer type for visiting vertices during traversal. The function should return a \doxylink{struct_status}{Status} code indicating success or failure. 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b}\index{graph.h@{graph.h}!Status@{Status}}
+\index{Status@{Status}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{Status}{Status}}
+{\footnotesize\ttfamily \label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70b} 
+enum Status}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_OK@{STATUS\_OK}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_OK@{STATUS\_OK}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba7e4a42e3b6dd63708c64cf3db6f69566}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba7e4a42e3b6dd63708c64cf3db6f69566} 
+STATUS\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_ALLOC@{STATUS\_ALLOC}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_ALLOC@{STATUS\_ALLOC}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bad63f9ac5c532c8875aa8fcb1df3bc649}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bad63f9ac5c532c8875aa8fcb1df3bc649} 
+STATUS\+\_\+\+ALLOC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_IO@{STATUS\_IO}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_IO@{STATUS\_IO}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba4b1d2adb0b10a74bf6a08a457dab15c8}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba4b1d2adb0b10a74bf6a08a457dab15c8} 
+STATUS\+\_\+\+IO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_INVALID@{STATUS\_INVALID}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_INVALID@{STATUS\_INVALID}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bae83d84fa3518dd04613345b248bc1994}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bae83d84fa3518dd04613345b248bc1994} 
+STATUS\+\_\+\+INVALID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_NOT\_FOUND@{STATUS\_NOT\_FOUND}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_NOT\_FOUND@{STATUS\_NOT\_FOUND}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5beadd7da049edbb6bbe9a9d50973ac8}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5beadd7da049edbb6bbe9a9d50973ac8} 
+STATUS\+\_\+\+NOT\+\_\+\+FOUND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_WRITE@{STATUS\_WRITE}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_WRITE@{STATUS\_WRITE}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5c51e58cdcaba2ce0653eb2ff530cd34}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba5c51e58cdcaba2ce0653eb2ff530cd34} 
+STATUS\+\_\+\+WRITE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_READ@{STATUS\_READ}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_READ@{STATUS\_READ}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba843be8f85807ba8b0e2623a264f2fb03}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba843be8f85807ba8b0e2623a264f2fb03} 
+STATUS\+\_\+\+READ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_EMPTY@{STATUS\_EMPTY}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_EMPTY@{STATUS\_EMPTY}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bacd3a674284820d9278f9fe53ac255ec2}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bacd3a674284820d9278f9fe53ac255ec2} 
+STATUS\+\_\+\+EMPTY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_OVERFLOW@{STATUS\_OVERFLOW}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_OVERFLOW@{STATUS\_OVERFLOW}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bab3f01b37ed094cdc26467b162889ea51}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70bab3f01b37ed094cdc26467b162889ea51} 
+STATUS\+\_\+\+OVERFLOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_UNDERFLOW@{STATUS\_UNDERFLOW}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_UNDERFLOW@{STATUS\_UNDERFLOW}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba8a2f60c882bec119afb30cd65358e87c}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70ba8a2f60c882bec119afb30cd65358e87c} 
+STATUS\+\_\+\+UNDERFLOW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_UNSUPPORTED@{STATUS\_UNSUPPORTED}!graph.h@{graph.h}}\index{graph.h@{graph.h}!STATUS\_UNSUPPORTED@{STATUS\_UNSUPPORTED}}}\Hypertarget{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baef2b214bb9b6ccc009f27c76e81b3fef}\label{graph_8h_a67a0db04d321a74b7e7fcfd3f1a3f70baef2b214bb9b6ccc009f27c76e81b3fef} 
+STATUS\+\_\+\+UNSUPPORTED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graph_8h_ad46c8b761b0ca9f2d7dc40f81bf83e45}\index{graph.h@{graph.h}!compute\_danger\_points@{compute\_danger\_points}}
+\index{compute\_danger\_points@{compute\_danger\_points}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{compute\_danger\_points()}{compute\_danger\_points()}}
+{\footnotesize\ttfamily \label{graph_8h_ad46c8b761b0ca9f2d7dc40f81bf83e45} 
+\mbox{\hyperlink{struct_status}{Status}} compute\+\_\+danger\+\_\+points (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{char}]{freq}{, }\item[{\mbox{\hyperlink{struct_coord}{Coord}} \texorpdfstring{$\ast$}{*}}]{danger}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Find all dangerous points for a given frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em freq} & Frequency to check for dangerous points. \\
+\hline
+{\em danger} & Pointer to the \doxylink{struct_coord_list}{Coord\+List} to store the dangerous points. \\
+\hline
+{\em count} & Pointer to store the count of dangerous points.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a0a55434e5010b8c981d16f5262e7a838}\index{graph.h@{graph.h}!custom\_getlines@{custom\_getlines}}
+\index{custom\_getlines@{custom\_getlines}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{custom\_getlines()}{custom\_getlines()}}
+{\footnotesize\ttfamily \label{graph_8h_a0a55434e5010b8c981d16f5262e7a838} 
+size\+\_\+t custom\+\_\+getlines (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{line}{, }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{n}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{stream}{}\end{DoxyParamCaption})}
+
+
+
+Custom getline() implementation to read lines from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Pointer to the line buffer. \\
+\hline
+{\em n} & Pointer to the size of the line buffer. \\
+\hline
+{\em stream} & File pointer to read from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the line read. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_adb0661a7bd7223407d4d75a76a45facb}\index{graph.h@{graph.h}!graph\_all\_paths@{graph\_all\_paths}}
+\index{graph\_all\_paths@{graph\_all\_paths}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_all\_paths()}{graph\_all\_paths()}}
+{\footnotesize\ttfamily \label{graph_8h_adb0661a7bd7223407d4d75a76a45facb} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+all\+\_\+paths (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{size\+\_\+t}]{src}{, }\item[{size\+\_\+t}]{dst}{, }\item[{\mbox{\hyperlink{struct_path_set}{Path\+Set}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Find all paths from src to dst in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em src} & Source vertex index. \\
+\hline
+{\em dst} & Destination vertex index. \\
+\hline
+{\em out} & Pointer to the \doxylink{struct_path_set}{Path\+Set} to store the found paths.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a241e23f6ed965ffa4c7e5859e87f04e1}\index{graph.h@{graph.h}!graph\_bfs@{graph\_bfs}}
+\index{graph\_bfs@{graph\_bfs}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_bfs()}{graph\_bfs()}}
+{\footnotesize\ttfamily \label{graph_8h_a241e23f6ed965ffa4c7e5859e87f04e1} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+bfs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{size\+\_\+t}]{start}{, }\item[{\mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{Visit\+Fn}}}]{fn}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Breadth-\/first search starting at vertex index start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em start} & Starting vertex index. \\
+\hline
+{\em fn} & Function to be called for each visited vertex. \\
+\hline
+{\em ctx} & Context pointer to be passed to the function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a5103384dd35398206440f3b0c05d47c2}\index{graph.h@{graph.h}!graph\_clear\_lists@{graph\_clear\_lists}}
+\index{graph\_clear\_lists@{graph\_clear\_lists}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_clear\_lists()}{graph\_clear\_lists()}}
+{\footnotesize\ttfamily \label{graph_8h_a5103384dd35398206440f3b0c05d47c2} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+clear\+\_\+lists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Clear the adjacency lists of the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph to be cleared.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a0fc38d0fc674ae0c0ead2ccca6d9255f}\index{graph.h@{graph.h}!graph\_danger\_overlaps@{graph\_danger\_overlaps}}
+\index{graph\_danger\_overlaps@{graph\_danger\_overlaps}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_danger\_overlaps()}{graph\_danger\_overlaps()}}
+{\footnotesize\ttfamily \label{graph_8h_a0fc38d0fc674ae0c0ead2ccca6d9255f} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+danger\+\_\+overlaps (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{char}]{freqA}{, }\item[{char}]{freqB}{, }\item[{\mbox{\hyperlink{struct_coord_list}{Coord\+List}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Find all dangerous point intersections between two frequencies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em freqA} & First frequency. \\
+\hline
+{\em freqB} & Second frequency. \\
+\hline
+{\em out} & Pointer to the \doxylink{struct_coord_list}{Coord\+List} to store the intersections.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_af8e0c51d70adb169d78658f36d17f7ca}\index{graph.h@{graph.h}!graph\_dfs@{graph\_dfs}}
+\index{graph\_dfs@{graph\_dfs}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_dfs()}{graph\_dfs()}}
+{\footnotesize\ttfamily \label{graph_8h_af8e0c51d70adb169d78658f36d17f7ca} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+dfs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{size\+\_\+t}]{start}{, }\item[{\mbox{\hyperlink{graph_8h_ac59a55edc5bda5935b51ed8db17cfeb5}{Visit\+Fn}}}]{fn}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Depth-\/first search starting at vertex index start. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em start} & Starting vertex index. \\
+\hline
+{\em fn} & Function to be called for each visited vertex. \\
+\hline
+{\em ctx} & Context pointer to be passed to the function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_aff367a29c944481ae97e0a951f15612a}\index{graph.h@{graph.h}!graph\_free@{graph\_free}}
+\index{graph\_free@{graph\_free}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_free()}{graph\_free()}}
+{\footnotesize\ttfamily \label{graph_8h_aff367a29c944481ae97e0a951f15612a} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Free the graph and its resources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph to be freed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a7763f2b2b135d6479f6cce16aafd892e}\index{graph.h@{graph.h}!graph\_from\_matrix\_file@{graph\_from\_matrix\_file}}
+\index{graph\_from\_matrix\_file@{graph\_from\_matrix\_file}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_from\_matrix\_file()}{graph\_from\_matrix\_file()}}
+{\footnotesize\ttfamily \label{graph_8h_a7763f2b2b135d6479f6cce16aafd892e} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+from\+\_\+matrix\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{g}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Load a graph from a matrix file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph to be loaded. \\
+\hline
+{\em path} & \doxylink{struct_path}{Path} to the matrix file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_aa209fcc58946ede1e33019d5bf5a4bb9}\index{graph.h@{graph.h}!graph\_init@{graph\_init}}
+\index{graph\_init@{graph\_init}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_init()}{graph\_init()}}
+{\footnotesize\ttfamily \label{graph_8h_aa209fcc58946ede1e33019d5bf5a4bb9} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{g}{, }\item[{size\+\_\+t}]{reserve}{}\end{DoxyParamCaption})}
+
+
+
+Initialize a graph with a given capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph to be initialized. \\
+\hline
+{\em reserve} & Initial capacity of the graph.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_ae241c7292b4cfbc8f4bf065b685a1ed4}\index{graph.h@{graph.h}!graph\_insert\_vertex@{graph\_insert\_vertex}}
+\index{graph\_insert\_vertex@{graph\_insert\_vertex}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_insert\_vertex()}{graph\_insert\_vertex()}}
+{\footnotesize\ttfamily \label{graph_8h_ae241c7292b4cfbc8f4bf065b685a1ed4} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+insert\+\_\+vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{char}]{freq}{, }\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+Insert a vertex into the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em freq} & Frequency of the vertex. \\
+\hline
+{\em row} & Row index of the vertex. \\
+\hline
+{\em col} & Column index of the vertex.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_acb1957d01c0c7cd81c01e79c4070f94d}\index{graph.h@{graph.h}!graph\_intersections@{graph\_intersections}}
+\index{graph\_intersections@{graph\_intersections}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_intersections()}{graph\_intersections()}}
+{\footnotesize\ttfamily \label{graph_8h_acb1957d01c0c7cd81c01e79c4070f94d} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+intersections (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{char}]{freqA}{, }\item[{char}]{freqB}{, }\item[{\mbox{\hyperlink{struct_coord_list}{Coord\+List}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Find all intersections between two frequencies in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em freqA} & First frequency. \\
+\hline
+{\em freqB} & Second frequency. \\
+\hline
+{\em out} & Pointer to the \doxylink{struct_coord_list}{Coord\+List} to store the intersections.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a923ea8e6102f571c644c9510effa676e}\index{graph.h@{graph.h}!graph\_remove\_vertex@{graph\_remove\_vertex}}
+\index{graph\_remove\_vertex@{graph\_remove\_vertex}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_remove\_vertex()}{graph\_remove\_vertex()}}
+{\footnotesize\ttfamily \label{graph_8h_a923ea8e6102f571c644c9510effa676e} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+remove\+\_\+vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{size\+\_\+t}]{idx}{}\end{DoxyParamCaption})}
+
+
+
+Remove a vertex from the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em idx} & Index of the vertex to be removed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a4a7ab7eda04ba2af5869672da4bb4e55}\index{graph.h@{graph.h}!graph\_save\_matrix@{graph\_save\_matrix}}
+\index{graph\_save\_matrix@{graph\_save\_matrix}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_save\_matrix()}{graph\_save\_matrix()}}
+{\footnotesize\ttfamily \label{graph_8h_a4a7ab7eda04ba2af5869672da4bb4e55} 
+\mbox{\hyperlink{struct_status}{Status}} graph\+\_\+save\+\_\+matrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Save the graph to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph to be saved. \\
+\hline
+{\em path} & \doxylink{struct_path}{Path} to the file where the graph will be saved.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_status}{Status} code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a1d3ac6689b1688e74af9f6899a3abed9}\index{graph.h@{graph.h}!graph\_vertex\_at@{graph\_vertex\_at}}
+\index{graph\_vertex\_at@{graph\_vertex\_at}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_vertex\_at()}{graph\_vertex\_at()}}
+{\footnotesize\ttfamily \label{graph_8h_a1d3ac6689b1688e74af9f6899a3abed9} 
+const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} graph\+\_\+vertex\+\_\+at (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{, }\item[{size\+\_\+t}]{idx}{}\end{DoxyParamCaption})}
+
+
+
+Get the vertex at a specific index in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & Pointer to the graph. \\
+\hline
+{\em idx} & Index of the vertex to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the \doxylink{struct_vertex}{Vertex} structure at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{graph_8h_a9e1b61ee3243dd96ca03245bd67c3ec0}\index{graph.h@{graph.h}!graph\_vertex\_count@{graph\_vertex\_count}}
+\index{graph\_vertex\_count@{graph\_vertex\_count}!graph.h@{graph.h}}
+\doxysubsubsection{\texorpdfstring{graph\_vertex\_count()}{graph\_vertex\_count()}}
+{\footnotesize\ttfamily \label{graph_8h_a9e1b61ee3243dd96ca03245bd67c3ec0} 
+size\+\_\+t graph\+\_\+vertex\+\_\+count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_graph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g}{}\end{DoxyParamCaption})}
+
+
+
+Replace occurrences of "{}\textbackslash{}n"{} in a string with actual newline characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new string with "{}\textbackslash{}n"{} replaced by newline characters. 
+\end{DoxyReturn}

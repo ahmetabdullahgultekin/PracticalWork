@@ -1,8 +1,7 @@
-var searchData =
-    [
-        ['o1_2etxt_0', ['o1.txt', ['../o1_8txt.html', 1, '']]],
-        ['operations_1', ['Example Input for Operations', ['../md__r_e_a_d_m_e.html#autotoc_md13', 1, '']]],
-        ['output_5fpath_2', ['OUTPUT_PATH', ['../io__ops_8h.html#a8bc8c4afa65d2ec177cfe75981090437', 1, 'io_ops.h']]],
-        ['overview_3', ['Overview', ['../md__r_e_a_d_m_e.html#autotoc_md1', 1, '']]],
-        ['ox_2etxt_4', ['ox.txt', ['../ox_8txt.html', 1, '']]]
-    ];
+var searchData=
+[
+  ['len_0',['len',['../struct_path.html#a8b839f71edb8a7b321bf67a78536dfe6',1,'Path']]],
+  ['list_1',['Deprecated List',['../deprecated.html',1,'']]],
+  ['loadandprintantennas_2',['loadAndPrintAntennas',['../menu_8c.html#a6dbe2b56408e66c68d276a891f489395',1,'menu.c']]],
+  ['loadantennasfromfile_3',['loadAntennasFromFile',['../antenna_8h.html#a6d4580ad7a9adf78cd44a7e95e22fe60',1,'loadAntennasFromFile(const char *filename, AntennaNode **listHead):&#160;antenna.c'],['../antenna_8c.html#a6d4580ad7a9adf78cd44a7e95e22fe60',1,'loadAntennasFromFile(const char *filename, AntennaNode **listHead):&#160;antenna.c']]]
+];

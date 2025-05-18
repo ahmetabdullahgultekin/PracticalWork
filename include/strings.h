@@ -37,6 +37,8 @@ enum {
     STR_INFO_PROMPT_AVAILABLE_FILES,
     STR_INFO_PROMPT_FILE_CHOICE,
     STR_INFO_LISTS_CLEARED,
+    STR_INFO_DANGER_POINTS,
+    STR_INFO_DANGER_OVERLAPS,
     STR_ERR_IO,
     STR_ERR_GRAPH_COULD_NOT_FIND,
     STR_ERR_GRAPH_COULD_NOT_CLEARED,
@@ -86,10 +88,8 @@ enum {
     */
 #if defined(LANG_PT)
 static const char *const STR[STR_COUNT] = {
-        "\n============================\n         MENU PRINCIPAL\n============================\n",
-        "1. Carregar matriz\n2. Busca em profundidade (DFS)\n3. Busca em largura (BFS)"
-        "\n4. Todos os caminhos\n5. Interseccao de frequencias\n6. Interseccao de pontos perigosos"
-        "\n7. Inserir\n8. Remover\n9. Imprimir antenas\n10. Limpar listas\n11. Salvar matriz\n0. Sair\n",
+        "\n============================\n       MENU PRINCIPAL\n============================\n",
+        "1. Carregar matriz\n2. Busca em profundidade (DFS)\n3. Busca em largura (BFS)\n4. Todos os caminhos\n5. Interseccao de frequencias\n6. Interseccao de pontos perigosos\n7. Inserir\n8. Remover\n9. Imprimir antenas\n10. Imprimir arestas\n11. Imprimir pontos perigosos\n12. Limpar listas\n13. Salvar matriz\n0. Sair\n",
         "Escolha uma opcao",
         "Indice: ",
         "Frequencia: ",
@@ -108,6 +108,8 @@ static const char *const STR[STR_COUNT] = {
         "Ficheiros disponiveis",
         "Escolha um ficheiro pelo numero: ",
         "Listas limpas com sucesso.\n",
+        "Pontos perigosos para a frequencia",
+        "Interseccao de pontos perigosos para as frequencias",
         "Erro E/S - nao foi possivel abrir o ficheiro\n",
         "Erro - o grafo nao foi encontrado\n",
         "Erro - o grafo nao pode ser limpo\n",
@@ -128,9 +130,7 @@ static const char *const STR[STR_COUNT] = {
 #elif defined(LANG_TR)
 static const char *const STR[STR_COUNT] = {
         "\n============================\n          ANA MENU\n============================\n",
-        "1. Matris yukle\n2. Derinlik Onceli Arama (DFS)\n3. Genislik Onceli Arama (BFS)"
-        "\n4. Tum Rotalar\n5. Frekans Kesismeleri\n6. Zararli Nokta Kesismeleri"
-        "\n7. Ekle\n8. Cikar\n9. Antenleri Yazdir\n10. Listeyi Temizle\n11. Matris Kaydet\n0. Cikis\n",
+        "1. Matris yukle\n2. Derinlik Onceli Arama (DFS)\n3. Genislik Onceli Arama (BFS)\n4. Tum Rotalar\n5. Frekans Kesismeleri\n6. Zararli Nokta Kesismeleri\n7. Ekle\n8. Cikar\n9. Antenleri Yazdir\n10. Kenarlari Yazdir\n11. Tehlikeli Noktalari Yazdir\n12. Listeyi Temizle\n13. Matris Kaydet\n0. Cikis\n",
         "Seciminizi giriniz",
         "Indeks: ",
         "Frekans: ",
@@ -149,8 +149,10 @@ static const char *const STR[STR_COUNT] = {
         "Bulunan dosyalar:",
         "Dosya numarasini seciniz",
         "Listeler basariyla temizlendi.\n",
+        "Frekansi icin tehlike noktaları",
+        "Frekanslar icin tehlike kesisimleri",
         "G/C hatasi - dosya acilamadi!\n",
-        "Hata - graf bulunamadi.\n",
+        "Hata - Graf bulunamadi.\n",
         "Hata - Graf temizlenemedi.\n",
         "Hata - dosya bulunamadi.\n",
         "Hata - dosya yuklu degil.\n",
@@ -168,37 +170,37 @@ static const char *const STR[STR_COUNT] = {
  */
 #else /* LANG_EN (default) */
 static const char *const STR[STR_COUNT] = {
-    "\n============================\n         MAIN MENU\n============================\n",
-    "1. Load matrix\n2. Depth-First Search (DFS)\n3. Breadth-First Search (BFS)"
-    "\n4. All Paths\n5. Frequency Intersections\n6. Danger Point Intersections"
-    "\n7. Insert\n8. Remove\n9. Print antennas\n10. Clear lists\n11. Save matrix\n0. Quit\n",
-    "Enter your choice",
-    "Index: ",
-    "Frequency: ",
-    "Coordinates (x,y): ",
-    "\nMatrix loaded successfully\n",
-    "Matrix saved successfully!\n",
-    "Good-bye!\n",
-    "Enter file path: ",
-    "Path",
-    "All paths found",
-    "Enter vertex index",
-    "Enter source index",
-    "Enter destination index",
-    "Enter frequency A: ",
-    "Enter frequency B: ",
-    "Available files",
-    "Select a file by number: ",
-    "Lists cleared successfully.\n",
-    "I/O error - cannot open file\n",
-    "Error - graph could not be found\n",
-    "Error - graph could not be cleared\n",
-    "Error - file not found\n",
-    "Error - no file loaded\n",
-    "Error - feature not implemented\n",
-    "Invalid choice, try again\n",
-    "Frequencies are not equal, please try again.\n",
-    "Intersections not found.\n"
+        "\n============================\n         MAIN MENU\n============================\n",
+        "1. Load matrix\n2. Depth-First Search (DFS)\n3. Breadth-First Search (BFS)\n4. All Paths\n5. Frequency Intersections\n6. Danger Point Intersections\n7. Insert\n8. Remove\n9. Print antennas\n10. Print edges\n11. Print Danger Points\n12. Clear lists\n13. Save matrix\n0. Exit\n",
+        "Enter your choice",
+        "Index: ",
+        "Frequency: ",
+        "Coordinates (x,y): ",
+        "\nMatrix loaded successfully\n",
+        "Matrix saved successfully!\n",
+        "Good-bye!\n",
+        "Enter file path: ",
+        "Path",
+        "All paths found",
+        "Enter vertex index",
+        "Enter source index",
+        "Enter destination index",
+        "Enter frequency A: ",
+        "Enter frequency B: ",
+        "Available files",
+        "Select a file by number: ",
+        "Lists cleared successfully.\n",
+        "Danger points for frequency",
+        "Danger overlaps for frequencies",
+        "I/O error - cannot open file\n",
+        "Error - graph could not be found\n",
+        "Error - graph could not be cleared\n",
+        "Error - file not found\n",
+        "Error - no file loaded\n",
+        "Error - feature not implemented\n",
+        "Invalid choice, try again\n",
+        "Frequencies are not equal, please try again.\n",
+        "Intersections not found.\n"
 };
 #endif
 

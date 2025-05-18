@@ -11,9 +11,9 @@ Header file for menu functions.
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{menu_8h_aba5bd9067aa6f261123165a337c7957d}{show\+Menu}} ()
-\begin{DoxyCompactList}\small\item\em Display the menu options. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Displays the main menu to the user. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{menu_8h_a3c14493deb9119b9c33c832813de3a01}{request\+User\+Choice}} ()
-\begin{DoxyCompactList}\small\item\em Get the user\textquotesingle{}s choice from the menu. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Prompts the user for a choice from the menu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{menu_8h_a094db122fedffa0dfc39a14ab1da6738}{proceed\+User\+Preference}} (int choice, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}antenna\+List, \mbox{\hyperlink{struct_antenna_effect_node}{Antenna\+Effect\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}effect\+List)
 \item 
 int \mbox{\hyperlink{menu_8h_a414c27ab36fcc995322cee5f81c4d86c}{is\+Choice\+Valid}} (int choice)
@@ -52,9 +52,13 @@ int request\+User\+Choice (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Get the user\textquotesingle{}s choice from the menu. 
+Prompts the user for a choice from the menu. 
+
+Get the user\textquotesingle{}s choice from the menu.
 
 \begin{DoxyReturn}{Returns}
+The user\textquotesingle{}s choice as an integer.
+
 The user\textquotesingle{}s choice. 
 \end{DoxyReturn}
 \Hypertarget{menu_8h_aba5bd9067aa6f261123165a337c7957d}\index{menu.h@{menu.h}!showMenu@{showMenu}}
@@ -65,5 +69,6 @@ void show\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Display the menu options. 
+Displays the main menu to the user. 
 
+Display the menu options. 

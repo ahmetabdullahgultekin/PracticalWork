@@ -1,4 +1,4 @@
-var searchData =
-    [
-        ['output_5fdir_0', ['OUTPUT_DIR', ['../io__ops_8h.html#add836a505b86b88ac52e48d6bece5738', 1, 'io_ops.h']]]
-    ];
+var searchData=
+[
+  ['max_5fdanger_0',['MAX_DANGER',['../graph_8c.html#aa752b69e9433dd3fe8c08a77cc140daf',1,'graph.c']]]
+];

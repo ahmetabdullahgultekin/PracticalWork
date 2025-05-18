@@ -1,4 +1,13 @@
-
+/**
+ * @file main.c
+ * @brief Main file for the antenna effect program.
+ *
+ * This file contains the main function and the implementation of the menu system.
+ * It allows the user to interact with the program and perform various operations related to antennas and their effects.
+ *
+ * @author Ahmet Abdullah GULTEKIN
+ * @date 2025-05-18
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,7 +23,7 @@
  * @brief Main function for the antenna effect program.
  * Start an infinite loop to display the menu, read the user's choice, and handle the choice.
  *
- * @return  0 if the program exits successfully
+ * @return 0 if the program exits successfully
  *
  * @return EXIT_FAILURE if there is an error
  */
@@ -39,7 +48,7 @@ int main() {
  * @brief Main function for the antenna program.
  * Start an infinite loop to display the menu, read the user's choice, and handle the choice.
  *
- * @return  0 if the program exits successfully
+ * @return 0 if the program exits successfully
  *
  * @return EXIT_FAILURE if there is an error
  */
@@ -57,7 +66,7 @@ int main(void) {
         }
 
         char path[128] = INPUT_PATH;
-        size_t idx1, idx2;
+        size_t idx1, idx2 = 0;
         char freqA, freqB;
         PathSet paths;
         CoordList inters;
@@ -195,7 +204,7 @@ int main(void) {
                     goto endOverlaps;
                 }
 
-                printf("\n%s:", TR(STR_INFO_PATHS_FOUND));
+                printf("\n%s:", TR(STR_INFO_DANGER_OVERLAPS));
 
                 for (size_t i = 0; i < inters.count; ++i) {
                     printf("(%d,%d)\n", inters.coord[i].row, inters.coord[i].col);
@@ -211,8 +220,10 @@ int main(void) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
-                printf(TR(STR_INFO_VERTEX_INDEX), graph_vertex_count(g) - 1);
+                printf("\n%s(x):", TR(STR_INFO_COORDINATES));
                 idx1 = (size_t) read_int();
+                printf("\n%s(y):", TR(STR_INFO_COORDINATES));
+                idx2 = (size_t) read_int();
                 printf("\n%s", TR(STR_INFO_FREQUENCY_A));
                 freqA = getchar();
                 while (getchar() != '\n'); // Clear input buffer
@@ -232,6 +243,10 @@ int main(void) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;
                 }
+                if (graph_vertex_count(g) == 0) {
+                    puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
+                    break;
+                }
                 for (size_t i = 0; i < g->n; ++i) {
                     const Vertex *v = graph_vertex_at(g, i);
                     printf("\n%s %zu | %s %c | %s (%d,%d)",
@@ -240,7 +255,55 @@ int main(void) {
                            TR(STR_INFO_COORDINATES), v->col, v->row);
                 }
                 break;
-            case 10: // Clear lists
+            case 10: // Print edges
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                if (graph_vertex_count(g) == 0) {
+                    puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
+                    break;
+                }
+                for (size_t i = 0; i < g->n; ++i) {
+                    const Vertex *v = graph_vertex_at(g, i);
+                    printf("\n%s %zu | %s %c | %s (%d,%d)",
+                           TR(STR_INFO_INDEX), i,
+                           TR(STR_INFO_FREQUENCY), v->freq,
+                           TR(STR_INFO_COORDINATES), v->col, v->row);
+                    for (EdgeNode *e = g->adj[i]; e != NULL; e = e->next) {
+                        printf(" -> %zu", e->dest);
+                    }
+                }
+                break;
+            case 11: // Print Danger Points
+                if (!g) {
+                    puts(TR(STR_ERR_FILE_NOT_LOADED));
+                    break;
+                }
+                if (graph_vertex_count(g) == 0) {
+                    puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
+                    break;
+                }
+                char frequenceA;
+                printf("\n%s", TR(STR_INFO_FREQUENCY_A));
+                int ch;
+                do { ch = getchar(); } while (ch == '\n' || ch == ' ');
+                frequenceA = (char) ch;
+                while (getchar() != '\n'); // clear buffer
+
+                Coord danger[2048];
+                size_t count = 0;
+                Status st = compute_danger_points(g, frequenceA, danger, &count);
+                if (st != STATUS_OK)
+                    puts(TR(STR_ERR_NOT_IMPLEMENTED));
+
+                printf("\n%s %c:\n", TR(STR_INFO_DANGER_POINTS), frequenceA);
+                for (size_t i = 0; i < count; ++i) {
+                    printf("(%d, %d)\n", danger[i].row, danger[i].col);
+                }
+                if (count == 0) puts("None.");
+                break;
+            case 12: // Clear lists
                 if (!g) {
                     puts(TR(STR_ERR_GRAPH_COULD_NOT_FIND));
                     break;
@@ -251,7 +314,7 @@ int main(void) {
                 }
                 puts(TR(STR_INFO_LISTS_CLEARED));
                 break;
-            case 11: // Save matrix
+            case 13: // Save matrix
                 if (!g) {
                     puts(TR(STR_ERR_FILE_NOT_LOADED));
                     break;

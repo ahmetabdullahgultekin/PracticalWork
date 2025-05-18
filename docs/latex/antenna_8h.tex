@@ -26,17 +26,17 @@ typedef struct Antenna\+Node \mbox{\hyperlink{antenna_8h_a4ba8196841a054ae98d6f7
 \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{antenna_8h_a73c1c810bb3f94dbb19191cca47616ae}{add\+New\+Antenna}} (int coordinateX, int coordinateY, char symbol, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
 \item 
 void \mbox{\hyperlink{antenna_8h_ad5cde8e2cfa6a4eb996ec7208eb7d564}{delete\+Antenna}} (int coordinateX, int coordinateY, char symbol, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to delete an antenna from the linked list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna_8h_a9d34568a631be32dfc6d5ac8abb2736c}{print\+All\+Antennas}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to print all antennas in the linked list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna_8h_a96c2d01ffdfbc93f12e16463ff35d612}{clear\+Antennas\+List}} (\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to find an antenna in the linked list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna_8h_a6d4580ad7a9adf78cd44a7e95e22fe60}{load\+Antennas\+From\+File}} (const char \texorpdfstring{$\ast$}{*}filename, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to check if an antenna exists in the linked list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna_8h_a8a2672025142fda5b99d311e326978db}{save\+Antennas\+To\+File}} (const char \texorpdfstring{$\ast$}{*}file\+Name, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\item 
+\begin{DoxyCompactList}\small\item\em Function to save antennas to a file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{antenna_8h_ad549cf55ed8c167ddd2d4f4a9f10fcc5}{save\+Antennas\+To\+File\+With\+Dots}} (const char \texorpdfstring{$\ast$}{*}file\+Name, \mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}list\+Head)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to save antennas to a file with dots. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -76,33 +76,115 @@ typedef struct Antenna\+Node Antenna\+Node}
 {\footnotesize\ttfamily \label{antenna_8h_a96c2d01ffdfbc93f12e16463ff35d612} 
 void clear\+Antennas\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to find an antenna in the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinateX} & X coordinate of the antenna to be found. \\
+\hline
+{\em coordinateY} & Y coordinate of the antenna to be found. \\
+\hline
+{\em symbol} & Frequency of the antenna to be found. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the antenna is found, 0 otherwise. 
+\end{DoxyReturn}
 \Hypertarget{antenna_8h_ad5cde8e2cfa6a4eb996ec7208eb7d564}\index{antenna.h@{antenna.h}!deleteAntenna@{deleteAntenna}}
 \index{deleteAntenna@{deleteAntenna}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{deleteAntenna()}{deleteAntenna()}}
 {\footnotesize\ttfamily \label{antenna_8h_ad5cde8e2cfa6a4eb996ec7208eb7d564} 
 void delete\+Antenna (\begin{DoxyParamCaption}\item[{int}]{coordinateX}{, }\item[{int}]{coordinateY}{, }\item[{char}]{symbol}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to delete an antenna from the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinateX} & X coordinate of the antenna to be deleted. \\
+\hline
+{\em coordinateY} & Y coordinate of the antenna to be deleted. \\
+\hline
+{\em symbol} & Frequency of the antenna to be deleted. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna_8h_a6d4580ad7a9adf78cd44a7e95e22fe60}\index{antenna.h@{antenna.h}!loadAntennasFromFile@{loadAntennasFromFile}}
 \index{loadAntennasFromFile@{loadAntennasFromFile}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{loadAntennasFromFile()}{loadAntennasFromFile()}}
 {\footnotesize\ttfamily \label{antenna_8h_a6d4580ad7a9adf78cd44a7e95e22fe60} 
 void load\+Antennas\+From\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to check if an antenna exists in the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em coordinateX} & X coordinate of the antenna to be checked. \\
+\hline
+{\em coordinateY} & Y coordinate of the antenna to be checked. \\
+\hline
+{\em symbol} & Frequency of the antenna to be checked. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the antenna exists, 0 otherwise. 
+\end{DoxyReturn}
 \Hypertarget{antenna_8h_a9d34568a631be32dfc6d5ac8abb2736c}\index{antenna.h@{antenna.h}!printAllAntennas@{printAllAntennas}}
 \index{printAllAntennas@{printAllAntennas}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{printAllAntennas()}{printAllAntennas()}}
 {\footnotesize\ttfamily \label{antenna_8h_a9d34568a631be32dfc6d5ac8abb2736c} 
 void print\+All\+Antennas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to print all antennas in the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna_8h_a8a2672025142fda5b99d311e326978db}\index{antenna.h@{antenna.h}!saveAntennasToFile@{saveAntennasToFile}}
 \index{saveAntennasToFile@{saveAntennasToFile}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{saveAntennasToFile()}{saveAntennasToFile()}}
 {\footnotesize\ttfamily \label{antenna_8h_a8a2672025142fda5b99d311e326978db} 
 void save\+Antennas\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to save antennas to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & Name of the file to save the antennas. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{antenna_8h_ad549cf55ed8c167ddd2d4f4a9f10fcc5}\index{antenna.h@{antenna.h}!saveAntennasToFileWithDots@{saveAntennasToFileWithDots}}
 \index{saveAntennasToFileWithDots@{saveAntennasToFileWithDots}!antenna.h@{antenna.h}}
 \doxysubsubsection{\texorpdfstring{saveAntennasToFileWithDots()}{saveAntennasToFileWithDots()}}
 {\footnotesize\ttfamily \label{antenna_8h_ad549cf55ed8c167ddd2d4f4a9f10fcc5} 
 void save\+Antennas\+To\+File\+With\+Dots (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name}{, }\item[{\mbox{\hyperlink{struct_antenna_node}{Antenna\+Node}} \texorpdfstring{$\ast$}{*}}]{list\+Head}{}\end{DoxyParamCaption})}
 
+
+
+Function to save antennas to a file with dots. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & Name of the file to save the antennas. \\
+\hline
+{\em list\+Head} & Pointer to the head of the linked list. \\
+\hline
+\end{DoxyParams}

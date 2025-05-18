@@ -1,5 +1,4 @@
-var searchData =
-    [
-        ['stringify_0', ['STRINGIFY', ['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8', 1, 'CMakeCCompilerId.c']]],
-        ['stringify_5fhelper_1', ['STRINGIFY_HELPER', ['../_c_make_c_compiler_id_8c.html#a2ae9b72bb13abaabfcf2ee0ba7d3fa1d', 1, 'CMakeCCompilerId.c']]]
-    ];
+var searchData=
+[
+  ['platform_5fid_0',['PLATFORM_ID',['../_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'CMakeCCompilerId.c']]]
+];

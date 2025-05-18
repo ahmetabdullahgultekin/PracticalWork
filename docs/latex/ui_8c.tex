@@ -1,0 +1,92 @@
+\doxysection{src/ui.c File Reference}
+\hypertarget{ui_8c}{}\label{ui_8c}\index{src/ui.c@{src/ui.c}}
+
+
+Console front-\/end implementation for the antenna effect program.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include "{}../include/strings.\+h"{}}\newline
+{\ttfamily \#include "{}../include/graph.\+h"{}}\newline
+{\ttfamily \#include "{}../include/ui.\+h"{}}\newline
+{\ttfamily \#include "{}../include/io\+\_\+ops.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ui_8c_a4ef888219e76d12c60fdd302e916172f}{show\+\_\+menu}} (void)
+\begin{DoxyCompactList}\small\item\em Displays the main menu to the user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ui_8c_a7e3198000e4526a9c2a59deea9053e10}{read\+\_\+int}} (void)
+\begin{DoxyCompactList}\small\item\em Reads an integer input from the user. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_status}{Status}} \mbox{\hyperlink{ui_8c_a8a439368f05955882b3d041a05947a2c}{print\+\_\+vertex}} (const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}v, void \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Callback function to print a vertex during graph traversal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Console front-\/end implementation for the antenna effect program. 
+
+This file contains the implementation of user interface functions for interacting with the user via the console. It includes functions to display menus, read user input, and print graph vertices. All stdout/stderr interaction is handled here to keep core logic pure and testable.
+
+\begin{DoxyNote}{Note}
+Language strings are embedded at compile time via {\ttfamily \doxylink{strings_8h}{strings.\+h}}. 
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Ahmet Abdullah GULTEKIN 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/05-\/11 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ui_8c_a8a439368f05955882b3d041a05947a2c}\index{ui.c@{ui.c}!print\_vertex@{print\_vertex}}
+\index{print\_vertex@{print\_vertex}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{print\_vertex()}{print\_vertex()}}
+{\footnotesize\ttfamily \label{ui_8c_a8a439368f05955882b3d041a05947a2c} 
+\mbox{\hyperlink{struct_status}{Status}} print\+\_\+vertex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}}]{v}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Callback function to print a vertex during graph traversal. 
+
+Callback function to print a vertex.
+
+Prints the details of a vertex, including its row, column, and frequency.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the vertex to be printed. \\
+\hline
+{\em ctx} & Context pointer (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily STATUS\+\_\+\+OK} if the vertex is printed successfully. 
+\end{DoxyReturn}
+\Hypertarget{ui_8c_a7e3198000e4526a9c2a59deea9053e10}\index{ui.c@{ui.c}!read\_int@{read\_int}}
+\index{read\_int@{read\_int}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{read\_int()}{read\_int()}}
+{\footnotesize\ttfamily \label{ui_8c_a7e3198000e4526a9c2a59deea9053e10} 
+int read\+\_\+int (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads an integer input from the user. 
+
+Reads a line of input, converts it to an integer, and returns the result. If the input is invalid, it returns -\/1.
+
+\begin{DoxyReturn}{Returns}
+The integer value entered by the user, or -\/1 if the input is invalid. 
+\end{DoxyReturn}
+\Hypertarget{ui_8c_a4ef888219e76d12c60fdd302e916172f}\index{ui.c@{ui.c}!show\_menu@{show\_menu}}
+\index{show\_menu@{show\_menu}!ui.c@{ui.c}}
+\doxysubsubsection{\texorpdfstring{show\_menu()}{show\_menu()}}
+{\footnotesize\ttfamily \label{ui_8c_a4ef888219e76d12c60fdd302e916172f} 
+int show\+\_\+menu (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Displays the main menu to the user. 
+
+Prints the program\textquotesingle{}s menu options and prompts the user to make a selection. 
